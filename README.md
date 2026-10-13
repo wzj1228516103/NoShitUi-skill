@@ -27,6 +27,12 @@ NoShitUi-skill 帮助 AI 处理一类常见但容易失控的前端任务：找�
 
 Skill 入口在根目录 [`SKILL.md`](SKILL.md)，详细目录在 [`open-source-ui-resources/`](open-source-ui-resources/)。
 
+## 最近更新
+
+- ORBITAL 的两条 3D 轨道改为使用统一的轨道参数，短半轴始终高于地球与大气光晕范围，卫星不会再穿过地球。
+- `KEPLER-07` 和 `ATLAS-03` 使用各自的轨道平面，切换飞船时卫星、轨道线和数据卡片保持一致。
+- 更新了 ORBITAL 的桌面端与移动端截图，并回归暂停模拟、Surface 图层、飞船切换和 CSV 导出。
+
 ## 无屎山 UI 理论
 
 屎山 UI 不是一次设计出来的，是每次“先找个现成的”“先堆个组件”“之后再统一”累积出来的。
@@ -61,7 +67,7 @@ Skill 入口在根目录 [`SKILL.md`](SKILL.md)，详细目录在 [`open-source-
 | [FORME](ui-atlas-demo/editorial.html) | 建筑与生活杂志；衬线字体、编辑部网格、图片叙事 | 阅读文章、Spaces / Objects / People 筛选 |
 | [OFFGRID](ui-atlas-demo/studio.html) | 粗野主义创意工作室；海报字、酸性绿、大动作 | 项目筛选、项目详情、联系弹窗 |
 | [rooted.](ui-atlas-demo/botanical.html) | 温暖植物商店；植物插画、养护信息、轻购物流 | 分类筛选、购物袋、数量调整、本地存储 |
-| [ORBITAL](ui-atlas-demo/mission.html) | 深色任务控制台；HUD、星空、Three.js 3D 地球 | 拖拽旋转、滚轮缩放、暂停模拟、CSV 导出 |
+| [ORBITAL](ui-atlas-demo/mission.html) | 深色任务控制台；HUD、星空、Three.js 3D 地球 | 拖拽旋转、滚轮缩放、双轨道安全距离、暂停模拟、CSV 导出 |
 
 入口页：[UI Atlas — Four visual directions](ui-atlas-demo/showcase.html)
 
@@ -159,14 +165,14 @@ py -3 open-source-ui-resources/scripts/check_catalog.py
 - FORME 文章弹窗与分类筛选可用。
 - OFFGRID 项目筛选、项目详情和联系弹窗可用。
 - rooted. 购物袋、本地存储和数量调整可用。
-- ORBITAL 3D 地球拖拽旋转、缩放、暂停、飞船切换、图层开关和 CSV 下载可用。
+- ORBITAL 3D 地球拖拽旋转、缩放、暂停、飞船切换、图层开关和 CSV 下载可用；两条轨道均保持在地球外部，卫星不会穿过地球。
 
 页面中的商品、遥测、联系方式和任务数据均为演示数据。
 
 ## 技术栈
 
 - 原生 HTML、CSS、SVG、JavaScript，无前端构建依赖。
-- Three.js `0.170.0` + `OrbitControls`：用于 ORBITAL 的交互式 3D 地球与轨道场景。
+- Three.js `0.170.0` + `OrbitControls`：用于 ORBITAL 的交互式 3D 地球与轨道场景；轨道参数与卫星动画共用同一数据源。
 - Google Fonts：DM Sans、DM Serif Display、Italiana、Space Grotesk、Anton、DM Mono。
 - `dialog`、`localStorage`、Blob 下载、Canvas 纹理和响应式 CSS。
 
