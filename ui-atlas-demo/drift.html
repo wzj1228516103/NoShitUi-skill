@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DRIFT / 旅行路线探索</title>
+  <meta name="description" content="DRIFT 是一个无外部地图服务的旅行路线探索演示界面。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23ed6632'/%3E%3Cpath d='M8 22c6-11 10-11 16-12' fill='none' stroke='%23f5f0e5' stroke-width='3'/%3E%3Ccircle cx='9' cy='22' r='2' fill='%23f5f0e5'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --paper:#f5f0e5;--paper-2:#ebe3d3;--ink:#26241f;--muted:#82786a;
+      --line:#d7cbb9;--orange:#ed6632;--orange-dark:#b8401e;--orange-soft:#f8b58f;
+      --teal:#4e8078;--white:#fffaf0;--shadow:0 18px 48px rgba(79,53,30,.14);
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.45 var(--sans)}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.28;background-image:radial-gradient(#8f765b22 .7px,transparent .7px);background-size:5px 5px;mix-blend-mode:multiply;z-index:20}
+    a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer;color:inherit}
+    button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+    .site-shell{width:min(1500px,calc(100% - 64px));margin:0 auto;position:relative;z-index:1}
+    .topbar{min-height:70px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.17em;font-size:13px}.brand-mark{display:grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--ink);border-radius:50%;font-size:16px;color:var(--orange);transform:rotate(-18deg)}
+    .back-link,.top-note{font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.back-link{border-bottom:1px solid currentColor;padding-bottom:3px}.top-note{margin-left:auto}
+    .hero{display:grid;grid-template-columns:1.18fr .82fr;gap:50px;padding:68px 0 50px;border-bottom:1px solid var(--line)}
+    .eyebrow{font:10px var(--mono);color:var(--orange-dark);letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:clamp(54px,8vw,118px);line-height:.86;letter-spacing:-.09em;font-weight:800;margin:23px 0 28px;max-width:750px}.hero h1 em{font-style:normal;color:var(--orange);display:inline-block}.hero-copy{max-width:520px;color:var(--muted);font-size:16px}.hero-copy strong{color:var(--ink);font-weight:650}.hero-side{align-self:end;border-left:1px solid var(--line);padding:4px 0 6px 28px;max-width:410px;color:var(--muted)}.hero-side h2{font-size:20px;line-height:1.15;margin:0 0 13px;color:var(--ink);letter-spacing:-.035em}.hero-side p{margin:0;font-size:12px;line-height:1.75}.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:21px;font:10px var(--mono);text-transform:uppercase;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{display:block;width:8px;height:8px;border-radius:50%;background:var(--orange)}.legend i.teal{background:var(--teal)}.legend i.ink{background:var(--ink)}
+    .workspace{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:24px;padding:26px 0 64px}
+    .map-column{min-width:0}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:14px}.toolbar-title{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase}.toolbar-sub{font-size:11px;color:var(--muted);margin-left:7px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}.filter{border:1px solid var(--line);background:transparent;padding:8px 12px;border-radius:99px;font-size:11px;color:var(--muted);transition:.2s}.filter:hover{border-color:var(--orange);color:var(--ink)}.filter[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+    .map-frame{position:relative;overflow:hidden;background:#dcd8c9;border:1px solid var(--line);min-height:570px;box-shadow:var(--shadow)}.map-frame:after{content:"DEMO ROUTE · NO LIVE MAP DATA";position:absolute;right:18px;top:16px;font:9px var(--mono);letter-spacing:.08em;color:#726b5d;background:#f8f2e5cc;padding:7px 9px;border:1px solid #cabfac;z-index:2}.map-svg{display:block;width:100%;height:100%;min-height:570px}.terrain{fill:#eee7d8;stroke:#d0c4b2;stroke-width:1.3}.terrain.dark{fill:#d5d1c0}.water{fill:#c5dcd5}.contour{fill:none;stroke:#c5b59d;stroke-width:1;opacity:.72}.contour.fine{stroke:#b8ac99;stroke-dasharray:2 5}.road{fill:none;stroke:#cec1ad;stroke-width:2;stroke-dasharray:5 9;opacity:.9}.route-glow{fill:none;stroke:#f8c0a0;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;opacity:.7;filter:url(#soften)}.route{fill:none;stroke:var(--orange);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 0;filter:drop-shadow(0 3px 2px #94351633)}.route-empty{fill:none;stroke:#baaa97;stroke-width:3;stroke-linecap:round;stroke-dasharray:5 8}.map-label{font:10px var(--mono);fill:#756b5c;letter-spacing:.07em;text-transform:uppercase}.map-label.small{font-size:8px;fill:#968d7e}#markerLayer{position:absolute;inset:0;z-index:4;pointer-events:none}.map-marker{border:0;padding:0;background:transparent;position:absolute;width:38px;height:38px;transform:translate(-50%,-50%);z-index:4;pointer-events:auto}.marker-dot{display:block;width:17px;height:17px;margin:10px;border:3px solid var(--paper);border-radius:50%;background:var(--orange);box-shadow:0 3px 9px #75301859;transition:transform .2s,background .2s}.map-marker:hover .marker-dot,.map-marker[aria-current=true] .marker-dot{background:var(--ink);transform:scale(1.22)}.map-marker[aria-current=true]:after{content:"";position:absolute;inset:3px;border:1px solid var(--orange);border-radius:50%;animation:pulse 1.6s infinite}@keyframes pulse{0%,100%{opacity:.9;transform:scale(1)}50%{opacity:.1;transform:scale(1.35)}}.marker-number{position:absolute;display:none}.map-credit{position:absolute;bottom:12px;left:14px;font:9px var(--mono);color:#837867;z-index:2}
+    .map-empty{position:absolute;inset:0;display:grid;place-items:center;padding:30px;text-align:center;background:#e9e2d4e8;z-index:5}.map-empty[hidden]{display:none}.map-empty-card{max-width:300px}.map-empty-card .empty-icon{font-size:32px;color:var(--orange);margin-bottom:7px}.map-empty h3{font-size:18px;letter-spacing:-.04em;margin:0 0 8px}.map-empty p{font-size:12px;color:var(--muted);margin:0 0 14px}.map-empty button{border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:99px;padding:9px 14px;font-size:11px}
+    .list-panel{background:#f8f2e8;border:1px solid var(--line);box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;min-height:570px}.panel-head{display:flex;justify-content:space-between;align-items:start;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:14px}.panel-head h2{font-size:21px;letter-spacing:-.05em;margin:0}.panel-head p{margin:3px 0 0;color:var(--muted);font-size:11px}.count{font:10px var(--mono);color:var(--orange-dark);padding-top:4px}.place-list{display:flex;flex-direction:column;gap:7px;overflow:auto;max-height:475px;padding-right:4px}.place-card{border:1px solid transparent;background:transparent;text-align:left;padding:11px 10px;display:grid;grid-template-columns:35px 1fr auto;gap:10px;align-items:center;transition:.2s}.place-card:hover{background:#f1e7d7;border-color:#ddcdb8}.place-card.is-selected{background:var(--white);border-color:var(--orange);box-shadow:0 5px 16px #9f572720}.place-card.is-added{border-left:3px solid var(--orange);padding-left:8px}.place-index{font:11px var(--mono);color:var(--orange-dark)}.place-title{font-weight:700;font-size:13px;letter-spacing:-.02em}.place-meta{display:block;font:10px var(--mono);color:var(--muted);margin-top:3px}.place-action{border:1px solid var(--line);background:transparent;width:26px;height:26px;border-radius:50%;font-size:17px;line-height:1;color:var(--orange-dark);display:grid;place-items:center}.place-action:hover{border-color:var(--orange);background:var(--orange);color:#fff}.place-card.is-added .place-action{background:var(--orange);border-color:var(--orange);color:#fff;font-size:14px}.list-empty{padding:35px 13px;text-align:center;color:var(--muted);font-size:12px;border:1px dashed var(--line)}.list-empty strong{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.list-empty[hidden]{display:none}.mobile-hint{display:none}
+    .itinerary{grid-column:1/-1;display:grid;grid-template-columns:1fr 350px;gap:24px;border-top:1px solid var(--line);padding-top:25px}.trip-card{background:var(--ink);color:var(--paper);padding:25px;min-height:235px;position:relative;overflow:hidden}.trip-card:after{content:"✳";position:absolute;right:-12px;bottom:-52px;color:#ed6632;opacity:.35;font-size:185px;line-height:1}.trip-kicker{font:10px var(--mono);color:var(--orange-soft);letter-spacing:.1em;text-transform:uppercase}.trip-card h2{font-size:31px;line-height:1;margin:14px 0 8px;letter-spacing:-.06em}.trip-card p{font-size:12px;color:#c5bcae;max-width:430px;margin:0}.trip-stats{display:flex;gap:31px;margin-top:25px;position:relative;z-index:1}.trip-stats strong{display:block;font-size:21px;letter-spacing:-.04em}.trip-stats span{font:9px var(--mono);color:#bcb0a2;text-transform:uppercase}.trip-actions{display:flex;gap:8px;position:absolute;right:24px;top:24px;z-index:1}.trip-actions button{border:1px solid #6b6258;background:transparent;color:var(--paper);border-radius:99px;padding:8px 11px;font-size:10px}.trip-actions button:hover{border-color:var(--orange);color:var(--orange-soft)}.trip-actions .primary{background:var(--orange);border-color:var(--orange);color:#fff}.trip-actions .primary:hover{background:#ff7b4a;color:#fff}.stops-panel{background:#f8f2e8;border:1px solid var(--line);padding:19px;min-height:235px}.stops-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:9px}.stops-head h3{font-size:14px;margin:0}.stops-head span{font:10px var(--mono);color:var(--muted)}.stop-list{display:flex;flex-direction:column;gap:5px}.stop{display:grid;grid-template-columns:23px 1fr auto;align-items:center;gap:7px;padding:7px 6px;background:#f2e8d8}.stop-number{font:10px var(--mono);color:var(--orange-dark)}.stop-name{font-weight:650;font-size:11px}.stop-kind{display:block;font:9px var(--mono);color:var(--muted)}.stop-controls{display:flex;gap:3px}.stop-controls button{border:0;background:transparent;color:var(--muted);width:20px;height:20px;padding:0}.stop-controls button:hover:not(:disabled){color:var(--orange)}.stop-controls button:disabled{opacity:.25;cursor:not-allowed}.stop-remove{font-size:15px!important}.stops-empty{font-size:12px;color:var(--muted);padding:28px 8px;text-align:center}.stops-empty strong{color:var(--ink);display:block;font-size:14px;margin-bottom:5px}.stops-empty[hidden]{display:none}
+    .toast{position:fixed;right:28px;bottom:25px;z-index:30;background:var(--ink);color:var(--paper);border-left:4px solid var(--orange);box-shadow:0 10px 30px #4724113d;padding:12px 16px;font-size:12px;transform:translateY(18px);opacity:0;pointer-events:none;transition:.25s}.toast.show{transform:translateY(0);opacity:1}.restore-error{display:none;border:1px solid #d49b80;background:#fff1e7;color:#8e391d;padding:10px 12px;margin:0 0 14px;font-size:11px}.restore-error.show{display:flex;align-items:center;justify-content:space-between;gap:10px}.restore-error button{border:1px solid #b8401e;background:transparent;color:#8e391d;padding:5px 8px;font-size:10px;border-radius:99px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:1040px){.site-shell{width:min(100% - 42px,900px)}.hero{grid-template-columns:1fr .72fr;gap:30px}.workspace{grid-template-columns:1fr}.map-frame,.list-panel{min-height:unset}.place-list{max-height:none;display:grid;grid-template-columns:1fr 1fr}.itinerary{grid-template-columns:1fr}.stops-panel{min-height:unset}.stop-list{display:grid;grid-template-columns:1fr 1fr}}
+    @media(max-width:680px){body:before{opacity:.18}.site-shell{width:calc(100% - 28px)}.topbar{min-height:58px}.top-note{display:none}.brand{font-size:11px}.back-link{font-size:9px}.hero{display:block;padding:45px 0 32px}.hero h1{font-size:65px;line-height:.88;margin:20px 0 22px}.hero-copy{font-size:14px}.hero-side{border-left:0;border-top:1px solid var(--line);padding:18px 0 0;margin-top:27px}.workspace{padding-top:20px;gap:15px}.toolbar{align-items:flex-end}.toolbar-sub{display:block;margin:3px 0 0}.filters{overflow:auto;flex-wrap:nowrap;padding-bottom:3px;margin-right:-14px}.filter{white-space:nowrap}.map-frame{min-height:430px}.map-svg{min-height:430px}.map-frame:after{right:10px;top:10px;font-size:8px}.map-credit{font-size:8px}.place-list{display:flex;max-height:310px;overflow:auto}.list-panel{padding:15px}.mobile-hint{display:block;text-align:center;color:var(--muted);font:9px var(--mono);margin-top:10px}.itinerary{gap:15px;padding-top:18px}.trip-card{padding:19px;min-height:247px}.trip-card h2{font-size:27px;max-width:220px}.trip-actions{right:16px;top:auto;bottom:18px}.trip-stats{gap:22px}.trip-stats strong{font-size:18px}.stops-panel{padding:15px}.stop-list{display:flex}.toast{left:14px;right:14px;bottom:15px;text-align:center}.restore-error.show{align-items:flex-start;flex-direction:column}.restore-error button{align-self:flex-start}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="showcase.html" aria-label="返回展示集合"><span class="brand-mark">↝</span><span>DRIFT / ROUTE STUDIO</span></a>
+      <span class="top-note">FIELD NOTE 012 · FICTIONAL COAST</span>
+      <a class="back-link" href="showcase.html">← back to collection</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <span class="eyebrow">Travel map / a self-guided day</span>
+          <h1 id="page-title">Take the<br><em>long way.</em></h1>
+          <p class="hero-copy"><strong>DRIFT</strong> 把一次沿海漫游压缩成可以操作的路线。挑选地点、调整顺序，让地图告诉你这一天会走多远。这里使用的是一组固定的<strong>演示数据</strong>，无需联网也能体验完整流程。</p>
+        </div>
+        <aside class="hero-side">
+          <h2>Leave room for the unplanned.</h2>
+          <p>先在地图上看地形，再从地点清单里拼出自己的半日路线。每个标记都可以点击，清单和地图会保持同步。</p>
+          <div class="legend" aria-label="地图图例"><span><i></i> selected route</span><span><i class="teal"></i> water edge</span><span><i class="ink"></i> place marker</span></div>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-label="路线规划工作区">
+        <div class="map-column">
+          <div class="toolbar"><div><span class="toolbar-title">01 / explore the coast</span><span class="toolbar-sub">12 fixed demo places</span></div><span class="toolbar-title" id="visibleCount">12 shown</span></div>
+          <div class="filters" role="group" aria-label="筛选地点类别">
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">全部 / ALL</button>
+            <button class="filter" type="button" data-filter="nature" aria-pressed="false">自然 / NATURE</button>
+            <button class="filter" type="button" data-filter="food" aria-pressed="false">食物 / FOOD</button>
+            <button class="filter" type="button" data-filter="culture" aria-pressed="false">文化 / CULTURE</button>
+            <button class="filter" type="button" data-filter="water" aria-pressed="false">水岸 / WATER</button>
+          </div>
+          <div class="restore-error" id="restoreError" role="alert"><span>上次保存的路线读取失败，已暂时使用空路线。</span><button type="button" id="resetStorage">清除保存</button></div>
+
+          <div class="map-frame" id="mapFrame">
+            <svg class="map-svg" viewBox="0 0 900 570" role="img" aria-labelledby="mapTitle mapDesc">
+              <title id="mapTitle">Fictional coast demo map</title><desc id="mapDesc">A warm paper map with contour lines and an orange route connecting selected places.</desc>
+              <defs><filter id="soften"><feGaussianBlur stdDeviation="2.5"/></filter><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#c8bba7" stroke-width=".65" opacity=".35"/></pattern></defs>
+              <rect width="900" height="570" fill="#e8e1d2"></rect><rect width="900" height="570" fill="url(#grid)"></rect>
+              <path class="water" d="M0 0h236c34 47 23 95 55 126 29 28 91 29 92 70 1 40-42 47-60 79-21 38 24 87-11 125-23 25-76 23-103 54-24 29-19 70-36 116H0Z"></path>
+              <path class="terrain" d="M226 0c34 44 28 85 64 119 31 29 83 30 88 73 4 40-45 51-62 82-22 39 26 83-9 130-22 29-75 29-101 58-26 30-25 68-42 108h736V0Z"></path>
+              <path class="terrain dark" d="M702 0h198v570H722c-12-40 12-75-13-105-27-31-74-38-77-80-3-39 34-62 49-96 18-38-3-73 9-111 10-32 9-89 12-178Z"></path>
+              <g class="contour"><path d="M314 44c65 17 62 73 130 85 58 10 62-48 126-20 49 22 17 83 73 108 49 22 74-9 121 30 39 32 6 90 52 118"/><path d="M332 77c55 16 60 61 120 74 61 13 73-38 118-17 47 21 18 73 65 100 50 28 80 5 117 38 39 34 11 76 48 113"/><path d="M368 116c46 9 47 51 101 63 60 14 81-28 112-11 38 20 23 62 62 84 38 22 76 16 106 43 31 29 18 65 48 92"/><path class="fine" d="M440 20c-15 43 20 91 69 102 51 12 85-16 98 31 14 52 63 58 104 76 43 19 52 59 95 77"/><path class="fine" d="M277 206c74 16 88-26 135 21 34 35 4 73 41 107 39 36 91 21 103 69 12 45-18 85 12 123"/><path d="M306 310c52 10 76-13 114 21 38 34 12 76 51 98 46 26 98 3 121 48 18 35-4 62 7 93"/></g>
+              <g class="road"><path d="M218 121C351 140 380 233 472 263s152-45 244 30 83 170 111 233"/><path d="M286 499c91-76 107-148 189-178 79-29 130 22 219-52"/><path d="M411 10c-3 103 18 151 72 196"/></g>
+              <text class="map-label" x="88" y="85">WESTERN INLET</text><text class="map-label" x="610" y="72">NORTH RIDGE</text><text class="map-label" x="640" y="520">SOUTH CAPE</text><text class="map-label small" x="118" y="520">paper map / scale 1:—</text>
+              <g aria-hidden="true" fill="none" stroke="#8e9e8a" stroke-width="1.4" opacity=".7"><path d="M83 164q30-21 64 0t64 0"/><path d="M75 177q30-21 64 0t64 0"/><path d="M772 158q27-20 53 0t53 0"/><path d="M760 171q27-20 53 0t53 0"/></g>
+              <path id="routeGlow" class="route-glow" d="M0 0"></path><path id="routePath" class="route-empty" d="M0 0"></path>
+            </svg>
+            <div id="markerLayer" aria-label="地图地点标记"></div>
+            <span class="map-credit">DRIFT CARTOGRAPHY / FICTIONAL DATASET</span>
+            <div class="map-empty" id="mapEmpty" hidden><div class="map-empty-card"><div class="empty-icon">◎</div><h3>这组筛选没有地点</h3><p>试试“全部”或换一个类别，地图会重新显示演示地点。</p><button type="button" id="showAll">显示全部地点</button></div></div>
+          </div>
+          <p class="mobile-hint">点地图标记或地点卡，可查看详情并加入路线。</p>
+        </div>
+
+        <aside class="list-panel" aria-labelledby="places-title">
+          <div class="panel-head"><div><h2 id="places-title">Pick a place</h2><p>点击卡片聚焦地图，再加入行程。</p></div><span class="count" id="placeCount">12 / 12</span></div>
+          <div class="place-list" id="placeList"></div>
+          <div class="list-empty" id="listEmpty" hidden><strong>没有匹配结果</strong>请切换分类继续探索。</div>
+        </aside>
+
+        <section class="itinerary" aria-labelledby="itinerary-title">
+          <div class="trip-card">
+            <span class="trip-kicker">02 / build your drift</span><h2 id="itinerary-title">Your loose itinerary.</h2><p>路线只是一种提议。调整地点顺序，看看一天的距离和移动时间如何变化。</p>
+            <div class="trip-stats"><div><strong id="distanceValue">0 km</strong><span>estimated distance</span></div><div><strong id="timeValue">0 min</strong><span>moving time</span></div><div><strong id="stopValue">0</strong><span>stops</span></div></div>
+            <div class="trip-actions"><button type="button" id="clearTrip">清空</button><button type="button" class="primary" id="saveTrip">保存路线</button></div>
+          </div>
+          <div class="stops-panel"><div class="stops-head"><h3>Stops in order</h3><span id="stopsLabel">EMPTY / 0</span></div><div class="stop-list" id="stopList"></div><div class="stops-empty" id="stopsEmpty"><strong>路线还是空的</strong>从左侧加入第一个地点。</div></div>
+        </section>
+      </section>
+    </main>
+    <footer style="border-top:1px solid var(--line);padding:20px 0 28px;display:flex;justify-content:space-between;color:var(--muted);font:10px var(--mono);text-transform:uppercase;letter-spacing:.06em;gap:16px"><span>DRIFT / A FICTIONAL COASTAL ROUTE</span><a href="showcase.html">← explore other concepts</a></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      'use strict';
+      const places = [
+        {id:'lighthouse',name:'Morrow Lighthouse',kind:'water',label:'灯塔',x:24,y:29,lat:210,lon:168,time:18,desc:'崖顶的白色灯塔，适合作为路线起点。'},
+        {id:'salt-house',name:'Salt House Market',kind:'food',label:'食物',x:38,y:39,lat:340,lon:225,time:12,desc:'旧盐仓改成的早市，午前最热闹。'},
+        {id:'tidepool',name:'Tidepool Steps',kind:'nature',label:'自然',x:52,y:50,lat:468,lon:315,time:15,desc:'潮水退去后露出的石阶与浅池。'},
+        {id:'moss-arch',name:'Moss Arch',kind:'nature',label:'自然',x:67,y:35,lat:580,lon:246,time:22,desc:'穿过松林后才能看到的绿色拱门。'},
+        {id:'low-tide',name:'Low Tide Studio',kind:'culture',label:'文化',x:77,y:52,lat:690,lon:340,time:14,desc:'海边玻璃工作室，展示陶土和漂流木。'},
+        {id:'old-pier',name:'Old Pier 06',kind:'water',label:'水岸',x:84,y:72,lat:760,lon:438,time:19,desc:'一段伸进海湾的旧木栈桥。'},
+        {id:'fern-cafe',name:'Fern & Foam',kind:'food',label:'食物',x:69,y:78,lat:615,lon:468,time:10,desc:'蕨类植物包围的小咖啡馆。'},
+        {id:'weather-room',name:'Weather Room',kind:'culture',label:'文化',x:52,y:78,lat:470,lon:464,time:17,desc:'用声音记录海岸天气的微型展馆。'},
+        {id:'red-cliff',name:'Red Cliff Lookout',kind:'nature',label:'自然',x:38,y:69,lat:340,lon:407,time:25,desc:'看日落最好的红色岩壁。'},
+        {id:'driftwood',name:'Driftwood Chapel',kind:'culture',label:'文化',x:23,y:78,lat:210,lon:465,time:13,desc:'一座由海漂木搭起来的安静小屋。'},
+        {id:'blue-cove',name:'Blue Cove Swim',kind:'water',label:'水岸',x:15,y:54,lat:138,lon:328,time:20,desc:'风平时可以下水的蓝色小湾。'},
+        {id:'clay-house',name:'Clay House Table',kind:'food',label:'食物',x:28,y:49,lat:255,lon:300,time:11,desc:'以本地黏土窑烤器皿上菜的长桌。'}
+      ];
+      const state = {filter:'all',selected:'lighthouse',trip:[]};
+      const $ = selector => document.querySelector(selector);
+      const placeById = id => places.find(place => place.id === id);
+      const els = {list:$('#placeList'),markers:$('#markerLayer'),stopList:$('#stopList'),listEmpty:$('#listEmpty'),mapEmpty:$('#mapEmpty'),route:$('#routePath'),routeGlow:$('#routeGlow'),toast:$('#toast'),visibleCount:$('#visibleCount'),placeCount:$('#placeCount'),distance:$('#distanceValue'),time:$('#timeValue'),stops:$('#stopValue'),stopsLabel:$('#stopsLabel'),stopsEmpty:$('#stopsEmpty'),restoreError:$('#restoreError')};
+
+      function showToast(message){els.toast.textContent=message;els.toast.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove('show'),2400)}
+      function visiblePlaces(){return places.filter(place => state.filter==='all'||place.kind===state.filter)}
+      function getFilteredIds(){return new Set(visiblePlaces().map(place=>place.id))}
+      function focusPlace(id, shouldScroll=false){const place=placeById(id);if(!place)return;state.selected=id;render();if(shouldScroll&&window.innerWidth<681)$('#mapFrame').scrollIntoView({behavior:'smooth',block:'center'})}
+      function markerPosition(place){return {left:place.x+'%',top:place.y+'%'}}
+      function renderMarkers(){
+        const visibleIds=getFilteredIds();
+        els.markers.replaceChildren();
+        visiblePlaces().forEach((place,index)=>{
+          const button=document.createElement('button');button.type='button';button.className='map-marker';button.dataset.id=place.id;button.setAttribute('aria-label',`${place.name}，${place.label}`);button.setAttribute('aria-current',String(state.selected===place.id));Object.assign(button.style,markerPosition(place));
+          const dot=document.createElement('span');dot.className='marker-dot';const text=document.createElement('span');text.className='sr-only';text.textContent=place.name;button.append(dot,text);button.addEventListener('click',()=>focusPlace(place.id,true));els.markers.append(button);
+        });
+        if(state.selected&&!visibleIds.has(state.selected)){state.selected=visiblePlaces()[0]?.id||null}
+      }
+      function renderPlaces(){
+        const shown=visiblePlaces();els.list.replaceChildren();els.listEmpty.hidden=shown.length>0;els.mapEmpty.hidden=shown.length>0;els.visibleCount.textContent=`${shown.length} shown`;els.placeCount.textContent=`${shown.length} / ${places.length}`;
+        shown.forEach((place,index)=>{
+          const card=document.createElement('article');card.className='place-card'+(state.selected===place.id?' is-selected':'')+(state.trip.includes(place.id)?' is-added':'');card.dataset.id=place.id;card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label',`${place.name}，${place.trip?'已加入':'加入行程'}`);
+          const idx=document.createElement('span');idx.className='place-index';idx.textContent=String(index+1).padStart(2,'0');const body=document.createElement('span');body.innerHTML=`<span class="place-title">${place.name}</span><span class="place-meta">${place.label} · ${place.time} min walk</span>`;const action=document.createElement('button');action.type='button';action.className='place-action';action.setAttribute('aria-label',state.trip.includes(place.id)?`移除 ${place.name}`:`加入 ${place.name}`);action.textContent=state.trip.includes(place.id)?'✓':'+';action.addEventListener('click',event=>{event.stopPropagation();toggleTrip(place.id)});card.append(idx,body,action);card.addEventListener('click',()=>focusPlace(place.id));card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();focusPlace(place.id)}});els.list.append(card);
+        });
+      }
+      function mapPoint(place){return [place.x*9,place.y*5.7]}
+      function renderRoute(){
+        const points=state.trip.map(id=>placeById(id)).filter(Boolean).map(mapPoint);
+        const d=points.length?`M ${points.map(point=>point.join(' ')).join(' L ')}`:'M 0 0';els.route.setAttribute('d',d);els.routeGlow.setAttribute('d',d);els.route.classList.toggle('route-empty',points.length<2);els.route.classList.toggle('route',points.length>=2);els.routeGlow.style.display=points.length>=2?'block':'none';
+        const distance=points.length<2?0:state.trip.slice(1).reduce((sum,id,index)=>{const a=mapPoint(placeById(state.trip[index])),b=mapPoint(placeById(id));return sum+Math.hypot(b[0]-a[0],b[1]-a[1])*.16},0);const moving=points.length<2?0:state.trip.slice(1).reduce((sum,id)=>sum+placeById(id).time*.68,0);
+        els.distance.textContent=`${distance.toFixed(1)} km`;els.time.textContent=`${Math.round(moving)} min`;els.stops.textContent=String(state.trip.length);els.stopsLabel.textContent=`${state.trip.length?'READY':'EMPTY'} / ${state.trip.length}`;
+      }
+      function renderStops(){els.stopList.replaceChildren();els.stopsEmpty.hidden=state.trip.length>0;state.trip.forEach((id,index)=>{const place=placeById(id);if(!place)return;const row=document.createElement('div');row.className='stop';const number=document.createElement('span');number.className='stop-number';number.textContent=String(index+1).padStart(2,'0');const name=document.createElement('span');name.innerHTML=`<span class="stop-name">${place.name}</span><span class="stop-kind">${place.label}</span>`;const controls=document.createElement('span');controls.className='stop-controls';const up=document.createElement('button');up.type='button';up.textContent='↑';up.title='向上移动';up.disabled=index===0;up.addEventListener('click',()=>moveStop(index,-1));const down=document.createElement('button');down.type='button';down.textContent='↓';down.title='向下移动';down.disabled=index===state.trip.length-1;down.addEventListener('click',()=>moveStop(index,1));const remove=document.createElement('button');remove.type='button';remove.className='stop-remove';remove.textContent='×';remove.title='移除地点';remove.addEventListener('click',()=>toggleTrip(id));controls.append(up,down,remove);row.append(number,name,controls);els.stopList.append(row)})}
+      function render(){renderMarkers();renderPlaces();renderStops();renderRoute()}
+      function toggleTrip(id){const place=placeById(id);if(!place)return;const index=state.trip.indexOf(id);if(index>=0){state.trip.splice(index,1);showToast(`已从路线移除 ${place.name}`)}else{state.trip.push(id);state.selected=id;showToast(`已加入路线 · ${place.name}`)}persist();render()}
+      function moveStop(index,direction){const next=index+direction;if(next<0||next>=state.trip.length)return;[state.trip[index],state.trip[next]]=[state.trip[next],state.trip[index]];persist();render();showToast('路线顺序已调整')}
+      function persist(){try{localStorage.setItem('drift-demo-trip',JSON.stringify(state.trip))}catch(error){/* storage can be disabled; interaction still works */}}
+      function restore(){try{const raw=localStorage.getItem('drift-demo-trip');if(!raw)return;const saved=JSON.parse(raw);if(!Array.isArray(saved))throw new Error('invalid');state.trip=saved.filter(id=>placeById(id));if(state.trip.length)state.selected=state.trip[0]}catch(error){els.restoreError.classList.add('show');state.trip=[]}}
+
+      document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{state.filter=button.dataset.filter;document.querySelectorAll('[data-filter]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));const shown=visiblePlaces();if(!shown.some(place=>place.id===state.selected))state.selected=shown[0]?.id||null;render()}));
+      $('#showAll').addEventListener('click',()=>{state.filter='all';document.querySelectorAll('[data-filter]').forEach(item=>item.setAttribute('aria-pressed',String(item.dataset.filter==='all')));state.selected=places[0].id;render()});
+      $('#clearTrip').addEventListener('click',()=>{if(!state.trip.length){showToast('路线已经是空的');return}state.trip=[];persist();render();showToast('已清空演示路线')});
+      $('#saveTrip').addEventListener('click',()=>{persist();showToast(state.trip.length?`路线已保存 · ${state.trip.length} 个地点`:'已保存空路线，可稍后继续添加')});
+      $('#resetStorage').addEventListener('click',()=>{try{localStorage.removeItem('drift-demo-trip')}catch(error){}state.trip=[];els.restoreError.classList.remove('show');render();showToast('已清除本地保存')});
+      restore();render();
+    })();
+  </script>
+</body>
+</html>
