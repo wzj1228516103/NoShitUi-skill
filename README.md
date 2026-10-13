@@ -1,6 +1,6 @@
 # NoShitUi-skill
 
-简体中文 · [English](#english)
+简体中文 · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Español](README.es.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Português](README.pt.md)
 
 <div align="center">
   <h3>无屎山 UI —— 基于 AI 的界面发现、选型与落地 Skill</h3>
@@ -54,7 +54,7 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 ## 产出示例（快速浏览，仅作展示）
 
-这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。下面的自动轮播只用于快速浏览 7 个概念页面，项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](ui-atlas-demo/showcase.html) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。下面的自动轮播只用于快速浏览 7 个概念页面，项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Seven visual directions preview" width="920">
@@ -140,6 +140,7 @@ npx skills list -g -a codex
 ```text
 .
 ├─ SKILL.md                              # 可直接安装的根级 Skill 入口
+├─ README.*.md                           # 多语言简介与使用指南
 ├─ agents/openai.yaml                    # Codex 界面元数据
 ├─ open-source-ui-resources/
 │  ├─ SKILL.md                           # 资源发现与集成规则
@@ -187,11 +188,5 @@ python open-source-ui-resources/scripts/check_catalog.py --check-links
 
 ## English
 
-NoShitUi-skill is a Codex skill for discovering, comparing, and integrating open-source UI resources. It separates inspiration from reusable code, recommends one coherent component strategy, records provenance, and verifies responsive behavior, accessibility states, and integration risks.
-
-Install it with:
-
-```bash
-npx skills add https://github.com/wzj1228516103/NoShitUi-skill -g -a codex -y
-```
+Read the [English guide](README.en.md) for the skill overview, installation, usage examples, and resource references.
 
