@@ -1,0 +1,6 @@
+.playwright-cli/
+.server.cjs
+__pycache__/
+*.pyc
+node_modules/
+

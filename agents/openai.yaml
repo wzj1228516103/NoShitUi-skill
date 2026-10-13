@@ -1,0 +1,5 @@
+interface:
+  display_name: NoShit UI Skill
+  short_description: Discover and integrate open-source UI resources
+  default_prompt: Find a coherent, license-aware UI direction for this project, compare suitable open-source resources, and implement the smallest working example when requested.
+

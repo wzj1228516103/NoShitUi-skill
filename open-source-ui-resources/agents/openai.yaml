@@ -1,0 +1,4 @@
+interface:
+  display_name: Open-source UI Resources
+  short_description: Discover and integrate open-source UI resources
+  default_prompt: Find suitable UI references or open-source components for this project, check their terms, recommend one coherent stack, and integrate the smallest working example.
