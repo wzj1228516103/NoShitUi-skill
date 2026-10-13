@@ -54,7 +54,7 @@ Essas capacidades podem ser acionadas em linguagem natural, sem memorizar comand
 
 ## Exemplos de resultados (visualização rápida, apenas para demonstração)
 
-O Skill também pode transformar a seleção de recursos em páginas funcionais com diferentes direções visuais. O carrossel automático abaixo permite explorar rapidamente 7 páginas conceituais; o projeto continua focado na descoberta de recursos, nos critérios de seleção, nas regras de integração e no processo de validação. [Explorar a demonstração completa](https://wzj1228516103.github.io/NoShitUi-skill/) · [Ver o código-fonte da demonstração](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorar o mapa de recursos](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+O Skill também pode transformar a seleção de recursos em páginas funcionais com diferentes direções visuais. O GIF deste README continua mostrando rapidamente as sete direções visuais originais; a coleção online agora inclui também três páginas orientadas a tarefas: uma tabela operacional, um mapa de rotas e um configurador 3D. O projeto continua focado em descobrir recursos, justificar a seleção, definir regras de integração e validar os resultados. [Explorar a demonstração completa](https://wzj1228516103.github.io/NoShitUi-skill/) · [Ver o código-fonte da demonstração](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorar o mapa de recursos](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Prévia de sete direções visuais" width="920">

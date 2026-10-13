@@ -54,7 +54,7 @@ You can trigger these capabilities in natural language without memorizing fixed 
 
 ## Output examples (quick preview, for illustration only)
 
-The Skill can also turn resource choices into runnable pages with different visual directions. The automatic preview below provides a quick look at seven concept pages; the project remains focused on resource discovery, selection rationale, integration rules, and verification. [Explore the full showcase](https://wzj1228516103.github.io/NoShitUi-skill/) · [View the showcase source](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explore the resource atlas](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+The Skill can also turn resource choices into runnable pages with different visual directions. The GIF in this README remains a quick preview of the seven original directions; the online collection now also includes three task-focused pages for an operations table, a route map, and a 3D configurator. The project remains focused on resource discovery, selection rationale, integration rules, and verification. [Explore the full showcase](https://wzj1228516103.github.io/NoShitUi-skill/) · [View the showcase source](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explore the resource atlas](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Preview of seven visual directions" width="920">

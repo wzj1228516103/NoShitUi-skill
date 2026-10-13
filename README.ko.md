@@ -54,7 +54,7 @@ NoShitUi-skill은 UI 작업에서 재작업이 발생하기 쉬운 문제를 다
 
 ## 결과 예시 (빠르게 살펴보기, 전시용)
 
-이 Skill은 선택한 리소스를 다양한 시각적 방향의 실행 가능한 페이지로 구현할 수도 있습니다. 아래 자동 슬라이드는 일곱 개의 콘셉트 페이지를 빠르게 살펴보기 위한 것입니다. 프로젝트의 핵심은 여전히 리소스 탐색, 선택 근거, 통합 규칙, 검증 절차입니다. [전체 전시 온라인 체험](https://wzj1228516103.github.io/NoShitUi-skill/) · [전시 소스 코드](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [온라인 리소스 맵](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+이 Skill은 선택한 리소스를 서로 다른 시각적 방향의 실행 가능한 페이지로 만들 수도 있습니다. 이 README의 GIF는 기존 일곱 가지 방향을 빠르게 보여 주며, 온라인 컬렉션에는 운영 테이블, 경로 지도, 3D 구성기를 보여 주는 작업 중심 페이지 세 개가 추가되어 있습니다. 프로젝트의 중심은 계속해서 리소스 발견, 선택 근거, 통합 규칙과 검증 절차입니다. [전체 쇼케이스 보기](https://wzj1228516103.github.io/NoShitUi-skill/) · [쇼케이스 소스 보기](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [온라인 리소스 아틀라스](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="일곱 가지 시각적 방향 미리보기" width="920">

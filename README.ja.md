@@ -54,7 +54,7 @@ NoShitUi-skill は、UI 制作で手戻りが生じやすい問題に取り組�
 
 ## 出力例（手軽なプレビュー、展示用）
 
-この Skill は、選定したリソースを使って異なるデザイン方向のページを実装することもできます。以下の自動スライドは、七つのコンセプトページを手軽に見るためのものです。プロジェクトの中心は引き続き、リソースの発見、選定理由、導入ルール、検証手順です。[展示をオンラインで体験](https://wzj1228516103.github.io/NoShitUi-skill/) · [展示のソースコード](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [オンラインのリソースマップ](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+この Skill は、選定したリソースを使って異なるデザイン方向のページを実装することもできます。この README の GIF は七つの初期ビジュアル方向を手軽に見るためのものです。オンライン展示には、運用テーブル、ルートマップ、3D コンフィギュレーターの三つのタスク型ページも追加されています。プロジェクトの中心は引き続き、リソースの発見、選定理由、導入ルール、検証手順です。[展示をオンラインで体験](https://wzj1228516103.github.io/NoShitUi-skill/) · [展示のソースコード](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [オンラインのリソースマップ](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="七つのデザイン方向のプレビュー" width="920">

@@ -54,7 +54,7 @@ Diese Funktionen lassen sich direkt in natürlicher Sprache aufrufen; feste Slas
 
 ## Beispielergebnisse (kurzer Einblick, nur zur Demonstration)
 
-Der Skill kann die ausgewählte Lösung auch in funktionsfähige Seiten mit unterschiedlichen visuellen Richtungen umsetzen. Das automatische Karussell unten zeigt lediglich einen schnellen Überblick über 7 Konzeptseiten. Im Mittelpunkt stehen weiterhin Ressourcenrecherche, Auswahlkriterien, Integrationsregeln und der Prüfprozess. [Vollständige Präsentation online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/) · [Quellcode der Beispiele ansehen](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Ressourcenatlas online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+Der Skill kann die ausgewählte Lösung auch in funktionsfähige Seiten mit unterschiedlichen visuellen Richtungen umsetzen. Das GIF in dieser README zeigt weiterhin eine schnelle Vorschau der sieben ursprünglichen Richtungen; die Online-Präsentation enthält jetzt außerdem drei aufgabenorientierte Seiten: eine Betriebstabelle, eine Routenkarte und einen 3D-Konfigurator. Im Mittelpunkt stehen weiterhin Ressourcenrecherche, Auswahlkriterien, Integrationsregeln und der Prüfprozess. [Vollständige Präsentation online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/) · [Quellcode der Beispiele ansehen](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Ressourcenatlas online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Vorschau auf sieben visuelle Richtungen" width="920">
