@@ -108,10 +108,10 @@ python open-source-ui-resources/scripts/check_catalog.py
 
 ## 技术栈
 
-- 原生 HTML、CSS、SVG、JavaScript，无前端构建依赖。
+- 原生 HTML、CSS、SVG、JavaScript，无前端构建依赖；ORBITAL 使用 Three.js CDN 渲染交互式 3D 地球。
 - Google Fonts：DM Sans、DM Serif Display、Italiana、Space Grotesk、Anton、DM Mono。
 - Unsplash 远程图片，仅用于概念演示。
-- `dialog`、`localStorage`、Blob 下载和响应式 CSS 用于展示真实交互状态。
+- `dialog`、`localStorage`、Blob 下载、Three.js OrbitControls 和响应式 CSS 用于展示真实交互状态。
 
 ## 许可证与素材说明
 
