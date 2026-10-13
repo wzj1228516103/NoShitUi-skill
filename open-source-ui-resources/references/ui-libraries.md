@@ -34,11 +34,19 @@ This is a practical shortlist, not an exhaustive registry. Names and license lab
 
 | Library | Model | Strengths | Tradeoffs | License | Official source |
 | --- | --- | --- | --- | --- | --- |
-| shadcn/ui | Copy/paste component source built around Radix and Tailwind | Full source ownership, fast customization, strong modern defaults | You own upgrades, fixes, accessibility review, and copied source provenance | MIT for the repository; review each dependency | https://github.com/shadcn-ui/ui |
+| shadcn/ui | React component source added to your app, styled with Tailwind | Full source ownership, fast customization, buttons/forms/dialogs and product UI | You own upgrades, fixes, accessibility review, and copied source provenance | MIT for the repository; review each dependency | https://github.com/shadcn-ui/ui |
 | Radix UI | Unstyled React primitives | Strong primitives for dialogs, menus, popovers, navigation, and focus behavior | You must design and maintain the visual system | MIT | https://github.com/radix-ui/primitives |
 | React Aria / React Spectrum | Accessibility-focused hooks and components | Interaction semantics, keyboard support, internationalization, complex widgets | More concepts and styling work when using the lower-level APIs | Apache-2.0 | https://github.com/adobe/react-spectrum |
 | Headless UI | Unstyled accessible components | Small, familiar primitives with Tailwind-friendly examples | Narrower catalog and strongest fit with Tailwind | MIT | https://github.com/tailwindlabs/headlessui |
 | Base UI | Unstyled accessible React components | Low-level control with production interaction behavior | Check current package maturity and API stability before standardizing | MIT | https://github.com/mui/base-ui |
+
+### shadcn/ui adoption notes
+
+- Official repository: https://github.com/shadcn-ui/ui ; documentation: https://ui.shadcn.com/docs .
+- Verified on 2026-10-13 against [repository commit 30a58d4](https://github.com/shadcn-ui/ui/tree/30a58d4498f270af1c1e981a7d78a15cf5740841). Its [LICENSE.md](https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/LICENSE.md) is MIT; preserve the copyright and license notice when copying source.
+- The [shadcn CLI manifest](https://github.com/shadcn-ui/ui/blob/30a58d4498f270af1c1e981a7d78a15cf5740841/packages/shadcn/package.json) declares version `4.21.4` and Node.js `>=20.18.1`. This is the CLI version, not a shared version for every copied component; recheck before installation.
+- Inspect the target React framework, Tailwind setup, aliases and existing components before initializing. Use its package manager and add only the requested components; the generated source becomes part of the app.
+- Check each component's actual dependencies and client/server boundary, then verify theme tokens, keyboard/focus behavior and the production build. Record copied component paths and the source version in the target project's notices.
 
 ## Vue
 

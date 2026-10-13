@@ -25,7 +25,7 @@ These resources can provide code, examples, or copy/paste components. They are n
 
 | Site | Ecosystem/model | Strong use case | License/terms note | Official link |
 | --- | --- | --- | --- | --- |
-| shadcn/ui | React, source-owned components | Custom product UI with Tailwind and Radix | Repository and dependencies have licenses; copied files become project code | https://ui.shadcn.com/ |
+| shadcn/ui | React, source-owned components | Custom product UI with Tailwind; buttons, forms and dialogs | MIT repository (verified 2026-10-13); copied files become project code, dependencies need separate review | [Repository](https://github.com/shadcn-ui/ui) · [Documentation](https://ui.shadcn.com/docs) |
 | UIverse | CSS/HTML community components | Buttons, inputs, loaders, cards, and small effects | Check the individual component author/license | https://uiverse.io/ |
 | HyperUI | Tailwind HTML components | Fast marketing pages and common sections | Verify the current project license and any included assets | https://www.hyperui.dev/ |
 | Flowbite | Tailwind component library | Application controls, layouts, and templates | Open-source core and paid/pro offerings are separate | https://flowbite.com/ |
