@@ -2,7 +2,7 @@ name: Deploy UI showcase to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [showcase-source]
     paths:
       - ui-atlas-demo/**
       - .github/workflows/deploy-pages.yml
