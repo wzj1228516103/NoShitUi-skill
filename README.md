@@ -14,6 +14,18 @@
 [![Demo](https://img.shields.io/badge/demo-UI%20Atlas-0ea5e9.svg)](ui-atlas-demo/showcase.html)
 [![Three.js](https://img.shields.io/badge/ORBITAL-Three.js-black.svg)](ui-atlas-demo/mission.html)
 
+## 快速入口
+
+| 目标 | 入口 |
+| --- | --- |
+| 浏览四个完整概念网站 | [UI Atlas Showcase](ui-atlas-demo/showcase.html) |
+| 查看 Three.js 3D 地球控制台 | [ORBITAL Mission Control](ui-atlas-demo/mission.html) |
+| 安装这个 Codex Skill | [`SKILL.md`](SKILL.md) |
+| 查找开源 UI 库 | [`ui-libraries.md`](open-source-ui-resources/references/ui-libraries.md) |
+| 查找 UI 灵感和组件网站 | [`ui-websites.md`](open-source-ui-resources/references/ui-websites.md) |
+
+当前仓库状态：公开仓库、MIT 许可证、Skill 安装器可识别 `noshit-ui-skill`。演示页面使用原生 HTML/CSS/JavaScript，ORBITAL 额外通过 CDN 加载 Three.js。
+
 ## 项目简介
 
 NoShitUi-skill 帮助 AI 处理一类常见但容易失控的前端任务：找一堆 UI 网站、拼一堆组件、最后得到一套没有视觉逻辑也没有来源记录的界面。
@@ -112,15 +124,15 @@ npx skills list -g -a codex
 
 ## 本地预览
 
-项目是无构建依赖的静态演示，使用 Node.js 启动本地服务：
+项目是无构建依赖的静态演示。克隆仓库后，在项目根目录运行：
 
-```powershell
-node .server.cjs
+```bash
+npx --yes serve . -l 4173
 ```
 
 然后打开 <http://localhost:4173/ui-atlas-demo/showcase.html>。
 
-也可以直接打开 [`ui-atlas-demo/showcase.html`](ui-atlas-demo/showcase.html) 预览入口页。ORBITAL 需要网络加载 Three.js CDN 模块。
+也可以直接打开 [`ui-atlas-demo/showcase.html`](ui-atlas-demo/showcase.html) 预览入口页。ORBITAL 需要网络加载 Three.js CDN 模块；离线环境仍可查看其他页面的静态结构，但 3D 地球不会初始化。
 
 ## 目录结构
 
@@ -168,6 +180,10 @@ py -3 open-source-ui-resources/scripts/check_catalog.py
 - ORBITAL 3D 地球拖拽旋转、缩放、暂停、飞船切换、图层开关和 CSV 下载可用；两条轨道均保持在地球外部，卫星不会穿过地球。
 
 页面中的商品、遥测、联系方式和任务数据均为演示数据。
+
+## 更新记录
+
+最近一次交互修复将轨道线和卫星运动统一到同一组轨道参数，并提高椭圆轨道的短半轴，确保卫星始终位于地球和大气光晕之外。完整提交记录见 [GitHub commits](https://github.com/wzj1228516103/NoShitUi-skill/commits/master)。
 
 ## 技术栈
 
