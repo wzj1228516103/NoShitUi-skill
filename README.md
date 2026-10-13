@@ -109,7 +109,7 @@ python open-source-ui-resources/scripts/check_catalog.py
 ## 技术栈
 
 - 原生 HTML、CSS、SVG、JavaScript，无前端构建依赖。
-- Google Fonts：DM Sans、DM Serif Display、Italiana、Space Grotesk、Anton、IBM Plex Mono。
+- Google Fonts：DM Sans、DM Serif Display、Italiana、Space Grotesk、Anton、DM Mono。
 - Unsplash 远程图片，仅用于概念演示。
 - `dialog`、`localStorage`、Blob 下载和响应式 CSS 用于展示真实交互状态。
 
