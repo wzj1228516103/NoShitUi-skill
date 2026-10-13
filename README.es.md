@@ -2,35 +2,120 @@
 
 [简体中文](README.md) · [English](README.en.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · Español · [Français](README.fr.md) · [Deutsch](README.de.md) · [Português](README.pt.md)
 
-> Un Skill de Codex para descubrir, comparar e integrar recursos de UI de código abierto. Primero comprende la intención de la interfaz; después selecciona los recursos e implementa un cambio pequeño y verificable.
+<div align="center">
+  <h3>UI sin caos — Un Skill de IA para descubrir, seleccionar e implementar interfaces</h3>
+  <p><sub>Less Shit UI, More Intentional Interfaces.</sub></p>
+</div>
 
-**Menos UI caótica, más interfaces con intención.**
+> Un Skill que se carga cuando hace falta para tareas de páginas web, interfaces de producto y exploración de diseño: ayuda a la IA a comprender primero la intención de la interfaz, elegir recursos de UI de código abierto con criterios claros e implementarlos mediante cambios mínimos y verificables.
 
-## Qué hace este Skill
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Codex Skill](https://img.shields.io/badge/Codex-Skill-2563EB.svg)](SKILL.md)
+[![Catalog](https://img.shields.io/badge/catalog-open--source%20UI-0ea5e9.svg)](open-source-ui-resources/references/ui-libraries.md)
 
-NoShitUi-skill ayuda a evitar el retrabajo causado por mezclar bibliotecas de componentes, plantillas y fragmentos de código sin criterios claros. Vincula las restricciones del proyecto con una estrategia de componentes coherente, el comportamiento de las interacciones y el registro de las fuentes.
+## Introducción al proyecto
 
-El flujo de trabajo tiene cuatro etapas:
+NoShitUi-skill aborda una de las principales causas de retrabajo en UI: disponer de numerosas bibliotecas de componentes, plantillas, sitios de inspiración y fragmentos de código sin criterios claros para elegirlos. El resultado suele ser una mezcla de sistemas de diseño, con inconsistencias visuales, interacciones incompletas y licencias poco claras.
 
-1. **Descubrir**: distinguir los sitios de inspiración del código reutilizable, las bibliotecas de UI, los iconos, los gráficos y las plantillas.
-2. **Comparar**: evaluar el framework, el entorno de ejecución, la cobertura de componentes, la accesibilidad, los temas, el tamaño del paquete, las licencias y las evidencias de mantenimiento.
-3. **Integrar**: elegir una estrategia principal de componentes e implementar una página o un flujo de usuario representativo con cambios mínimos.
-4. **Verificar**: revisar los diseños adaptables, el foco del teclado, los estados de interacción, la compilación y el origen de los recursos de terceros.
+El Skill divide el trabajo en cuatro etapas:
 
-Define la intención de la interfaz antes de elegir recursos y establece reglas visuales antes de copiar componentes. Mantén una estrategia principal; añade recursos complementarios solo para una necesidad concreta. Revisa las interacciones y el comportamiento móvil junto con el aspecto visual.
+1. **Descubrir recursos**: distinguir sitios de inspiración, código fuente de componentes, bibliotecas completas de UI, iconos, gráficos y plantillas.
+2. **Comparar opciones**: filtrar según el framework del proyecto, el entorno de ejecución, la cobertura de componentes, la accesibilidad, las capacidades de temas, el tamaño del paquete, las licencias y el estado de mantenimiento.
+3. **Implementar**: definir una estrategia principal de componentes e implementar una página o un flujo de usuario representativo con cambios mínimos.
+4. **Validar la entrega**: comprobar el diseño adaptable, el foco del teclado, los estados de interacción, los resultados de compilación y el origen de los recursos de terceros.
+
+El archivo [`SKILL.md`](SKILL.md) de la raíz es el punto de entrada que se puede instalar directamente; [`open-source-ui-resources/`](open-source-ui-resources/) contiene las reglas detalladas, el catálogo de recursos y los scripts de mantenimiento.
+
+## La idea de una UI sin caos
+
+Una UI caótica no se diseña de una sola vez: se acumula cada vez que alguien dice «busquemos algo ya hecho», «añadamos otro componente» o «ya lo unificaremos después».
+
+El principio central es sencillo:
+
+> **Define la intención de la interfaz antes de elegir recursos; establece reglas visuales antes de copiar componentes.**
+
+Tres reglas:
+
+- Confirma por separado el origen de la inspiración, el código, las fuentes, las imágenes, los iconos y los recursos de marca. Un sitio de demostración no equivale a un repositorio de código abierto.
+- Da prioridad a una estrategia principal de componentes por proyecto. Añade primitivas sin estilos, iconos o recursos de animación solo para cubrir una carencia concreta.
+- Los estados de interacción y el comportamiento móvil son tan importantes como el aspecto visual; no basta con revisar capturas estáticas.
+
+## Capacidades principales
+
+| Capacidad | Preguntas que resuelve | Entrega principal |
+| --- | --- | --- |
+| Descubrimiento de recursos | «¿Qué sitios de UI y bibliotecas de código abierto puedo consultar?» | Catálogo clasificado, usos, enlaces oficiales y notas sobre las condiciones |
+| Selección de UI | «¿Cómo elijo entre MUI, shadcn/ui, Radix y Element Plus?» | Comparación del ecosistema, modelo de estilos, cobertura, costes y licencias |
+| Recomendación para un proyecto | «Recomienda una solución para la tecnología de este proyecto.» | Una estrategia principal, una alternativa y los motivos de la elección |
+| Implementación de páginas | «Integra en el proyecto la solución de componentes elegida.» | Una página o un flujo de usuario mínimo y representativo, el tema y un registro de fuentes |
+| Comprobación de calidad | «¿Es fiable este cambio de UI?» | Validación en escritorio y móvil, foco del teclado, estados y compilación |
+
+Puedes activar estas capacidades con lenguaje natural, sin memorizar comandos con barra. También puedes invocar el Skill explícitamente con `$noshit-ui-skill`.
+
+## Ejemplos de resultados (vista rápida, solo como demostración)
+
+El Skill también puede convertir la selección de recursos en páginas funcionales con distintas direcciones visuales. El carrusel automático siguiente permite explorar rápidamente 7 páginas conceptuales; el proyecto sigue centrado en descubrir recursos, justificar su selección, definir reglas de integración y validar los resultados. [Explorar la demostración completa](https://wzj1228516103.github.io/NoShitUi-skill/) · [Ver el código de la demostración](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorar el mapa de recursos](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+
+<p align="center">
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Vista previa de siete direcciones visuales" width="920">
+</p>
+<p align="center"><sub>FORME · OFFGRID · rooted. · ORBITAL · NOVA//25 · AETHER · KINETIC</sub></p>
+
+## Flujo de trabajo
+
+### 1. Identificar el tipo de tarea
+
+- **Descubrimiento**: cuando solo se necesitan recomendaciones, ofrece una lista breve por categorías con enlaces oficiales, sin modificar el proyecto.
+- **Selección**: antes de proponer una solución principal y sus ventajas y limitaciones, examina la tecnología del proyecto, las versiones, las rutas, la solución de estilos y las dependencias existentes.
+- **Implementación**: instala o copia recursos solo después de que el usuario pida expresamente modificar el código; implementa entonces un caso mínimo y verificable.
+- **Mantenimiento**: al actualizar el catálogo, comprueba las fuentes oficiales, las licencias y las referencias locales; después ejecuta el script de comprobación.
+
+### 2. Elegir una estrategia principal
+
+- **Sistema completo con estilos**: adecuado para productos con muchas pantallas administrativas, formularios, tablas y operaciones CRUD. Es una opción prioritaria cuando se necesita cubrir rápidamente numerosos componentes.
+- **Primitivas sin estilos**: adecuadas para productos con un lenguaje de marca definido que requieren control del DOM y CSS. Presta especial atención a la gestión del foco y al comportamiento del teclado.
+- **Código fuente bajo control del proyecto**: adecuado para equipos que quieren incorporar el código de los componentes al proyecto y mantenerlo por su cuenta a largo plazo. Conserva el origen del código copiado y las licencias de sus dependencias.
+- **CSS o clases utilitarias**: adecuado para equipos dispuestos a responsabilizarse de la composición de componentes, las interacciones y la accesibilidad.
+
+Por defecto, recomienda una estrategia principal de componentes y, como máximo, un recurso adicional de iconos o comportamiento para una necesidad concreta. No incorpores varios sistemas completos de diseño solo porque sus ejemplos resulten atractivos.
+
+### 3. Registrar los criterios de adopción
+
+Para los recursos que se instalen o copien, registra al menos lo siguiente:
+
+| Aspecto | Qué hay que confirmar |
+| --- | --- |
+| Compatibilidad | Framework, versiones, SSR/RSC, navegadores y gestor de paquetes |
+| Cobertura | Necesidades reales de tablas, fechas, cargas de archivos, menús de comandos, gráficos, navegación, etc. |
+| Coste de integración | peer dependencies, Provider, estilos globales, tamaño del paquete y carga de las actualizaciones |
+| Control del producto | Tokens de tema, control del DOM, propiedad del código fuente y formas de personalización |
+| Requisitos de calidad | Teclado, foco, semántica, lectores de pantalla, RTL, localización y reduced motion |
+| Licencias | Autorizaciones separadas para paquetes directos, código copiado, plantillas, fuentes, imágenes, iconos y ejemplos |
+| Evidencias de mantenimiento | Versiones compatibles, publicaciones recientes, gestión de incidencias y avisos de seguridad |
+
+## Catálogo de recursos
+
+El catálogo detallado está en [`open-source-ui-resources/references/`](open-source-ui-resources/references/) e incluye:
+
+- **Sistemas con estilos para React**: MUI, Ant Design, Mantine, Chakra UI, PrimeReact, Fluent UI.
+- **Primitivas sin estilos y soluciones de código fuente para React**: shadcn/ui, Radix UI, React Aria, Headless UI, Base UI.
+- **Sistemas de componentes para Vue**: Element Plus, Naive UI, Vuetify, Quasar, PrimeVue, Arco Design Vue.
+- **Soluciones para Svelte e independientes del framework**: Skeleton, Melt UI, shadcn-svelte, Bootstrap, Bulma, Pico CSS, Tailwind CSS, daisyUI.
+- **Iconos y visualización**: Lucide, Heroicons, Tabler Icons, Phosphor, Apache ECharts, Recharts, Nivo.
+- **Inspiración y referencias de patrones**: Mobbin, Page Flows, Godly, Awwwards, UIverse, HyperUI, Component Gallery, Component Party.
+
+El catálogo no es un registro exhaustivo. Los sitios de demostración sirven principalmente para estudiar jerarquía, flujos, espaciado, estados y cambios adaptables. Solo los repositorios oficiales, los paquetes o las páginas que indiquen expresamente que ofrecen código fuente pueden utilizarse como fuentes de código reutilizable. Las condiciones del código, las imágenes, las fuentes, los iconos y los recursos de marca deben comprobarse por separado para cada recurso.
 
 ## Instalación
+
+Instala el repositorio como un Skill de Codex:
 
 ```bash
 npx skills add https://github.com/wzj1228516103/NoShitUi-skill -g -a codex -y
 npx skills list -g -a codex
 ```
 
-El Skill instalado se llama `noshit-ui-skill`. Vuelve a abrir Codex y describe tu objetivo en lenguaje natural, o invócalo explícitamente:
-
-```text
-$noshit-ui-skill
-```
+Si aparece `noshit-ui-skill`, la instalación se ha completado. Vuelve a abrir Codex y describe directamente el objetivo de tu interfaz.
 
 ## Ejemplos de uso
 
@@ -42,38 +127,59 @@ Compara MUI, Mantine y shadcn/ui para esta aplicación de administración en Rea
 Solo necesito inspiración; no cambies el código. Recomienda sitios de UI para páginas de inicio de SaaS, onboarding móvil y paneles de datos, e indica cuáles sirven únicamente como referencia.
 ```
 
-Antes de recomendar una solución, revisa la tecnología y las dependencias existentes. Al integrar recursos, registra su compatibilidad, coste de integración, control de temas y código fuente, requisitos de accesibilidad, licencias y evidencias de mantenimiento. Descubrir recursos no autoriza por sí solo a instalar dependencias ni copiar código.
+```text
+Este proyecto de Vue 3 ya utiliza Element Plus. Examina primero las dependencias y el tema existentes; después recomienda una solución complementaria de iconos, sin incorporar una segunda biblioteca completa de componentes.
+```
 
-## Recursos
+```text
+Revisa si este cambio de UI tiene conflictos de estilos globales, pérdida del foco del teclado, desbordamiento horizontal en móviles, estados loading/empty/error ausentes o fuentes poco claras de recursos de terceros. Por ahora, solo revisa; no hagas cambios.
+```
 
-| Documento | Propósito |
-| --- | --- |
-| [SKILL.md](SKILL.md) | Punto de entrada instalable y flujo de trabajo |
-| [Bibliotecas de UI](open-source-ui-resources/references/ui-libraries.md) | Opciones de componentes por framework y uso |
-| [Sitios de UI](open-source-ui-resources/references/ui-websites.md) | Inspiración, componentes y patrones de interfaz |
-| [Selección e integración](open-source-ui-resources/references/selection-and-adoption.md) | Criterios para elegir e incorporar recursos |
+## Estructura del directorio
 
-Los sitios de inspiración permiten estudiar jerarquía, flujos, espaciado, estados y comportamiento adaptable. El código reutilizable debe proceder de un repositorio oficial, un paquete o una página que ofrezca explícitamente su código fuente. Comprueba por separado las condiciones del código, las imágenes, las fuentes, los iconos y los recursos de marca.
-
-## Ejemplos de resultados
-
-El Skill puede convertir la selección de recursos en páginas funcionales con distintas direcciones visuales. Estos ejemplos muestran posibles resultados; el proyecto se centra en descubrir, seleccionar, integrar y verificar recursos.
-[Explorar los ejemplos](https://wzj1228516103.github.io/NoShitUi-skill/) · [Ver su código fuente](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo)
+```text
+.
+├─ SKILL.md                              # Punto de entrada del Skill instalable desde la raíz
+├─ README.*.md                           # Introducción y guías de uso en varios idiomas
+├─ agents/openai.yaml                    # Metadatos de la interfaz de Codex
+├─ open-source-ui-resources/
+│  ├─ SKILL.md                           # Reglas de descubrimiento e integración de recursos
+│  ├─ references/ui-libraries.md         # Bibliotecas de UI por framework y uso
+│  ├─ references/ui-websites.md          # Sitios de inspiración, componentes y patrones
+│  ├─ references/selection-and-adoption.md
+│  └─ scripts/check_catalog.py           # Script para comprobar referencias locales y enlaces
+```
 
 ## Validación y mantenimiento
 
-Después de actualizar el catálogo, ejecuta:
+Después de modificar el catálogo de recursos, ejecuta:
 
 ```bash
 python open-source-ui-resources/scripts/check_catalog.py
 ```
 
-Usa `--check-links` cuando haya acceso a la red. Los enlaces bloqueados, limitados o con tiempo de espera agotado están **sin verificar**; no se consideran rotos automáticamente. Para una integración real, ejecuta también las comprobaciones de tipos, lint y compilación del proyecto, y revisa los diseños de escritorio y móvil, el foco, los diálogos, los estados de carga/vacío/error y la reducción de movimiento.
+Cuando haya acceso a la red, puedes comprobar los enlaces externos:
 
-## Alcance y licencias
+```bash
+python open-source-ui-resources/scripts/check_catalog.py --check-links
+```
 
-El Skill sirve para buscar inspiración, seleccionar componentes, comparar diseños, crear prototipos e integrar cambios pequeños. No sustituye una auditoría formal de accesibilidad, revisión de licencias, autorización de marca, pruebas de rendimiento ni aprobación de publicación. Si no puedes confirmar las fuentes oficiales, las versiones o las condiciones, conserva el recurso como referencia hasta obtener pruebas suficientes.
+Los enlaces bloqueados, sujetos a límites de solicitudes o con tiempo de espera agotado deben marcarse como «sin verificar», sin clasificarlos directamente como enlaces rotos. En una integración real, ejecuta también los comandos typecheck, lint y build del propio proyecto. Revisa en escritorio y móvil los desbordamientos, los objetivos táctiles, el foco, los diálogos, los estados loading, empty y error, y el comportamiento reduced-motion.
 
-El contenido original del Skill usa la [licencia MIT](LICENSE). Los proyectos de terceros, los recursos remotos y los componentes copiados mantienen sus propias licencias o condiciones de uso; «gratis», «copiable», «MIT» y «código abierto» no son equivalentes. Consulta [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) para conocer las fuentes. Este proyecto no es un producto oficial de los proyectos mencionados ni cuenta con su respaldo.
+## Límites de uso
 
-Las incidencias y las propuestas de mejora son bienvenidas.
+- Adecuado para organizar inspiración de UI, seleccionar componentes, comparar direcciones de diseño, crear prototipos de interfaces y realizar pequeñas integraciones.
+- La presencia de un recurso en el catálogo no implica que deba instalarse o copiarse automáticamente; antes de implementarlo, confirma las restricciones del proyecto y la autorización del usuario.
+- No sustituye una auditoría formal de accesibilidad, una revisión de licencias, la autorización de marca, las pruebas de rendimiento bajo carga ni la aprobación de publicación.
+- «Gratis», «se puede copiar», «MIT» y «código abierto» no son promesas equivalentes. Las licencias deben comprobarse para cada paquete, archivo y recurso concreto.
+- Si no puedes confirmar una fuente oficial, una versión o las condiciones de uso, conserva el recurso como referencia de inspiración hasta reunir las evidencias necesarias.
+
+## Referencias y licencias
+
+- [Component Gallery](https://component.gallery/): compara patrones de componentes de distintos sistemas de diseño.
+- [Component Party](https://component-party.dev/): compara cómo se escriben componentes en React, Vue, Svelte y otros frameworks.
+- [Radix UI](https://www.radix-ui.com/) y [React Aria](https://react-spectrum.adobe.com/react-aria/): referencias de interacciones sin estilos y comportamiento accesible.
+
+Este proyecto no es un producto oficial de los proyectos mencionados ni cuenta con su respaldo. El contenido original del Skill utiliza la [licencia MIT](LICENSE); los proyectos de terceros del catálogo, los recursos remotos y los componentes copiados a otros proyectos están sujetos a sus propias licencias o condiciones del sitio web. Las notas sobre las fuentes del repositorio están en [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).
+
+Las incidencias y las sugerencias de mejora son bienvenidas.
