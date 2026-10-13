@@ -52,16 +52,14 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 这些能力可以直接用自然语言触发，不要求记住固定斜杠命令，也可以显式使用 `$noshit-ui-skill`。
 
-## 产出示例（仅作展示）
+## 产出示例（快速浏览，仅作展示）
 
-这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。下面只放少量截图作为产出示例，项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](ui-atlas-demo/showcase.html) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。下面的自动轮播只用于快速浏览 7 个概念页面，项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](ui-atlas-demo/showcase.html) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
-  <a href="ui-atlas-demo/nova.html"><img src="docs/screenshots/concepts/nova-desktop.png" alt="NOVA//25 neon festival interface" width="32%"></a>
-  <a href="ui-atlas-demo/aether.html"><img src="docs/screenshots/concepts/aether-desktop.png" alt="AETHER atmospheric interface" width="32%"></a>
-  <a href="ui-atlas-demo/kinetic.html"><img src="docs/screenshots/concepts/kinetic-desktop.png" alt="KINETIC kinetic typography interface" width="32%"></a>
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Seven visual directions preview" width="920">
 </p>
-<p align="center"><sub>NOVA//25 · AETHER · KINETIC — 三种不同的视觉与交互方向</sub></p>
+<p align="center"><sub>FORME · OFFGRID · rooted. · ORBITAL · NOVA//25 · AETHER · KINETIC</sub></p>
 
 ## 工作流
 
