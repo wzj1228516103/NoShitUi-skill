@@ -52,18 +52,22 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 这些能力可以直接用自然语言触发，不要求记住固定斜杠命令，也可以显式使用 `$noshit-ui-skill`。
 
-## 产出示例（仅作展示）
+## 产出示例（快速浏览，仅作展示）
 
-这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。下面只放少量截图作为产出示例，项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [查看完整展示入口](ui-atlas-demo/showcase.html)
+这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。下面的自动轮播只用于快速浏览 7 个概念页面，项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](ui-atlas-demo/showcase.html) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
-  <a href="ui-atlas-demo/nova.html"><img src="docs/screenshots/concepts/nova-desktop.png" alt="NOVA//25 neon festival interface" width="32%"></a>
-  <a href="ui-atlas-demo/aether.html"><img src="docs/screenshots/concepts/aether-desktop.png" alt="AETHER atmospheric interface" width="32%"></a>
-  <a href="ui-atlas-demo/kinetic.html"><img src="docs/screenshots/concepts/kinetic-desktop.png" alt="KINETIC kinetic typography interface" width="32%"></a>
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Seven visual directions preview" width="920">
 </p>
-<p align="center"><sub>NOVA//25 · AETHER · KINETIC — 三种不同的视觉与交互方向</sub></p>
+<p align="center"><sub>FORME · OFFGRID · rooted. · ORBITAL · NOVA//25 · AETHER · KINETIC</sub></p>
 
 ## 工作流
+
+### 展示网站部署
+
+展示网站通过 GitHub Pages 发布。[部署工作流](.github/workflows/deploy-pages.yml) 会在 `master` 分支的网站文件发生更新时自动发布，也支持在 Actions 中手动运行。仓库的 Settings → Pages → Source 需要选择 **GitHub Actions**。
+
+发布目录来自 `ui-atlas-demo/`，排除本地截图输出 `output/`。线上首页使用 `showcase.html`，原来的资源图谱首页发布为 `resources.html`；各概念页面保留独立地址，例如 `nova.html`、`aether.html` 和 `kinetic.html`。
 
 ### 1. 先判断任务类型
 
