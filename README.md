@@ -54,7 +54,7 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 ## 产出示例（快速浏览，仅作展示）
 
-这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。下面的自动轮播只用于快速浏览 7 个概念页面，项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。README 中的 GIF 继续快速浏览 7 个原始视觉方向；在线合集现在还包含 3 个任务型页面，用来展示表格后台、地图路线和 3D 配置。项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Seven visual directions preview" width="920">
