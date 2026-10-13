@@ -63,12 +63,6 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 ## 工作流
 
-### 展示网站部署
-
-展示网站通过 GitHub Pages 发布。[部署工作流](.github/workflows/deploy-pages.yml) 会在 `master` 分支的网站文件发生更新时自动发布，也支持在 Actions 中手动运行。仓库的 Settings → Pages → Source 需要选择 **GitHub Actions**。
-
-发布目录来自 `ui-atlas-demo/`，排除本地截图输出 `output/`。线上首页使用 `showcase.html`，原来的资源图谱首页发布为 `resources.html`；各概念页面保留独立地址，例如 `nova.html`、`aether.html` 和 `kinetic.html`。
-
 ### 1. 先判断任务类型
 
 - **发现型**：只需要资源推荐时，给出分类短名单和官方链接，不修改项目。

@@ -4,3 +4,7 @@ __pycache__/
 *.pyc
 node_modules/
 
+# Local-only showcase source and deployment workflow
+ui-atlas-demo/
+.github/workflows/deploy-pages.yml
+
