@@ -54,12 +54,12 @@ Diese Funktionen lassen sich direkt in natürlicher Sprache aufrufen; feste Slas
 
 ## Beispielergebnisse (kurzer Einblick, nur zur Demonstration)
 
-Der Skill kann die ausgewählte Lösung auch in funktionsfähige Seiten mit unterschiedlichen visuellen Richtungen umsetzen. Das GIF in dieser README zeigt weiterhin eine schnelle Vorschau der sieben ursprünglichen Richtungen; die Online-Präsentation enthält jetzt außerdem drei aufgabenorientierte Seiten: eine Betriebstabelle, eine Routenkarte und einen 3D-Konfigurator. Im Mittelpunkt stehen weiterhin Ressourcenrecherche, Auswahlkriterien, Integrationsregeln und der Prüfprozess. [Vollständige Präsentation online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/) · [Quellcode der Beispiele ansehen](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Ressourcenatlas online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+Das Karussell zeigt alle 12 umgesetzten Projekte, beginnend mit den vier 3D-Erlebnissen OBJECT, rooted., DRIFT und ORBITAL. Danach folgen Betriebsoberflächen, das shadcn-Bestell-Dashboard, der UI ATLAS und alle weiteren Marken- und Bewegungskonzepte. Die Startseite verwendet dieselbe Reihenfolge sowie einen 3D-Filter, Kategorien und eine Suche. Ressourcenrecherche, Auswahl, Integration und Überprüfung bleiben der Schwerpunkt. [Vollständige Präsentation online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/) · [Quellcode der Beispiele ansehen](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Ressourcenatlas online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
-  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Vorschau auf sieben visuelle Richtungen" width="920">
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Alle 12 Projekte, 3D-Erlebnisse zuerst" width="920">
 </p>
-<p align="center"><sub>FORME · OFFGRID · rooted. · ORBITAL · NOVA//25 · AETHER · KINETIC</sub></p>
+<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
 
 ## Arbeitsablauf
 

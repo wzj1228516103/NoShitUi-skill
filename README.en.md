@@ -54,12 +54,12 @@ You can trigger these capabilities in natural language without memorizing fixed 
 
 ## Output examples (quick preview, for illustration only)
 
-The Skill can also turn resource choices into runnable pages with different visual directions. The GIF in this README remains a quick preview of the seven original directions; the online collection now also includes three task-focused pages for an operations table, a route map, and a 3D configurator. The project remains focused on resource discovery, selection rationale, integration rules, and verification. [Explore the full showcase](https://wzj1228516103.github.io/NoShitUi-skill/) · [View the showcase source](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explore the resource atlas](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+The carousel covers all 12 implemented projects, starting with four 3D experiences: OBJECT, rooted., DRIFT, and ORBITAL. Operations workspaces, the shadcn orders dashboard, the UI ATLAS resource atlas, and all remaining brand and motion concepts follow. The homepage uses the same order, with a 3D filter, categories, and keyword search. The project remains focused on resource discovery, selection rationale, integration, and verification. [Explore the full showcase](https://wzj1228516103.github.io/NoShitUi-skill/) · [View the showcase source](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explore the resource atlas](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
-  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Preview of seven visual directions" width="920">
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="All 12 projects, with 3D experiences first" width="920">
 </p>
-<p align="center"><sub>FORME · OFFGRID · rooted. · ORBITAL · NOVA//25 · AETHER · KINETIC</sub></p>
+<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
 
 ## Workflow
 

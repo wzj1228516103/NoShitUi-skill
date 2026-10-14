@@ -56,12 +56,12 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 ## 产出示例（快速浏览，仅作展示）
 
-这个 Skill 也可以把选型结果落到不同视觉方向的可运行页面。README 中的 GIF 继续快速浏览 7 个原始视觉方向；在线合集现在还包含 3 个任务型页面，用来展示表格后台、地图路线和 3D 配置。项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+轮播图完整展示全部 12 个已实现项目，并将 OBJECT 灯具配置器、rooted. 立体植物商店、DRIFT 三维地图和 ORBITAL 轨道控制台放在最前面。随后展示运营工作台、shadcn 订单后台、UI ATLAS 资源图谱，以及其余品牌和动态页面。首页采用相同顺序，支持 3D 筛选、分类浏览和关键词搜索。项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html) · [shadcn 运营后台](https://wzj1228516103.github.io/NoShitUi-skill/shadcn-demo/)
 
 <p align="center">
-  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Seven visual directions preview" width="920">
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全部 12 个展示项目轮播，3D 项目优先" width="920">
 </p>
-<p align="center"><sub>FORME · OFFGRID · rooted. · ORBITAL · NOVA//25 · AETHER · KINETIC</sub></p>
+<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
 
 ## 工作流
 
