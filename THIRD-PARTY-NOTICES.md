@@ -2,6 +2,8 @@
 
 This repository contains an original UI concept collection and a catalog of links to external projects. The concept pages do not bundle code from the catalog entries.
 
+- The GitHub mark on the showcase homepage is `mark-github-16` from GitHub's [Primer Octicons](https://github.com/primer/octicons/blob/main/icons/mark-github-16.svg), retrieved on 2026-10-14. The original SVG is preserved at `ui-atlas-demo/assets/icons/github.svg`, with its MIT copyright and license at `ui-atlas-demo/assets/icons/OCTICONS-LICENSE.txt`.
+
 - Images in the concept pages are loaded from Unsplash URLs. They remain subject to Unsplash's current license and API/source terms.
 - Typography is loaded from Google Fonts (`DM Sans`, `DM Serif Display`, `Italiana`, `Space Grotesk`, `Anton`, and `DM Mono`). Fonts remain subject to their individual font licenses.
 - `ui-atlas-demo/mission.html` imports Three.js `0.170.0` and `OrbitControls` from jsDelivr. Three.js is distributed under the MIT License: https://github.com/mrdoob/three.js/blob/r170/LICENSE
