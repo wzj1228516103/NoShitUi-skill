@@ -6,6 +6,7 @@
   <title>DRIFT / 旅行路线探索</title>
   <meta name="description" content="DRIFT 是一个无外部地图服务的旅行路线探索演示界面。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%23ed6632'/%3E%3Cpath d='M8 22c6-11 10-11 16-12' fill='none' stroke='%23f5f0e5' stroke-width='3'/%3E%3Ccircle cx='9' cy='22' r='2' fill='%23f5f0e5'/%3E%3C/svg%3E">
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js"}}</script>
   <style>
     :root{
       --paper:#f5f0e5;--paper-2:#ebe3d3;--ink:#26241f;--muted:#82786a;
@@ -26,18 +27,22 @@
     .eyebrow{font:10px var(--mono);color:var(--orange-dark);letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:clamp(54px,8vw,118px);line-height:.86;letter-spacing:-.09em;font-weight:800;margin:23px 0 28px;max-width:750px}.hero h1 em{font-style:normal;color:var(--orange);display:inline-block}.hero-copy{max-width:520px;color:var(--muted);font-size:16px}.hero-copy strong{color:var(--ink);font-weight:650}.hero-side{align-self:end;border-left:1px solid var(--line);padding:4px 0 6px 28px;max-width:410px;color:var(--muted)}.hero-side h2{font-size:20px;line-height:1.15;margin:0 0 13px;color:var(--ink);letter-spacing:-.035em}.hero-side p{margin:0;font-size:12px;line-height:1.75}.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:21px;font:10px var(--mono);text-transform:uppercase;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{display:block;width:8px;height:8px;border-radius:50%;background:var(--orange)}.legend i.teal{background:var(--teal)}.legend i.ink{background:var(--ink)}
     .workspace{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:24px;padding:26px 0 64px}
     .map-column{min-width:0}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:14px}.toolbar-title{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase}.toolbar-sub{font-size:11px;color:var(--muted);margin-left:7px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:13px}.filter{border:1px solid var(--line);background:transparent;padding:8px 12px;border-radius:99px;font-size:11px;color:var(--muted);transition:.2s}.filter:hover{border-color:var(--orange);color:var(--ink)}.filter[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-    .map-frame{position:relative;overflow:hidden;background:#dcd8c9;border:1px solid var(--line);min-height:570px;box-shadow:var(--shadow)}.map-frame:after{content:"DEMO ROUTE · NO LIVE MAP DATA";position:absolute;right:18px;top:16px;font:9px var(--mono);letter-spacing:.08em;color:#726b5d;background:#f8f2e5cc;padding:7px 9px;border:1px solid #cabfac;z-index:2}.map-svg{display:block;width:100%;height:100%;min-height:570px}.terrain{fill:#eee7d8;stroke:#d0c4b2;stroke-width:1.3}.terrain.dark{fill:#d5d1c0}.water{fill:#c5dcd5}.contour{fill:none;stroke:#c5b59d;stroke-width:1;opacity:.72}.contour.fine{stroke:#b8ac99;stroke-dasharray:2 5}.road{fill:none;stroke:#cec1ad;stroke-width:2;stroke-dasharray:5 9;opacity:.9}.route-glow{fill:none;stroke:#f8c0a0;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;opacity:.7;filter:url(#soften)}.route{fill:none;stroke:var(--orange);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 0;filter:drop-shadow(0 3px 2px #94351633)}.route-empty{fill:none;stroke:#baaa97;stroke-width:3;stroke-linecap:round;stroke-dasharray:5 8}.map-label{font:10px var(--mono);fill:#756b5c;letter-spacing:.07em;text-transform:uppercase}.map-label.small{font-size:8px;fill:#968d7e}#markerLayer{position:absolute;inset:0;z-index:4;pointer-events:none}.map-marker{border:0;padding:0;background:transparent;position:absolute;width:38px;height:38px;transform:translate(-50%,-50%);z-index:4;pointer-events:auto}.marker-dot{display:block;width:17px;height:17px;margin:10px;border:3px solid var(--paper);border-radius:50%;background:var(--orange);box-shadow:0 3px 9px #75301859;transition:transform .2s,background .2s}.map-marker:hover .marker-dot,.map-marker[aria-current=true] .marker-dot{background:var(--ink);transform:scale(1.22)}.map-marker[aria-current=true]:after{content:"";position:absolute;inset:3px;border:1px solid var(--orange);border-radius:50%;animation:pulse 1.6s infinite}@keyframes pulse{0%,100%{opacity:.9;transform:scale(1)}50%{opacity:.1;transform:scale(1.35)}}.marker-number{position:absolute;display:none}.map-credit{position:absolute;bottom:12px;left:14px;font:9px var(--mono);color:#837867;z-index:2}
+    .map-frame{position:relative;overflow:hidden;background:#dcd8c9;border:1px solid var(--line);min-height:570px;box-shadow:var(--shadow)}.map-frame:after{content:"THREE.JS TERRAIN · FICTIONAL DATA";position:absolute;right:18px;top:16px;font:9px var(--mono);letter-spacing:.08em;color:#726b5d;background:#f8f2e5cc;padding:7px 9px;border:1px solid #cabfac;z-index:2;pointer-events:none}.map-canvas{display:block;width:100%;height:100%;min-height:570px;cursor:grab;touch-action:none}.map-canvas:active{cursor:grabbing}#markerLayer{position:absolute;inset:0;z-index:4;pointer-events:none}.map-marker{border:0;padding:0;background:transparent;position:absolute;width:38px;height:38px;transform:translate(-50%,-50%);z-index:4;pointer-events:auto}.marker-dot{display:block;width:17px;height:17px;margin:10px;border:3px solid var(--paper);border-radius:50%;background:var(--orange);box-shadow:0 3px 9px #75301859;transition:transform .2s,background .2s}.map-marker:hover .marker-dot,.map-marker[aria-current=true] .marker-dot{background:var(--ink);transform:scale(1.22)}.map-marker[aria-current=true]:after{content:"";position:absolute;inset:3px;border:1px solid var(--orange);border-radius:50%;animation:pulse 1.6s infinite}@keyframes pulse{0%,100%{opacity:.9;transform:scale(1)}50%{opacity:.1;transform:scale(1.35)}}.marker-number{position:absolute;display:none}.map-credit{position:absolute;bottom:12px;left:14px;font:9px var(--mono);color:#837867;z-index:2;pointer-events:none}
     .map-empty{position:absolute;inset:0;display:grid;place-items:center;padding:30px;text-align:center;background:#e9e2d4e8;z-index:5}.map-empty[hidden]{display:none}.map-empty-card{max-width:300px}.map-empty-card .empty-icon{font-size:32px;color:var(--orange);margin-bottom:7px}.map-empty h3{font-size:18px;letter-spacing:-.04em;margin:0 0 8px}.map-empty p{font-size:12px;color:var(--muted);margin:0 0 14px}.map-empty button{border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:99px;padding:9px 14px;font-size:11px}
     .list-panel{background:#f8f2e8;border:1px solid var(--line);box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;min-height:570px}.panel-head{display:flex;justify-content:space-between;align-items:start;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:14px}.panel-head h2{font-size:21px;letter-spacing:-.05em;margin:0}.panel-head p{margin:3px 0 0;color:var(--muted);font-size:11px}.count{font:10px var(--mono);color:var(--orange-dark);padding-top:4px}.place-list{display:flex;flex-direction:column;gap:7px;overflow:auto;max-height:475px;padding-right:4px}.place-card{border:1px solid transparent;background:transparent;text-align:left;padding:11px 10px;display:grid;grid-template-columns:35px 1fr auto;gap:10px;align-items:center;transition:.2s}.place-card:hover{background:#f1e7d7;border-color:#ddcdb8}.place-card.is-selected{background:var(--white);border-color:var(--orange);box-shadow:0 5px 16px #9f572720}.place-card.is-added{border-left:3px solid var(--orange);padding-left:8px}.place-index{font:11px var(--mono);color:var(--orange-dark)}.place-title{font-weight:700;font-size:13px;letter-spacing:-.02em}.place-meta{display:block;font:10px var(--mono);color:var(--muted);margin-top:3px}.place-action{border:1px solid var(--line);background:transparent;width:26px;height:26px;border-radius:50%;font-size:17px;line-height:1;color:var(--orange-dark);display:grid;place-items:center}.place-action:hover{border-color:var(--orange);background:var(--orange);color:#fff}.place-card.is-added .place-action{background:var(--orange);border-color:var(--orange);color:#fff;font-size:14px}.list-empty{padding:35px 13px;text-align:center;color:var(--muted);font-size:12px;border:1px dashed var(--line)}.list-empty strong{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.list-empty[hidden]{display:none}.mobile-hint{display:none}
     .itinerary{grid-column:1/-1;display:grid;grid-template-columns:1fr 350px;gap:24px;border-top:1px solid var(--line);padding-top:25px}.trip-card{background:var(--ink);color:var(--paper);padding:25px;min-height:235px;position:relative;overflow:hidden}.trip-card:after{content:"✳";position:absolute;right:-12px;bottom:-52px;color:#ed6632;opacity:.35;font-size:185px;line-height:1}.trip-kicker{font:10px var(--mono);color:var(--orange-soft);letter-spacing:.1em;text-transform:uppercase}.trip-card h2{font-size:31px;line-height:1;margin:14px 0 8px;letter-spacing:-.06em}.trip-card p{font-size:12px;color:#c5bcae;max-width:430px;margin:0}.trip-stats{display:flex;gap:31px;margin-top:25px;position:relative;z-index:1}.trip-stats strong{display:block;font-size:21px;letter-spacing:-.04em}.trip-stats span{font:9px var(--mono);color:#bcb0a2;text-transform:uppercase}.trip-actions{display:flex;gap:8px;position:absolute;right:24px;top:24px;z-index:1}.trip-actions button{border:1px solid #6b6258;background:transparent;color:var(--paper);border-radius:99px;padding:8px 11px;font-size:10px}.trip-actions button:hover{border-color:var(--orange);color:var(--orange-soft)}.trip-actions .primary{background:var(--orange);border-color:var(--orange);color:#fff}.trip-actions .primary:hover{background:#ff7b4a;color:#fff}.stops-panel{background:#f8f2e8;border:1px solid var(--line);padding:19px;min-height:235px}.stops-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:9px}.stops-head h3{font-size:14px;margin:0}.stops-head span{font:10px var(--mono);color:var(--muted)}.stop-list{display:flex;flex-direction:column;gap:5px}.stop{display:grid;grid-template-columns:23px 1fr auto;align-items:center;gap:7px;padding:7px 6px;background:#f2e8d8}.stop-number{font:10px var(--mono);color:var(--orange-dark)}.stop-name{font-weight:650;font-size:11px}.stop-kind{display:block;font:9px var(--mono);color:var(--muted)}.stop-controls{display:flex;gap:3px}.stop-controls button{border:0;background:transparent;color:var(--muted);width:20px;height:20px;padding:0}.stop-controls button:hover:not(:disabled){color:var(--orange)}.stop-controls button:disabled{opacity:.25;cursor:not-allowed}.stop-remove{font-size:15px!important}.stops-empty{font-size:12px;color:var(--muted);padding:28px 8px;text-align:center}.stops-empty strong{color:var(--ink);display:block;font-size:14px;margin-bottom:5px}.stops-empty[hidden]{display:none}
     .toast{position:fixed;right:28px;bottom:25px;z-index:30;background:var(--ink);color:var(--paper);border-left:4px solid var(--orange);box-shadow:0 10px 30px #4724113d;padding:12px 16px;font-size:12px;transform:translateY(18px);opacity:0;pointer-events:none;transition:.25s}.toast.show{transform:translateY(0);opacity:1}.restore-error{display:none;border:1px solid #d49b80;background:#fff1e7;color:#8e391d;padding:10px 12px;margin:0 0 14px;font-size:11px}.restore-error.show{display:flex;align-items:center;justify-content:space-between;gap:10px}.restore-error button{border:1px solid #b8401e;background:transparent;color:#8e391d;padding:5px 8px;font-size:10px;border-radius:99px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:1040px){.site-shell{width:min(100% - 42px,900px)}.hero{grid-template-columns:1fr .72fr;gap:30px}.workspace{grid-template-columns:1fr}.map-frame,.list-panel{min-height:unset}.place-list{max-height:none;display:grid;grid-template-columns:1fr 1fr}.itinerary{grid-template-columns:1fr}.stops-panel{min-height:unset}.stop-list{display:grid;grid-template-columns:1fr 1fr}}
-    @media(max-width:680px){body:before{opacity:.18}.site-shell{width:calc(100% - 28px)}.topbar{min-height:58px}.top-note{display:none}.brand{font-size:11px}.back-link{font-size:9px}.hero{display:block;padding:45px 0 32px}.hero h1{font-size:65px;line-height:.88;margin:20px 0 22px}.hero-copy{font-size:14px}.hero-side{border-left:0;border-top:1px solid var(--line);padding:18px 0 0;margin-top:27px}.workspace{padding-top:20px;gap:15px}.toolbar{align-items:flex-end}.toolbar-sub{display:block;margin:3px 0 0}.filters{overflow:auto;flex-wrap:nowrap;padding-bottom:3px;margin-right:-14px}.filter{white-space:nowrap}.map-frame{min-height:430px}.map-svg{min-height:430px}.map-frame:after{right:10px;top:10px;font-size:8px}.map-credit{font-size:8px}.place-list{display:flex;max-height:310px;overflow:auto}.list-panel{padding:15px}.mobile-hint{display:block;text-align:center;color:var(--muted);font:9px var(--mono);margin-top:10px}.itinerary{gap:15px;padding-top:18px}.trip-card{padding:19px;min-height:247px}.trip-card h2{font-size:27px;max-width:220px}.trip-actions{right:16px;top:auto;bottom:18px}.trip-stats{gap:22px}.trip-stats strong{font-size:18px}.stops-panel{padding:15px}.stop-list{display:flex}.toast{left:14px;right:14px;bottom:15px;text-align:center}.restore-error.show{align-items:flex-start;flex-direction:column}.restore-error button{align-self:flex-start}}
+    @media(max-width:680px){body:before{opacity:.18}.site-shell{width:calc(100% - 28px)}.topbar{min-height:58px}.top-note{display:none}.brand{font-size:11px}.back-link{font-size:9px}.hero{display:block;padding:45px 0 32px}.hero h1{font-size:65px;line-height:.88;margin:20px 0 22px}.hero-copy{font-size:14px}.hero-side{border-left:0;border-top:1px solid var(--line);padding:18px 0 0;margin-top:27px}.workspace{padding-top:20px;gap:15px}.toolbar{align-items:flex-end}.toolbar-sub{display:block;margin:3px 0 0}.filters{overflow:auto;flex-wrap:nowrap;padding-bottom:3px;margin-right:-14px}.filter{white-space:nowrap}.map-frame{min-height:430px}.map-canvas{min-height:430px}.map-frame:after{right:10px;top:10px;font-size:8px}.map-credit{font-size:8px}.place-list{display:flex;max-height:310px;overflow:auto}.list-panel{padding:15px}.mobile-hint{display:block;text-align:center;color:var(--muted);font:9px var(--mono);margin-top:10px}.itinerary{gap:15px;padding-top:18px}.trip-card{padding:19px;min-height:247px}.trip-card h2{font-size:27px;max-width:220px}.trip-actions{right:16px;top:auto;bottom:18px}.trip-stats{gap:22px}.trip-stats strong{font-size:18px}.stops-panel{padding:15px}.stop-list{display:flex}.toast{left:14px;right:14px;bottom:15px;text-align:center}.restore-error.show{align-items:flex-start;flex-direction:column}.restore-error button{align-self:flex-start}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
   </style>
   <style>
+    .trip-card:after{pointer-events:none}
     @media(max-width:680px){.filters{overflow:visible;flex-wrap:wrap;margin-right:0}.trip-card{min-height:0}.trip-actions{position:static;justify-content:flex-end;margin-top:20px}.trip-stats{gap:18px}}
+    .map-frame{height:570px;isolation:isolate;background:#b8cfca}.map-canvas{position:absolute;inset:0;min-height:0!important;height:100%;outline-offset:-5px}.map-frame:after{content:"COASTAL RELIEF · FICTIONAL DATA"}.map-controls{position:absolute;right:14px;bottom:14px;z-index:6;display:flex;gap:5px}.map-controls button{display:grid;place-items:center;width:32px;height:32px;border:1px solid #c7bba8;background:#f8f2e8ed;color:var(--ink);border-radius:4px;font:16px var(--mono);box-shadow:0 2px 8px #40433712}.map-controls button:hover{border-color:var(--orange);color:var(--orange-dark)}.map-controls button:last-child{width:auto;padding:0 10px;font-size:10px}.map-controls button:disabled{opacity:.4;cursor:not-allowed}.map-status{position:absolute;left:14px;top:14px;z-index:5;max-width:210px;padding:7px 10px;background:#f8f2e8e8;border:1px solid #cabfac;color:var(--muted);font:10px var(--mono);pointer-events:none}.map-status[hidden]{display:none}.map-marker[aria-current=true]{z-index:5}.map-marker[aria-current=true] .marker-name{opacity:1;transform:translate(-50%,0)}.marker-name{position:absolute;left:50%;bottom:36px;width:max-content;max-width:180px;padding:5px 8px;background:#26241fed;border-radius:3px;color:var(--paper);font:9px var(--mono);opacity:0;transform:translate(-50%,3px);transition:opacity .15s,transform .15s;pointer-events:none}.map-marker:focus-visible .marker-name,.map-marker:hover .marker-name{opacity:1;transform:translate(-50%,0)}.map-marker.is-added .marker-dot{background:var(--orange);width:20px;height:20px;margin:9px}.marker-number{display:block;inset:0;text-align:center;padding-top:11px;font:9px var(--mono);color:#fff;pointer-events:none}.map-marker:not(.is-added) .marker-number{display:none}.map-credit{max-width:calc(100% - 175px);color:#495f58;background:#f8f2e8c9;padding:5px 7px;border-radius:3px;line-height:1.5}.map-marker.is-offscreen{visibility:hidden}
+    .map-marker .marker-dot{background:#394e43}.map-marker[aria-current=true] .marker-dot{background:var(--orange)}.map-marker:focus-visible{outline:2px solid var(--orange);outline-offset:1px;border-radius:50%}
+    @media(max-width:680px){.map-frame{height:430px}.map-frame:after{font-size:7px;max-width:200px}.map-status{top:38px;font-size:9px;max-width:210px}.map-controls{right:10px;bottom:10px}.map-credit{left:10px;bottom:10px;max-width:calc(100% - 160px);font-size:8px}.marker-name{font-size:8px;max-width:150px}}
   </style>
 </head>
 <body>
@@ -75,21 +80,11 @@
           <div class="restore-error" id="restoreError" role="alert"><span>上次保存的路线读取失败，已暂时使用空路线。</span><button type="button" id="resetStorage">清除保存</button></div>
 
           <div class="map-frame" id="mapFrame">
-            <svg class="map-svg" viewBox="0 0 900 570" role="img" aria-labelledby="mapTitle mapDesc">
-              <title id="mapTitle">Fictional coast demo map</title><desc id="mapDesc">A warm paper map with contour lines and an orange route connecting selected places.</desc>
-              <defs><filter id="soften"><feGaussianBlur stdDeviation="2.5"/></filter><pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#c8bba7" stroke-width=".65" opacity=".35"/></pattern></defs>
-              <rect width="900" height="570" fill="#e8e1d2"></rect><rect width="900" height="570" fill="url(#grid)"></rect>
-              <path class="water" d="M0 0h236c34 47 23 95 55 126 29 28 91 29 92 70 1 40-42 47-60 79-21 38 24 87-11 125-23 25-76 23-103 54-24 29-19 70-36 116H0Z"></path>
-              <path class="terrain" d="M226 0c34 44 28 85 64 119 31 29 83 30 88 73 4 40-45 51-62 82-22 39 26 83-9 130-22 29-75 29-101 58-26 30-25 68-42 108h736V0Z"></path>
-              <path class="terrain dark" d="M702 0h198v570H722c-12-40 12-75-13-105-27-31-74-38-77-80-3-39 34-62 49-96 18-38-3-73 9-111 10-32 9-89 12-178Z"></path>
-              <g class="contour"><path d="M314 44c65 17 62 73 130 85 58 10 62-48 126-20 49 22 17 83 73 108 49 22 74-9 121 30 39 32 6 90 52 118"/><path d="M332 77c55 16 60 61 120 74 61 13 73-38 118-17 47 21 18 73 65 100 50 28 80 5 117 38 39 34 11 76 48 113"/><path d="M368 116c46 9 47 51 101 63 60 14 81-28 112-11 38 20 23 62 62 84 38 22 76 16 106 43 31 29 18 65 48 92"/><path class="fine" d="M440 20c-15 43 20 91 69 102 51 12 85-16 98 31 14 52 63 58 104 76 43 19 52 59 95 77"/><path class="fine" d="M277 206c74 16 88-26 135 21 34 35 4 73 41 107 39 36 91 21 103 69 12 45-18 85 12 123"/><path d="M306 310c52 10 76-13 114 21 38 34 12 76 51 98 46 26 98 3 121 48 18 35-4 62 7 93"/></g>
-              <g class="road"><path d="M218 121C351 140 380 233 472 263s152-45 244 30 83 170 111 233"/><path d="M286 499c91-76 107-148 189-178 79-29 130 22 219-52"/><path d="M411 10c-3 103 18 151 72 196"/></g>
-              <text class="map-label" x="88" y="85">WESTERN INLET</text><text class="map-label" x="610" y="72">NORTH RIDGE</text><text class="map-label" x="640" y="520">SOUTH CAPE</text><text class="map-label small" x="118" y="520">paper map / scale 1:—</text>
-              <g aria-hidden="true" fill="none" stroke="#8e9e8a" stroke-width="1.4" opacity=".7"><path d="M83 164q30-21 64 0t64 0"/><path d="M75 177q30-21 64 0t64 0"/><path d="M772 158q27-20 53 0t53 0"/><path d="M760 171q27-20 53 0t53 0"/></g>
-              <path id="routeGlow" class="route-glow" d="M0 0"></path><path id="routePath" class="route-empty" d="M0 0"></path>
-            </svg>
+            <canvas class="map-canvas" id="mapCanvas" aria-label="三维海岸地图。拖动旋转，滚轮或双指缩放；也可以使用地图下方的缩放和复位按钮。" tabindex="0"></canvas>
             <div id="markerLayer" aria-label="地图地点标记"></div>
-            <span class="map-credit">DRIFT CARTOGRAPHY / FICTIONAL DATASET</span>
+            <span class="map-status" id="mapStatus" role="status">正在铺开海岸地形…</span>
+            <span class="map-credit" id="mapCredit">拖动旋转 · 滚轮 / 双指缩放</span>
+            <div class="map-controls" aria-label="地图视角控制"><button type="button" id="zoomIn" aria-label="放大地图">+</button><button type="button" id="zoomOut" aria-label="缩小地图">−</button><button type="button" id="resetView" aria-label="恢复地图初始视角">复位 ↗</button></div>
             <div class="map-empty" id="mapEmpty" hidden><div class="map-empty-card"><div class="empty-icon">◎</div><h3>这组筛选没有地点</h3><p>试试“全部”或换一个类别，地图会重新显示演示地点。</p><button type="button" id="showAll">显示全部地点</button></div></div>
           </div>
           <p class="mobile-hint">点地图标记或地点卡，可查看详情并加入路线。</p>
@@ -135,7 +130,272 @@
       const state = {filter:'all',selected:'lighthouse',trip:[]};
       const $ = selector => document.querySelector(selector);
       const placeById = id => places.find(place => place.id === id);
-      const els = {list:$('#placeList'),markers:$('#markerLayer'),stopList:$('#stopList'),listEmpty:$('#listEmpty'),mapEmpty:$('#mapEmpty'),route:$('#routePath'),routeGlow:$('#routeGlow'),toast:$('#toast'),visibleCount:$('#visibleCount'),placeCount:$('#placeCount'),distance:$('#distanceValue'),time:$('#timeValue'),stops:$('#stopValue'),stopsLabel:$('#stopsLabel'),stopsEmpty:$('#stopsEmpty'),restoreError:$('#restoreError')};
+      const els = {list:$('#placeList'),markers:$('#markerLayer'),stopList:$('#stopList'),listEmpty:$('#listEmpty'),mapEmpty:$('#mapEmpty'),toast:$('#toast'),visibleCount:$('#visibleCount'),placeCount:$('#placeCount'),distance:$('#distanceValue'),time:$('#timeValue'),stops:$('#stopValue'),stopsLabel:$('#stopsLabel'),stopsEmpty:$('#stopsEmpty'),restoreError:$('#restoreError'),canvas:$('#mapCanvas'),frame:$('#mapFrame')};
+
+      // The relief is a continuous height field. Markers, roads and the itinerary
+      // all sample the same surface, so they stay attached when the view rotates.
+      const locations = {
+        lighthouse:[-3.5,-2.15], 'salt-house':[-1.45,-1.02], tidepool:[.2,.1],
+        'moss-arch':[2.04,-1.45], 'low-tide':[3.35,.25], 'old-pier':[4.12,2.15],
+        'fern-cafe':[2.25,2.7], 'weather-room':[.18,2.8], 'red-cliff':[-1.45,2],
+        driftwood:[-3.05,2.65], 'blue-cove':[-4.08,.7], 'clay-house':[-2.58,.02]
+      };
+      const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+      const gaussian = (x,z,cx,cz,spread) => Math.exp(-((x-cx)**2+(z-cz)**2)/spread);
+      function terrainHeight(x,z){
+        const west=-4.65+.28*Math.sin(z*2.1)+.55*Math.exp(-((z-.65)**2)/.6)+.5*Math.exp(-((z+3.2)**2));
+        const east=4.4+.3*Math.cos(z*1.05);
+        const north=-3.65+.22*Math.sin(x*1.4);
+        const south=3.8-.3*Math.cos(x*1.25);
+        const roundedCoast=(1-Math.hypot((x-.1)/5.15,z/4.12))*4.3;
+        const shore=Math.min(x-west,east-x,z-north,south-z,roundedCoast);
+        if(shore<0)return Math.max(-.28,shore*.5);
+        const hills=.2+1.55*gaussian(x,z,1.2,-2.55,2.8)+1.02*gaussian(x,z,3.15,-1.8,1.7)
+          +.67*gaussian(x,z,-1.7,1.8,1.6)+.4*gaussian(x,z,.1,.6,3.5)
+          +.045*Math.sin(x*5+z*2)*Math.cos(z*4);
+        const edge=clamp(shore/.7,0,1);
+        return hills*edge*edge*(3-2*edge);
+      }
+      const mapPoint = place => {const [x,z]=locations[place.id];return {x,z,y:Math.max(.08,terrainHeight(x,z))}};
+      let mapScene=null;
+      let drawFallback=null;
+      function rebuildRoute(){if(mapScene)mapScene.rebuildRoute();else if(drawFallback)drawFallback()}
+      function updateMarkerProjection(){if(mapScene)mapScene.projectMarkers();else if(drawFallback)drawFallback()}
+
+      async function initMap(){
+        let cleanup=()=>{};
+        try{
+          const [THREE,{OrbitControls}]=await Promise.all([
+            import('three'),import('./vendor/three/OrbitControls.js')
+          ]);
+          const scene=new THREE.Scene();
+          scene.background=new THREE.Color(0xb8cfca);
+          const camera=new THREE.PerspectiveCamera(37,1,.1,90);
+          const renderer=new THREE.WebGLRenderer({canvas:els.canvas,antialias:true,powerPreference:'low-power'});
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.75));
+          renderer.outputColorSpace=THREE.SRGBColorSpace;
+          renderer.toneMapping=THREE.ACESFilmicToneMapping;
+          renderer.toneMappingExposure=1.1;
+          renderer.shadowMap.enabled=true;
+          renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+          const controls=new OrbitControls(camera,els.canvas);
+          controls.enableDamping=!matchMedia('(prefers-reduced-motion: reduce)').matches;controls.dampingFactor=.09;controls.enablePan=false;
+          controls.minPolarAngle=.18;controls.maxPolarAngle=Math.PI*.43;
+          controls.minDistance=8.5;controls.maxDistance=30;
+          controls.target.set(0,.25,0);
+          const root=new THREE.Group();scene.add(root);
+          const routeGroup=new THREE.Group();root.add(routeGroup);
+          const landmarkGroup=new THREE.Group();root.add(landmarkGroup);
+          const material=(color,extra={})=>new THREE.MeshStandardMaterial({color,roughness:.88,...extra});
+          const sand=material(0xe5d5ae),stone=material(0xb39e7b),wall=material(0xf5ead6),roof=material(0xbb7555);
+          const pine=material(0x63765b),wood=material(0x887156),orange=material(0xed6632);
+          const mesh=(geometry,mat,parent=root)=>{const object=new THREE.Mesh(geometry,mat);object.castShadow=true;object.receiveShadow=true;parent.add(object);return object};
+          scene.add(new THREE.HemisphereLight(0xfff3d7,0x57766a,2.2));
+          const sun=new THREE.DirectionalLight(0xffedd0,3);
+          sun.position.set(-6,12,8);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);
+          Object.assign(sun.shadow.camera,{left:-9,right:9,top:8,bottom:-8,near:1,far:30});
+          sun.shadow.normalBias=.035;scene.add(sun);
+
+          // A submerged mesh makes a scalloped coast instead of polygon slabs.
+          const terrainGeometry=new THREE.PlaneGeometry(14,10,126,90);
+          terrainGeometry.rotateX(-Math.PI/2);
+          const positions=terrainGeometry.attributes.position;
+          const colors=[];
+          const beach=new THREE.Color(0xe8d6ae),grass=new THREE.Color(0xb6bc91),ridge=new THREE.Color(0xc3b391);
+          for(let i=0;i<positions.count;i++){
+            const x=positions.getX(i),z=positions.getZ(i),height=terrainHeight(x,z);
+            positions.setY(i,height);
+            const color=height<.16?beach.clone():grass.clone().lerp(ridge,clamp((height-.55)/1.2,0,1));
+            color.multiplyScalar(.97+.035*Math.sin(x*16+z*8));
+            colors.push(color.r,color.g,color.b);
+          }
+          terrainGeometry.setAttribute('color',new THREE.Float32BufferAttribute(colors,3));
+          terrainGeometry.computeVertexNormals();
+          mesh(terrainGeometry,material(0xffffff,{vertexColors:true}));
+          const sea=mesh(new THREE.BoxGeometry(14.1,.3,10.1),material(0x83b4ae,{roughness:.65,metalness:.12}));
+          sea.position.y=-.19;sea.castShadow=false;
+          const seaSurface=mesh(new THREE.PlaneGeometry(14.1,10.1),material(0x91beb7,{roughness:.65,metalness:.12}));
+          seaSurface.rotation.x=-Math.PI/2;seaSurface.position.y=.007;seaSurface.castShadow=false;
+
+          // Shore foam and topographic contours are intersections of the height field.
+          function contour(level,color,opacity){
+            const points=[];const step=.13;
+            for(let x=-6;x<6;x+=step)for(let z=-4.2;z<4.2;z+=step){
+              const corners=[[x,z],[x+step,z],[x+step,z+step],[x,z+step]];
+              const cuts=[];
+              for(let edge=0;edge<4;edge++){
+                const a=corners[edge],b=corners[(edge+1)%4];
+                const ha=terrainHeight(...a),hb=terrainHeight(...b);
+                if((ha<level)!==(hb<level)){const t=(level-ha)/(hb-ha);cuts.push(new THREE.Vector3(a[0]+(b[0]-a[0])*t,level+.014,a[1]+(b[1]-a[1])*t))}
+              }
+              for(let i=0;i+1<cuts.length;i+=2)points.push(cuts[i],cuts[i+1]);
+            }
+            const line=new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(points),new THREE.LineBasicMaterial({color,transparent:true,opacity}));root.add(line);
+          }
+          contour(.035,0xf5efd8,.85);
+          [.32,.55,.82,1.1,1.4,1.68].forEach(level=>contour(level,0x8f8b66,.24));
+          const waves=[];
+          for(let z=-4.5;z<4.7;z+=.6)for(let x=-6.7;x<6.5;x+=.1){
+            const zz=z+.025*Math.sin(x*6);
+            if(terrainHeight(x,zz)<-.08&&terrainHeight(x+.1,zz)<-.08)waves.push(new THREE.Vector3(x,.024,zz),new THREE.Vector3(x+.07,.024,zz));
+          }
+          root.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(waves),new THREE.LineBasicMaterial({color:0xe1eee2,transparent:true,opacity:.2})));
+
+          function surfaceCurve(coords,lift=.055){
+            const curve=new THREE.CatmullRomCurve3(coords.map(([x,z])=>new THREE.Vector3(x,0,z)),false,'centripetal');
+            const points=curve.getPoints(Math.max(50,coords.length*24));
+            points.forEach(point=>point.y=Math.max(.045,terrainHeight(point.x,point.z))+lift);
+            return new THREE.CatmullRomCurve3(points,false,'centripetal');
+          }
+          function road(coords){const curve=surfaceCurve(coords);mesh(new THREE.TubeGeometry(curve,coords.length*32,.027,5,false),material(0xf2e4c8));}
+          road([[-3.5,-2.15],[-2.65,-1.8],[-1.45,-1.02],[-.4,-.5],[.2,.1],[1.55,-.6],[2.04,-1.45],[3,-.6],[3.35,.25],[3.95,1.15],[4.12,2.15]]);
+          road([[-4.08,.7],[-3.55,.42],[-2.58,.02],[-1.45,-1.02]]);
+          road([[-3.05,2.65],[-2.35,2.4],[-1.45,2],[.18,2.8],[1.35,2.4],[2.25,2.7],[3.25,2.25],[4.12,2.15]]);
+          road([[.2,.1],[.32,1.35],[.18,2.8]]);
+
+          function building(x,z,w=.22,d=.25,h=.2,roofColor=roof,parent=landmarkGroup){
+            const y=Math.max(.05,terrainHeight(x,z));
+            const house=new THREE.Group();house.position.set(x,y,z);parent.add(house);
+            const body=mesh(new THREE.BoxGeometry(w,h,d),wall,house);body.position.y=h/2;
+            const cap=mesh(new THREE.CylinderGeometry(0,1,1,4),roofColor,house);
+            cap.rotation.y=Math.PI/4;cap.scale.set(w*.77,.12,d*.77);cap.position.y=h+.055;
+            const door=mesh(new THREE.BoxGeometry(w*.18,h*.42,.008),wood,house);door.position.set(0,h*.21,d/2+.006);
+            return house;
+          }
+          // Small settlements make the relief readable as a travel map.
+          const towns=[[-1.45,-1.02],[3.35,.25],[.18,2.8],[-2.58,.02]];
+          towns.forEach(([cx,cz],town)=>{
+            for(let i=0;i<9;i++){
+              const angle=i*2.4,x=cx+Math.cos(angle)*(.34+i*.025),z=cz+Math.sin(angle)*(.3+i*.02);
+              if(terrainHeight(x,z)>.12){const house=building(x,z,.14+(i%3)*.035,.17,.16+(i%4)*.035,i%3===0?wood:roof);house.rotation.y=town*.45+(i%2)*.35;}
+            }
+          });
+
+          // Every place has a recognisable landmark, rather than a floating dot.
+          places.forEach(place=>{
+            const {x,z,y}=mapPoint(place);const group=new THREE.Group();group.position.set(x,y,z);landmarkGroup.add(group);
+            if(place.id==='lighthouse'){
+              const tower=mesh(new THREE.CylinderGeometry(.085,.13,.65,12),wall,group);tower.position.y=.325;
+              const stripe=mesh(new THREE.CylinderGeometry(.091,.101,.11,12),orange,group);stripe.position.y=.49;
+              const lantern=mesh(new THREE.CylinderGeometry(.12,.12,.14,8),wood,group);lantern.position.y=.73;
+              const cap=mesh(new THREE.ConeGeometry(.17,.14,8),roof,group);cap.position.y=.87;
+            }else if(place.id==='moss-arch'){
+              const arch=mesh(new THREE.TorusGeometry(.23,.065,5,14,Math.PI),stone,group);arch.position.y=.16;
+              [-.23,.23].forEach(xx=>{const leg=mesh(new THREE.BoxGeometry(.12,.2,.15),stone,group);leg.position.set(xx,.1,0)});
+            }else if(place.id==='old-pier'){
+              const deck=mesh(new THREE.BoxGeometry(.23,.06,.9),wood,group);deck.position.set(0,.2,.24);
+              for(let i=0;i<4;i++)[-.09,.09].forEach(xx=>{const post=mesh(new THREE.BoxGeometry(.035,.42,.035),wood,group);post.position.set(xx,.04,-.08+i*.23)});
+            }else if(place.id==='blue-cove'){
+              const buoy=mesh(new THREE.SphereGeometry(.07,8,6),orange,group);buoy.position.y=.08;
+              const stairs=mesh(new THREE.BoxGeometry(.42,.035,.15),wood,group);stairs.position.set(.32,.035,0);
+            }else if(place.id==='red-cliff'){
+              const platform=mesh(new THREE.CylinderGeometry(.18,.21,.07,8),wood,group);platform.position.y=.045;
+              [-.14,.14].forEach(xx=>{const post=mesh(new THREE.BoxGeometry(.026,.16,.026),wood,group);post.position.set(xx,.13,-.12)});
+            }else if(place.id==='tidepool'){
+              const pool=mesh(new THREE.CylinderGeometry(.22,.26,.028,12),material(0x6a9e94),group);pool.position.y=.025;
+              for(let i=0;i<6;i++){const rock=mesh(new THREE.DodecahedronGeometry(.07,0),stone,group);rock.position.set(Math.cos(i)*.24,.04,Math.sin(i)*.24)}
+            }else{
+              building(x,z,place.kind==='culture'?.36:.3,.32,.29);
+              if(place.id==='driftwood'){const cross=mesh(new THREE.BoxGeometry(.025,.17,.025),wood,group);cross.position.y=.5;const bar=mesh(new THREE.BoxGeometry(.1,.025,.025),wood,group);bar.position.y=.54}
+            }
+          });
+
+          // Deterministic clusters of pines follow the hills and leave roads clear.
+          const treeTrunkGeometry=new THREE.CylinderGeometry(.015,.021,.12,5);
+          const treeCrownGeometry=new THREE.ConeGeometry(.095,.34,6);
+          for(let i=0;i<190;i++){
+            const x=-3.9+((i*73)%181)/181*7.7,z=-3.1+((i*43)%179)/179*6.2;
+            const height=terrainHeight(x,z);
+            if(height<.32||places.some(place=>{const p=mapPoint(place);return Math.hypot(p.x-x,p.z-z)<.48}))continue;
+            if(Math.sin(x*1.8+z*1.3)<-.1)continue;
+            const trunk=mesh(treeTrunkGeometry,wood);trunk.position.set(x,height+.055,z);
+            const crown=mesh(treeCrownGeometry,pine);const size=.7+(i%5)*.12;crown.scale.setScalar(size);crown.position.set(x,height+.12+.13*size,z);
+          }
+          // A few quiet offshore rocks keep the water from feeling like a flat grid.
+          [[-5.25,-1.15,.18],[-5.45,-.8,.11],[5.45,-2.3,.2],[5.8,-2.5,.1]].forEach(([x,z,size])=>{const rock=mesh(new THREE.DodecahedronGeometry(size),stone);rock.scale.y=.7;rock.position.set(x,.02,z)});
+
+          function homeView(){
+            const scale=clamp(1.42/camera.aspect,1,1.6);
+            camera.position.set(7.2*scale,12.5*scale,13.2*scale);controls.target.set(0,.25,0);controls.update();
+          }
+          function resizeMap(){
+            const width=els.frame.clientWidth,height=els.frame.clientHeight;
+            const previousAspect=camera.aspect;camera.aspect=width/height;camera.updateProjectionMatrix();renderer.setSize(width,height,false);
+            if(Math.abs(previousAspect-camera.aspect)>.35)homeView();
+            schedule();
+          }
+          function rebuildRoute3D(){
+            routeGroup.children.slice().forEach(child=>{routeGroup.remove(child);child.geometry.dispose();child.material.dispose()});
+            const trip=state.trip.map(id=>placeById(id)).filter(Boolean);
+            if(trip.length<2)return;
+            const curve=surfaceCurve(trip.map(place=>locations[place.id]),.09);
+            const segments=Math.max(100,trip.length*55);
+            const glow=mesh(new THREE.TubeGeometry(curve,segments,.075,6,false),new THREE.MeshBasicMaterial({color:0xf7ba86,transparent:true,opacity:.42}),routeGroup);
+            glow.castShadow=false;glow.renderOrder=2;
+            const line=mesh(new THREE.TubeGeometry(curve,segments,.032,6,false),new THREE.MeshBasicMaterial({color:0xed6632}),routeGroup);
+            line.castShadow=false;line.renderOrder=3;schedule();
+          }
+          function projectMarkers(){
+            const width=els.frame.clientWidth,height=els.frame.clientHeight;
+            visiblePlaces().forEach(place=>{
+              const button=els.markers.querySelector(`[data-id="${place.id}"]`);if(!button)return;
+              const {x,z,y}=mapPoint(place);
+              const p=new THREE.Vector3(x,y+(place.id==='lighthouse'?.98:.38),z).project(camera);
+              const offscreen=p.z>1||p.z< -1||Math.abs(p.x)>1.06||Math.abs(p.y)>1.06;
+              button.classList.toggle('is-offscreen',offscreen);
+              button.style.left=`${(p.x*.5+.5)*width}px`;button.style.top=`${(-p.y*.5+.5)*height}px`;
+            });
+          }
+          let frame=0,settleFrames=0,disposed=false,sceneVisible=true;
+          function schedule(){if(!frame&&!disposed&&sceneVisible&&!document.hidden)frame=requestAnimationFrame(draw)}
+          function draw(){frame=0;controls.update();projectMarkers();renderer.render(scene,camera);if(settleFrames>0){settleFrames--;schedule()}}
+          controls.addEventListener('change',()=>{settleFrames=12;schedule()});
+          controls.addEventListener('start',()=>{settleFrames=20;schedule()});
+          const observer=new ResizeObserver(resizeMap);observer.observe(els.frame);
+          const visibility=new IntersectionObserver(entries=>{sceneVisible=entries[0].isIntersecting;if(sceneVisible)schedule()});visibility.observe(els.frame);
+          const onVisibility=()=>{if(!document.hidden)schedule()};document.addEventListener('visibilitychange',onVisibility);
+          function zoom(factor){camera.position.sub(controls.target).multiplyScalar(factor).clampLength(controls.minDistance,controls.maxDistance).add(controls.target);controls.update();schedule()}
+          $('#zoomIn').addEventListener('click',()=>zoom(.82));$('#zoomOut').addEventListener('click',()=>zoom(1.22));
+          $('#resetView').addEventListener('click',()=>{homeView();schedule()});
+          els.canvas.addEventListener('keydown',event=>{if(event.key==='+'||event.key==='='){event.preventDefault();zoom(.82)}else if(event.key==='-'){event.preventDefault();zoom(1.22)}else if(event.key==='Home'){event.preventDefault();homeView();schedule()}});
+          const onPageHide=event=>{if(event.persisted){cancelAnimationFrame(frame);frame=0}else cleanup()};
+          const onPageShow=event=>{if(event.persisted)schedule()};
+          cleanup=()=>{disposed=true;cancelAnimationFrame(frame);observer.disconnect();visibility.disconnect();document.removeEventListener('visibilitychange',onVisibility);window.removeEventListener('pagehide',onPageHide);window.removeEventListener('pageshow',onPageShow);controls.dispose();scene.traverse(object=>{object.geometry?.dispose();if(object.material)for(const mat of [].concat(object.material))mat.dispose()});renderer.dispose()};
+          els.canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();cleanup();mapScene=null;showFallback('三维画面暂不可用，已切换为平面地图。')},{once:true});
+          mapScene={rebuildRoute:rebuildRoute3D,projectMarkers,refresh:schedule};
+          resizeMap();homeView();rebuildRoute3D();schedule();
+          $('#mapStatus').hidden=true;els.frame.dataset.mode='three';
+          window.addEventListener('pagehide',onPageHide);
+          window.addEventListener('pageshow',onPageShow);
+        }catch(error){cleanup();showFallback('三维画面暂不可用，已切换为平面地图。')}
+      }
+
+      function showFallback(message){
+        const replacement=els.canvas.cloneNode(false);els.canvas.replaceWith(replacement);els.canvas=replacement;
+        const context=els.canvas.getContext('2d');
+        $('#mapStatus').textContent=message;$('#mapStatus').hidden=false;
+        $('#mapCredit').textContent='平面示意 · 点击地点继续规划';
+        els.frame.dataset.mode='fallback';
+        document.querySelectorAll('.map-controls button').forEach(button=>button.disabled=true);
+        drawFallback=()=>{
+          const width=els.frame.clientWidth,height=els.frame.clientHeight,dpr=Math.min(window.devicePixelRatio||1,2);
+          els.canvas.width=width*dpr;els.canvas.height=height*dpr;
+          if(!context)return;context.setTransform(dpr,0,0,dpr,0,0);context.fillStyle='#a6c8bd';context.fillRect(0,0,width,height);
+          const px=x=>(x+6.5)/13*width,py=z=>(z+4.5)/9*height;
+          const step=.1;
+          for(let x=-6.5;x<6.5;x+=step)for(let z=-4.5;z<4.5;z+=step){
+            const h=terrainHeight(x,z);if(h<=0)continue;
+            context.fillStyle=h<.18?'#e8d6ae':h>1?'#bbb08c':'#b7bc92';context.fillRect(px(x),py(z),width*step/13+1,height*step/9+1);
+          }
+          context.lineCap='round';context.lineJoin='round';context.lineWidth=3;context.strokeStyle='#ed6632';context.beginPath();
+          state.trip.forEach((id,index)=>{const p=mapPoint(placeById(id));index?context.lineTo(px(p.x),py(p.z)):context.moveTo(px(p.x),py(p.z))});context.stroke();
+          visiblePlaces().forEach(place=>{
+            const button=els.markers.querySelector(`[data-id="${place.id}"]`),p=mapPoint(place);
+            if(button){button.style.left=`${px(p.x)}px`;button.style.top=`${py(p.z)}px`;button.classList.remove('is-offscreen')}
+          });
+        };
+        new ResizeObserver(drawFallback).observe(els.frame);drawFallback();
+      }
 
       function showToast(message){els.toast.textContent=message;els.toast.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>els.toast.classList.remove('show'),2400)}
       function visiblePlaces(){return places.filter(place => state.filter==='all'||place.kind===state.filter)}
@@ -146,27 +406,26 @@
         const visibleIds=getFilteredIds();
         els.markers.replaceChildren();
         visiblePlaces().forEach((place,index)=>{
-          const button=document.createElement('button');button.type='button';button.className='map-marker';button.dataset.id=place.id;button.setAttribute('aria-label',`${place.name}，${place.label}`);button.setAttribute('aria-current',String(state.selected===place.id));Object.assign(button.style,markerPosition(place));
-          const dot=document.createElement('span');dot.className='marker-dot';const text=document.createElement('span');text.className='sr-only';text.textContent=place.name;button.append(dot,text);button.addEventListener('click',()=>focusPlace(place.id,true));els.markers.append(button);
+          const stopIndex=state.trip.indexOf(place.id);const button=document.createElement('button');button.type='button';button.className='map-marker'+(stopIndex>=0?' is-added':'');button.dataset.id=place.id;button.setAttribute('aria-label',`${place.name}，${place.label}${stopIndex>=0?`，路线第 ${stopIndex+1} 站`:''}`);button.setAttribute('aria-current',String(state.selected===place.id));Object.assign(button.style,markerPosition(place));
+          const dot=document.createElement('span');dot.className='marker-dot';const text=document.createElement('span');text.className='sr-only';text.textContent=place.name;const label=document.createElement('span');label.className='marker-name';label.textContent=place.name;const number=document.createElement('span');number.className='marker-number';number.textContent=stopIndex>=0?String(stopIndex+1):'';button.append(dot,text,label,number);button.addEventListener('click',()=>focusPlace(place.id,true));els.markers.append(button);
         });
         if(state.selected&&!visibleIds.has(state.selected)){state.selected=visiblePlaces()[0]?.id||null}
       }
       function renderPlaces(){
         const shown=visiblePlaces();els.list.replaceChildren();els.listEmpty.hidden=shown.length>0;els.mapEmpty.hidden=shown.length>0;els.visibleCount.textContent=`${shown.length} shown`;els.placeCount.textContent=`${shown.length} / ${places.length}`;
         shown.forEach((place,index)=>{
-          const card=document.createElement('article');card.className='place-card'+(state.selected===place.id?' is-selected':'')+(state.trip.includes(place.id)?' is-added':'');card.dataset.id=place.id;card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label',`${place.name}，${place.trip?'已加入':'加入行程'}`);
+          const card=document.createElement('article');card.className='place-card'+(state.selected===place.id?' is-selected':'')+(state.trip.includes(place.id)?' is-added':'');card.dataset.id=place.id;card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label',`${place.name}，${state.trip.includes(place.id)?'已加入':'加入行程'}`);
           const idx=document.createElement('span');idx.className='place-index';idx.textContent=String(index+1).padStart(2,'0');const body=document.createElement('span');body.innerHTML=`<span class="place-title">${place.name}</span><span class="place-meta">${place.label} · ${place.time} min walk</span>`;const action=document.createElement('button');action.type='button';action.className='place-action';action.setAttribute('aria-label',state.trip.includes(place.id)?`移除 ${place.name}`:`加入 ${place.name}`);action.textContent=state.trip.includes(place.id)?'✓':'+';action.addEventListener('click',event=>{event.stopPropagation();toggleTrip(place.id)});card.append(idx,body,action);card.addEventListener('click',()=>focusPlace(place.id));card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();focusPlace(place.id)}});els.list.append(card);
         });
       }
-      function mapPoint(place){return [place.x*9,place.y*5.7]}
       function renderRoute(){
+        rebuildRoute();
         const points=state.trip.map(id=>placeById(id)).filter(Boolean).map(mapPoint);
-        const d=points.length?`M ${points.map(point=>point.join(' ')).join(' L ')}`:'M 0 0';els.route.setAttribute('d',d);els.routeGlow.setAttribute('d',d);els.route.classList.toggle('route-empty',points.length<2);els.route.classList.toggle('route',points.length>=2);els.routeGlow.style.display=points.length>=2?'block':'none';
-        const distance=points.length<2?0:state.trip.slice(1).reduce((sum,id,index)=>{const a=mapPoint(placeById(state.trip[index])),b=mapPoint(placeById(id));return sum+Math.hypot(b[0]-a[0],b[1]-a[1])*.16},0);const moving=points.length<2?0:state.trip.slice(1).reduce((sum,id)=>sum+placeById(id).time*.68,0);
+        const distance=points.length<2?0:state.trip.slice(1).reduce((sum,id,index)=>{const a=mapPoint(placeById(state.trip[index])),b=mapPoint(placeById(id));return sum+Math.hypot(b.x-a.x,b.z-a.z)*.16},0);const moving=points.length<2?0:state.trip.slice(1).reduce((sum,id)=>sum+placeById(id).time*.68,0);
         els.distance.textContent=`${distance.toFixed(1)} km`;els.time.textContent=`${Math.round(moving)} min`;els.stops.textContent=String(state.trip.length);els.stopsLabel.textContent=`${state.trip.length?'READY':'EMPTY'} / ${state.trip.length}`;
       }
       function renderStops(){els.stopList.replaceChildren();els.stopsEmpty.hidden=state.trip.length>0;state.trip.forEach((id,index)=>{const place=placeById(id);if(!place)return;const row=document.createElement('div');row.className='stop';const number=document.createElement('span');number.className='stop-number';number.textContent=String(index+1).padStart(2,'0');const name=document.createElement('span');name.innerHTML=`<span class="stop-name">${place.name}</span><span class="stop-kind">${place.label}</span>`;const controls=document.createElement('span');controls.className='stop-controls';const up=document.createElement('button');up.type='button';up.textContent='↑';up.title='向上移动';up.disabled=index===0;up.addEventListener('click',()=>moveStop(index,-1));const down=document.createElement('button');down.type='button';down.textContent='↓';down.title='向下移动';down.disabled=index===state.trip.length-1;down.addEventListener('click',()=>moveStop(index,1));const remove=document.createElement('button');remove.type='button';remove.className='stop-remove';remove.textContent='×';remove.title='移除地点';remove.addEventListener('click',()=>toggleTrip(id));controls.append(up,down,remove);row.append(number,name,controls);els.stopList.append(row)})}
-      function render(){renderMarkers();renderPlaces();renderStops();renderRoute()}
+      function render(){renderMarkers();renderPlaces();renderStops();renderRoute();updateMarkerProjection();mapScene?.refresh()}
       function toggleTrip(id){const place=placeById(id);if(!place)return;const index=state.trip.indexOf(id);if(index>=0){state.trip.splice(index,1);showToast(`已从路线移除 ${place.name}`)}else{state.trip.push(id);state.selected=id;showToast(`已加入路线 · ${place.name}`)}persist();render()}
       function moveStop(index,direction){const next=index+direction;if(next<0||next>=state.trip.length)return;[state.trip[index],state.trip[next]]=[state.trip[next],state.trip[index]];persist();render();showToast('路线顺序已调整')}
       function persist(){try{localStorage.setItem('drift-demo-trip',JSON.stringify(state.trip))}catch(error){/* storage can be disabled; interaction still works */}}
@@ -177,7 +436,7 @@
       $('#clearTrip').addEventListener('click',()=>{if(!state.trip.length){showToast('路线已经是空的');return}state.trip=[];persist();render();showToast('已清空演示路线')});
       $('#saveTrip').addEventListener('click',()=>{persist();showToast(state.trip.length?`路线已保存 · ${state.trip.length} 个地点`:'已保存空路线，可稍后继续添加')});
       $('#resetStorage').addEventListener('click',()=>{try{localStorage.removeItem('drift-demo-trip')}catch(error){}state.trip=[];els.restoreError.classList.remove('show');render();showToast('已清除本地保存')});
-      restore();render();
+      restore();render();initMap();
     })();
   </script>
 </body>
