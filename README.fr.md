@@ -54,12 +54,12 @@ Ces capacités se déclenchent directement en langage naturel, sans mémoriser d
 
 ## Exemples de résultats (aperçu rapide, à titre de démonstration)
 
-Le Skill peut également transformer le résultat de la sélection en pages fonctionnelles suivant différentes directions visuelles. Le GIF de ce README conserve un aperçu rapide des sept directions visuelles originales ; la présentation en ligne comprend maintenant aussi trois pages orientées tâches : un tableau opérationnel, une carte d itinéraire et un configurateur 3D. Le projet reste centré sur la découverte des ressources, les critères de choix, les règles d intégration et la vérification. [Explorer la présentation complète en ligne](https://wzj1228516103.github.io/NoShitUi-skill/) · [Consulter le code des exemples](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorer le catalogue visuel des ressources](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+Le carrousel présente les 12 projets réalisés, en commençant par les quatre expériences 3D : OBJECT, rooted., DRIFT et ORBITAL. Il montre ensuite les interfaces opérationnelles, le tableau de commandes shadcn, le catalogue UI ATLAS et tous les autres concepts de marque et de mouvement. La page d’accueil suit le même ordre, avec un filtre 3D, des catégories et une recherche. Le projet reste centré sur la découverte, le choix, l’intégration et la vérification des ressources. [Explorer la présentation complète en ligne](https://wzj1228516103.github.io/NoShitUi-skill/) · [Consulter le code des exemples](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorer le catalogue visuel des ressources](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
-  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Aperçu de sept directions visuelles" width="920">
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Les 12 projets, avec les expériences 3D en premier" width="920">
 </p>
-<p align="center"><sub>FORME · OFFGRID · rooted. · ORBITAL · NOVA//25 · AETHER · KINETIC</sub></p>
+<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
 
 ## Méthode de travail
 

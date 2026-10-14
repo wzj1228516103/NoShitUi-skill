@@ -1,0 +1,14 @@
+[
+  {"id":"object","name":"OBJECT//","subtitle":"3D lamp configurator","href":"object.html","threeD":true},
+  {"id":"botanical","name":"rooted.","subtitle":"Sculpted plants & shopping bag","href":"botanical.html","threeD":true},
+  {"id":"drift","name":"DRIFT.","subtitle":"3D coastal map & route planner","href":"drift.html","threeD":true},
+  {"id":"mission","name":"ORBITAL/","subtitle":"Orbital visualization & mission control","href":"mission.html","threeD":true},
+  {"id":"precision","name":"PRECISION_","subtitle":"Operations workspace","href":"precision.html","threeD":false},
+  {"id":"shadcn","name":"SHADCN/OPS","subtitle":"Orders dashboard","href":"shadcn-demo/","threeD":false},
+  {"id":"atlas","name":"UI ATLAS","subtitle":"Open-source UI resource atlas","href":"resources.html","threeD":false},
+  {"id":"editorial","name":"FORME","subtitle":"Architecture journal","href":"editorial.html","threeD":false},
+  {"id":"studio","name":"OFFGRID","subtitle":"Design studio & portfolio","href":"studio.html","threeD":false},
+  {"id":"nova","name":"NOVA//25","subtitle":"Neon music festival","href":"nova.html","threeD":false},
+  {"id":"aether","name":"AETHER","subtitle":"Atmospheric visual experiment","href":"aether.html","threeD":false},
+  {"id":"kinetic","name":"KINETIC_","subtitle":"Interactive type playground","href":"kinetic.html","threeD":false}
+]
