@@ -47,9 +47,9 @@ jobs:
           mkdir _site
           rsync --archive --exclude='output/' ui-atlas-demo/ _site/
           mv _site/index.html _site/resources.html
-          sed -i 's/href="index.html"/href="resources.html"/g' _site/showcase.html
-          cp _site/showcase.html _site/index.html
+          find _site -type f -name '*.html' -exec sed -i 's/href="index.html"/href="resources.html"/g' {} +
           mkdir -p _site/shadcn-demo
+          rsync --archive shadcn-demo/dist/ _site/
           rsync --archive shadcn-demo/dist/ _site/shadcn-demo/
           touch _site/.nojekyll
 

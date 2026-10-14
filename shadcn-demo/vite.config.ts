@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "vite"
 
 export default defineConfig({
-  base: "/NoShitUi-skill/shadcn-demo/",
+  base: "./",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
