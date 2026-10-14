@@ -13,6 +13,8 @@
 [![Codex Skill](https://img.shields.io/badge/Codex-Skill-2563EB.svg)](SKILL.md)
 [![Catalog](https://img.shields.io/badge/catalog-open--source%20UI-0ea5e9.svg)](open-source-ui-resources/references/ui-libraries.md)
 
+![NoShitUi-skill 项目介绍：无屎山 UI 理论、四阶段工作流、五大能力与生态资源](docs/images/noshitui-workflow-infographic.png)
+
 ## 项目简介
 
 NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对大量组件库、模板、灵感网站和代码片段，却没有清晰的选择依据，最后把多个设计系统拼在一起，留下视觉不一致、交互不完整、许可证不清楚的界面。
