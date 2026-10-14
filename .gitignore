@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 node_modules/
+shadcn-demo/dist/
 
 # Local-only showcase source and deployment workflow
 ui-atlas-demo/

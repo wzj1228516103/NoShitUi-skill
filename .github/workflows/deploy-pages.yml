@@ -5,6 +5,7 @@ on:
     branches: [showcase-source]
     paths:
       - ui-atlas-demo/**
+      - shadcn-demo/**
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 
@@ -28,6 +29,19 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: shadcn-demo/package-lock.json
+
+      - name: Build shadcn/ui example
+        run: npm ci --prefix shadcn-demo
+
+      - name: Compile shadcn/ui example
+        run: npm run build --prefix shadcn-demo
+
       - name: Prepare static website
         run: |
           mkdir _site
@@ -35,6 +49,8 @@ jobs:
           mv _site/index.html _site/resources.html
           sed -i 's/href="index.html"/href="resources.html"/g' _site/showcase.html
           cp _site/showcase.html _site/index.html
+          mkdir -p _site/shadcn-demo
+          rsync --archive shadcn-demo/dist/ _site/shadcn-demo/
           touch _site/.nojekyll
 
       - name: Upload website
