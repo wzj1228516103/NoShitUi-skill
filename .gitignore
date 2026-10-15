@@ -5,7 +5,6 @@ __pycache__/
 node_modules/
 shadcn-demo/dist/
 
-# Local-only showcase source and deployment workflow
-ui-atlas-demo/
-.github/workflows/deploy-pages.yml
+# Generated showcase artifacts (source is tracked on showcase-source).
+ui-atlas-demo/output/
 

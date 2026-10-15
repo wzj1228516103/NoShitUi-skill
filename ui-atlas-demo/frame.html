@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="description" content="An independent little poster studio. Edit original templates, move type, and export your design — all in your browser.">
+  <title>FRAME — A little room for big ideas</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237b50e7'/%3E%3Cpath d='M9 23V9h14M9 16h10' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="frame.css">
+  <script src="frame.js" defer></script>
+</head>
+<body data-mobile-panel="templates">
+  <a class="skip-link" href="#artboard">Skip to canvas</a>
+  <header class="topbar">
+    <a class="brand" href="showcase.html" aria-label="FRAME — back to showcase"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>FRAME<span class="brand-dot">®</span></a>
+    <span class="top-divider" aria-hidden="true"></span>
+    <div class="document-info"><h1 id="documentTitle">Off the grid</h1><span id="saveState"><i></i> Unsaved draft</span></div>
+    <div class="top-actions">
+      <div class="history-actions"><button type="button" class="icon-button" id="undoButton" aria-label="Undo" title="Undo (Ctrl/⌘ Z)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6-5 5 5 5M4 11h9a6 6 0 0 1 6 6"/></svg></button><button type="button" class="icon-button" id="redoButton" aria-label="Redo" title="Redo (Ctrl/⌘ Shift Z)" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6 5 5-5 5m5-5h-9a6 6 0 0 0-6 6"/></svg></button></div>
+      <button type="button" class="button save-button" id="saveButton"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12l3 3v13H4V4zM8 4v6h8V4M8 20v-7h8v7"/></svg><span>Save draft</span></button>
+      <button type="button" class="button primary" id="exportPNG"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 15v5h16v-5"/></svg><span>Export PNG</span></button>
+    </div>
+  </header>
+
+  <main class="workspace" aria-label="Poster editor">
+    <aside class="library" aria-label="Templates and layers">
+      <section class="template-section mobile-panel" id="templatesPanel">
+        <div class="section-heading"><h2>THE STARTING POINT</h2><span>01 / 03</span></div>
+        <p class="panel-intro">Good things start<br>with a blank-ish canvas.</p>
+        <div class="template-list" id="templateList" aria-label="Original poster templates"></div>
+        <p class="template-note"><span aria-hidden="true">✳</span> Original templates. Yours to make.</p>
+      </section>
+      <section class="layers-section mobile-panel" id="layersPanel">
+        <div class="section-heading"><h2>LAYERS</h2><span id="layerCount">06</span></div>
+        <div class="layer-list" id="layerList" aria-label="Poster layers"></div>
+        <button type="button" class="add-layer" id="addText"><span aria-hidden="true">＋</span> Add a text layer</button>
+      </section>
+      <div class="library-footer"><span class="local-dot"></span> Your ideas stay on this device.<a href="showcase.html">All experiments ↗</a></div>
+    </aside>
+
+    <section class="stage" aria-label="Design canvas">
+      <div class="stage-toolbar"><span><span class="tiny-frame" aria-hidden="true"></span> POSTER <span class="muted-light">/</span> <span id="canvasName">01</span></span><span class="canvas-dimensions">600 × 780 PX <span class="muted-light">·</span> PORTRAIT</span><button type="button" id="resetButton" class="stage-reset" title="Restore the selected template; can be undone">Reset template <span aria-hidden="true">↺</span></button></div>
+      <div class="canvas-area" id="canvasArea">
+        <div class="artboard-surround"><span class="artboard-tag">FRAME — 001</span><svg id="artboard" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 780" width="600" height="780" tabindex="0" role="img" aria-label="Editable poster. Select a layer, then drag it or use arrow keys to move. Shift and arrow moves 10 pixels."></svg><span class="artboard-corner" aria-hidden="true">＋</span></div>
+      </div>
+      <div class="stage-footer"><span class="canvas-instruction"><span aria-hidden="true">↖</span> Select & drag to find your composition</span><span class="keyboard-hint"><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> to nudge <span>·</span> <kbd>⇧</kbd> for 10 px</span><span id="zoomLabel">FIT</span></div>
+      <nav class="mobile-tools" aria-label="Editor panels"><button type="button" data-panel="templates" aria-pressed="true">Templates</button><button type="button" data-panel="layers" aria-pressed="false">Layers</button><button type="button" data-panel="edit" aria-pressed="false">Edit selection</button></nav>
+    </section>
+
+    <aside class="inspector mobile-panel" id="editPanel" aria-label="Selected layer properties">
+      <div class="inspector-heading"><span class="selection-type" id="selectionType">T</span><div><h2 id="selectionName">Main title</h2><p id="selectionDescription">Make a little noise.</p></div><span class="selection-live" aria-hidden="true"></span></div>
+      <div id="emptySelection" class="empty-selection" hidden><span aria-hidden="true">↖</span><h3>A little direction?</h3><p>Select a layer on the poster or in the layer list to make it your own.</p></div>
+      <form id="propertyForm" autocomplete="off">
+        <section class="inspector-section" id="textControls"><div class="section-heading"><h3>CONTENT</h3><span>TEXT</span></div><label for="textInput" class="sr-only">Text content</label><textarea id="textInput" maxlength="180" rows="3" spellcheck="false"></textarea><p class="field-help">A new line makes a new possibility.</p></section>
+        <section class="inspector-section" id="typeControls"><div class="section-heading"><h3>TYPOGRAPHY</h3><span>Aa</span></div><label class="field-label" for="fontInput">Typeface</label><select id="fontInput"><option value="sans">Grotesk / Sans serif</option><option value="serif">Editorial / Serif</option><option value="mono">Typewriter / Mono</option></select><div class="field-grid"><div><label class="field-label" for="sizeInput" id="sizeLabel">Size</label><div class="unit-input"><input id="sizeInput" type="number" min="8" max="260" step="1" value="130"><span>px</span></div></div><div id="weightField"><label class="field-label" for="weightInput">Weight</label><select id="weightInput"><option value="400">Regular</option><option value="600">Medium</option><option value="700">Bold</option><option value="900">Black</option></select></div></div></section>
+        <section class="inspector-section"><div class="section-heading"><h3>TRANSFORM</h3><span>↗</span></div><div class="field-grid"><div><label class="field-label" for="xInput">Position X</label><div class="unit-input"><input id="xInput" type="number" min="-600" max="1200" step="1"><span>px</span></div></div><div><label class="field-label" for="yInput">Position Y</label><div class="unit-input"><input id="yInput" type="number" min="-780" max="1560" step="1"><span>px</span></div></div></div><div class="rotation-field"><label class="field-label" for="rotationInput">Rotation</label><div class="unit-input"><input id="rotationInput" type="number" min="-180" max="180" step="1"><span>°</span></div></div></section>
+        <section class="inspector-section color-section"><div class="section-heading"><h3>FILL COLOR</h3><span>100%</span></div><label class="color-picker" for="colorInput"><input type="color" id="colorInput" value="#191919"><span id="colorLabel">#191919</span><span class="color-picker-end" aria-hidden="true">⌄</span></label></section>
+        <div class="inspector-bottom"><button type="button" class="delete-layer" id="deleteLayer">Delete layer</button><span>⌫</span></div>
+      </form>
+      <section class="export-section"><span class="export-star" aria-hidden="true">✳</span><h3>Made something good?</h3><p>Take it out into the world.</p><button type="button" class="button svg-button" id="exportSVG">Download editable SVG <span aria-hidden="true">↗</span></button><span class="export-note">PNG @ 2× · SVG stays sharp at any size</span></section>
+    </aside>
+  </main>
+  <div class="status-toast" id="toast" role="status" aria-live="polite" aria-atomic="true"><span id="toastIcon" aria-hidden="true">✓</span><span id="toastText"></span><button type="button" id="dismissToast" aria-label="Dismiss notification">×</button></div>
+  <p class="sr-only" id="liveStatus" role="status" aria-live="polite"></p>
+  <noscript><div class="noscript">FRAME needs JavaScript to edit and export posters. Please enable it and refresh.</div></noscript>
+</body>
+</html>

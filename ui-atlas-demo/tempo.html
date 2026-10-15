@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#d9d7cf">
+  <meta name="description" content="TEMPO, an intimate listening room. Three original instrumental sessions in a tactile, fully working music player.">
+  <title>TEMPO — A little less noise.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e96a32'/%3E%3Cpath d='M8 10h16M16 10v14' stroke='%232a2b26' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="tempo.css">
+  <script src="assets/tempo/waveforms.js" defer></script>
+  <script src="tempo.js" defer></script>
+</head>
+<body>
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke-width="4"/></symbol>
+    <symbol id="i-next" viewBox="0 0 24 24"><path d="m5 6 9 6-9 6z" fill="currentColor" stroke="none"/><path d="M18 5v14" stroke-width="2.5"/></symbol>
+    <symbol id="i-prev" viewBox="0 0 24 24"><path d="m19 6-9 6 9 6z" fill="currentColor" stroke="none"/><path d="M6 5v14" stroke-width="2.5"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.9a5.5 5.5 0 0 0-7.8 0L12 6l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.3a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 4 5 9H2v6h3l6 5zM15 8a6 6 0 0 1 0 8M18 4a11 11 0 0 1 0 16"/></symbol>
+    <symbol id="i-muted" viewBox="0 0 24 24"><path d="M11 4 5 9H2v6h3l6 5zM16 9l6 6m0-6-6 6"/></symbol>
+    <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4m14-1v2a3 3 0 0 1-3 3H3"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="m17 3 4 4-4 4M3 17l5-5m5-5h8M3 7h4l10 10h4m-4-4 4 4-4 4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  </defs></svg>
+
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="#player" aria-label="TEMPO listening room">tempo<span class="brand-period">.</span><span class="registered">®</span></a>
+      <nav aria-label="Listening room navigation"><a class="nav-current" href="#player">Listening room</a><a href="#queue">The collection <span>03</span></a></nav>
+      <div class="header-end"><span class="signal"><i></i> ALL GOOD FREQUENCIES</span><button class="help-button" id="helpButton" aria-label="Keyboard shortcuts">?</button></div>
+    </header>
+
+    <main id="player">
+      <div class="room-heading"><span>INDEPENDENT SOUND. UNDIVIDED ATTENTION.</span><span class="room-edition">LISTENING ROOM — VOL. 001</span></div>
+      <section class="listening-deck" aria-labelledby="trackTitle">
+        <div class="record-side">
+          <div class="sleeve-wrap">
+            <div class="sleeve-shadow" aria-hidden="true"></div>
+            <img class="album-cover" id="albumCover" src="assets/tempo/sunroom.svg" width="800" height="800" alt="Sunroom album cover: orange sun and geometric shapes on warm ivory">
+            <span class="sleeve-sticker" aria-hidden="true">ORIGINAL<br>PRESSING<br><b>001—A</b></span>
+          </div>
+          <div class="record-caption"><span id="catalogNumber">TP—001 / SIDE A</span><span>COMPOSED FOR THIS ROOM</span><span class="record-dot" aria-hidden="true"></span></div>
+          <div class="deck-bottom"><span class="deck-wordmark">HIGH FIDELITY<br><b>LOW DISTRACTION.</b></span><div class="meter" aria-label="Audio playback indicator"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="deck-serial">TM—01<br>STEREO</span></div>
+        </div>
+
+        <div class="control-side">
+          <div class="now-label"><span class="led" id="statusLed"></span><span id="playbackStatus" role="status" aria-live="polite">LOADING SESSION</span><span class="track-counter" id="trackCounter">01 / 03</span></div>
+          <div class="track-heading"><div><p class="session-label" id="trackGenre">DOWNTEMPO / 100 BPM</p><h1 id="trackTitle">Sunroom</h1><p class="artist" id="trackArtist">The Tempo Ensemble <span>—</span> Morning Studies, Vol. 1</p></div><button class="favorite-button icon-button" id="favoriteButton" aria-label="Save Sunroom to favorites" aria-pressed="false"><svg><use href="#i-heart"/></svg></button></div>
+          <p class="track-description" id="trackDescription">Windows open. Coffee cooling. A warm little groove for the space between things.</p>
+          <div class="format-line"><span class="format-pill">ORIGINAL SESSION</span><span>WAV · STEREO · 22.05 kHz</span></div>
+
+          <div class="waveform-block">
+            <div class="waveform" id="waveform"><canvas id="waveformCanvas" aria-hidden="true"></canvas><label class="sr-only" for="seek">Playback position</label><input id="seek" type="range" min="0" max="28.8" value="0" step="0.05" aria-valuetext="0 seconds of 29 seconds" disabled><span class="seek-head" id="seekHead" aria-hidden="true"></span></div>
+            <div class="time-row"><span class="elapsed" id="elapsed">00:00</span><span class="waveform-note">A SHORT ORIGINAL. A LONG EXHALE.</span><span id="duration">00:29</span></div>
+          </div>
+
+          <div class="transport" role="group" aria-label="Playback controls">
+            <button class="icon-button mode-button" id="shuffleButton" aria-label="Enable shuffle" aria-pressed="false"><svg><use href="#i-shuffle"/></svg></button>
+            <button class="icon-button skip-button" id="previousButton" aria-label="Previous track"><svg><use href="#i-prev"/></svg></button>
+            <button class="play-button" id="playButton" aria-label="Play Sunroom"><svg><use href="#i-play"/></svg></button>
+            <button class="icon-button skip-button" id="nextButton" aria-label="Next track"><svg><use href="#i-next"/></svg></button>
+            <button class="icon-button mode-button" id="repeatButton" aria-label="Enable repeat track" aria-pressed="false"><svg><use href="#i-repeat"/></svg></button>
+          </div>
+
+          <div class="playback-error" id="playbackError" hidden><p id="errorText">This track could not load.</p><button id="retryButton">Retry audio ↗</button></div>
+
+          <section class="queue" id="queue" aria-labelledby="queueHeading">
+            <div class="queue-header"><h2 id="queueHeading">On the turntable</h2><div class="queue-tabs" role="group" aria-label="Choose playback queue"><button id="sessionTab" aria-pressed="true">The session <span>03</span></button><button id="savedTab" aria-pressed="false">Saved <span id="savedCount">00</span></button></div></div>
+            <ol class="track-list" id="trackList" aria-label="Session tracks"></ol>
+            <div class="queue-empty" id="queueEmpty" hidden><svg><use href="#i-heart"/></svg><p>A little room for your favorites.</p><span>Tap the heart on a track to keep it here.</span><button id="showSession">Explore the session ↗</button></div>
+          </section>
+        </div>
+      </section>
+
+      <div class="equipment-bar"><div class="output-label"><span class="output-dot"></span><span>YOUR SPACE. YOUR SOUND.</span><span class="stereo-label">L <i></i> R</span></div><div class="volume-control"><button class="icon-button" id="muteButton" aria-label="Mute audio" aria-pressed="false"><svg><use href="#i-volume"/></svg></button><label class="sr-only" for="volume">Volume</label><input id="volume" type="range" min="0" max="100" value="65" step="1"><span id="volumeValue">65</span></div><button class="shortcut-hint" id="shortcutButton"><kbd>space</kbd> to pause the world</button></div>
+    </main>
+
+    <footer class="site-footer"><div><span class="footer-mark">t.</span><span>A LITTLE LESS NOISE.<br><b>A LITTLE MORE FEELING.</b></span></div><p>Three original instrumental sketches.<br>Made here. Played here. Nothing to sign up for.</p><a href="showcase.html">Back to the collection <svg><use href="#i-arrow"/></svg></a></footer>
+  </div>
+
+  <audio id="audio" preload="metadata"></audio>
+  <dialog id="shortcutsDialog" aria-labelledby="shortcutsTitle"><button class="dialog-close icon-button" id="closeShortcuts" aria-label="Close keyboard shortcuts"><svg><use href="#i-close"/></svg></button><span class="session-label">A FEW LITTLE SHORTCUTS</span><h2 id="shortcutsTitle">Keep your hands<br>on the feeling.</h2><dl><div><dt>Play / pause</dt><dd><kbd>Space</kbd> or <kbd>K</kbd></dd></div><div><dt>Back / forward 5 seconds</dt><dd><kbd>J</kbd> / <kbd>L</kbd></dd></div><div><dt>Mute / unmute</dt><dd><kbd>M</kbd></dd></div><div><dt>Save current track</dt><dd><kbd>F</kbd></dd></div></dl><p>Tab to any control. Use arrow keys on the timeline and volume.</p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -56,12 +56,12 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 ## 产出示例（快速浏览，仅作展示）
 
-轮播图完整展示全部 12 个已实现项目，并将 OBJECT 灯具配置器、rooted. 立体植物商店、DRIFT 三维地图和 ORBITAL 轨道控制台放在最前面。随后展示运营工作台、shadcn 订单后台、UI ATLAS 资源图谱，以及其余品牌和动态页面。首页采用相同顺序，支持 3D 筛选、分类浏览和关键词搜索。项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html) · [shadcn 运营后台](https://wzj1228516103.github.io/NoShitUi-skill/shadcn-demo/)
+轮播图完整展示全部 20 个已实现项目，并将 OBJECT 灯具配置器、rooted. 立体植物商店、DRIFT 三维地图和 ORBITAL 轨道控制台放在最前面。随后展示 TEMPO 音乐播放器、FRAME 海报编辑器、STAY 酒店预约、NODE 流程编辑器、LOOP 学习应用、SOURCE 文档站、ARCHIVE 数字展览、PLATE 餐厅点单、运营工作台、shadcn 订单后台、UI ATLAS 资源图谱，以及其余品牌和动态页面。首页采用相同顺序，支持 3D 筛选、分类浏览和关键词搜索。项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html) · [shadcn 运营后台](https://wzj1228516103.github.io/NoShitUi-skill/shadcn-demo/)
 
 <p align="center">
-  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全部 12 个展示项目轮播，3D 项目优先" width="920">
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全部 20 个展示项目轮播，3D 项目优先" width="920">
 </p>
-<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
+<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · TEMPO · FRAME · STAY · NODE · LOOP · SOURCE · ARCHIVE · PLATE · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
 
 ## 工作流
 
