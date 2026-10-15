@@ -54,12 +54,12 @@ NoShitUi-skill は、UI 制作で手戻りが生じやすい問題に取り組�
 
 ## 出力例（手軽なプレビュー、展示用）
 
-カルーセルは実装済みの全12プロジェクトを紹介します。3D体験の OBJECT、rooted.、DRIFT、ORBITAL を先頭に置き、運用画面、shadcn の注文ダッシュボード、UI ATLAS のリソース図譜、残りのブランド・動的ページを続けています。ホームページも同じ順序で、3D絞り込み、カテゴリ、キーワード検索に対応します。リソース発見、選定理由、統合と検証がプロジェクトの中心です。 [展示をオンラインで体験](https://wzj1228516103.github.io/NoShitUi-skill/) · [展示のソースコード](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [オンラインのリソースマップ](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+カルーセルは実装済みの全20プロジェクトを紹介します。3D体験の OBJECT、rooted.、DRIFT、ORBITAL を先頭に置き、運用画面、shadcn の注文ダッシュボード、UI ATLAS のリソース図譜、残りのブランド・動的ページを続けています。ホームページも同じ順序で、3D絞り込み、カテゴリ、キーワード検索に対応します。リソース発見、選定理由、統合と検証がプロジェクトの中心です。 [展示をオンラインで体験](https://wzj1228516103.github.io/NoShitUi-skill/) · [展示のソースコード](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [オンラインのリソースマップ](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
-  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全12プロジェクトのプレビュー、3D体験を先頭に" width="920">
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全20プロジェクトのプレビュー、3D体験を先頭に" width="920">
 </p>
-<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
+<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · TEMPO · FRAME · STAY · NODE · LOOP · SOURCE · ARCHIVE · PLATE · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
 
 ## ワークフロー
 

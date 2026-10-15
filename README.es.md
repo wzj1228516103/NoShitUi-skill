@@ -54,12 +54,12 @@ Puedes activar estas capacidades con lenguaje natural, sin memorizar comandos co
 
 ## Ejemplos de resultados (vista rápida, solo como demostración)
 
-El carrusel muestra los 12 proyectos implementados, empezando por las cuatro experiencias 3D: OBJECT, rooted., DRIFT y ORBITAL. Después aparecen las interfaces operativas, el panel de pedidos shadcn, el atlas de recursos UI ATLAS y todos los demás conceptos de marca y movimiento. La página de inicio mantiene el mismo orden y ofrece filtro 3D, categorías y búsqueda. El proyecto sigue centrado en descubrir, seleccionar, integrar y verificar recursos. [Explorar la demostración completa](https://wzj1228516103.github.io/NoShitUi-skill/) · [Ver el código de la demostración](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorar el mapa de recursos](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
+El carrusel muestra los 20 proyectos implementados, empezando por las cuatro experiencias 3D: OBJECT, rooted., DRIFT y ORBITAL. Después aparecen las interfaces operativas, el panel de pedidos shadcn, el atlas de recursos UI ATLAS y todos los demás conceptos de marca y movimiento. La página de inicio mantiene el mismo orden y ofrece filtro 3D, categorías y búsqueda. El proyecto sigue centrado en descubrir, seleccionar, integrar y verificar recursos. [Explorar la demostración completa](https://wzj1228516103.github.io/NoShitUi-skill/) · [Ver el código de la demostración](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorar el mapa de recursos](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
-  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Los 12 proyectos, con las experiencias 3D primero" width="920">
+  <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Los 20 proyectos, con las experiencias 3D primero" width="920">
 </p>
-<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
+<p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · TEMPO · FRAME · STAY · NODE · LOOP · SOURCE · ARCHIVE · PLATE · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
 
 ## Flujo de trabajo
 

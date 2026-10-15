@@ -4,6 +4,7 @@ The screenshot order in showcase-slides.json also defines the homepage order.
 Run after refreshing the matching <id>-desktop.png screenshots.
 """
 import json
+import math
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
@@ -12,7 +13,7 @@ SOURCE = ROOT / "docs/screenshots/concepts"
 PREVIEWS = ROOT / "ui-atlas-demo/assets/previews"
 PREVIEWS.mkdir(parents=True, exist_ok=True)
 projects = json.loads((SOURCE / "showcase-slides.json").read_text(encoding="utf-8"))
-assert len(projects) == 12 and len({p["href"] for p in projects}) == 12
+assert projects and len({p["href"] for p in projects}) == len(projects)
 assert all(p["threeD"] for p in projects[:4]) and not any(p["threeD"] for p in projects[4:])
 
 def font(size, *candidates):
@@ -31,7 +32,7 @@ mono_font = font(13, "C:/Windows/Fonts/consola.ttf",
                  "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
                  "/System/Library/Fonts/Menlo.ttc")
 frames = []
-contact = Image.new("RGB", (960, 4 * 244), "#0c130f")
+contact = Image.new("RGB", (960, math.ceil(len(projects) / 3) * 244), "#0c130f")
 for index, project in enumerate(projects):
     image = Image.open(SOURCE / f'{project["id"]}-desktop.png').convert("RGB")
     assert image.size == (1360, 900), (project["id"], image.size)
@@ -45,11 +46,11 @@ for index, project in enumerate(projects):
     if project["threeD"]:
         draw.rounded_rectangle((791, 16, 906, 45), radius=5, fill="#c8ff4d")
         draw.text((801, 23), "3D EXPERIENCE", font=mono_font, fill="#17300e")
-    draw.text((931, 23), f"{index+1:02d}/12", font=mono_font, fill="#eff6e9")
+    draw.text((931, 23), f"{index+1:02d}/{len(projects)}", font=mono_font, fill="#eff6e9")
     frame.paste(image.resize((1000, 662), Image.Resampling.LANCZOS), (0, 66))
     draw.text((22, 731), "NO SHIT UI / COMPLETE PROJECT COLLECTION", font=mono_font, fill="#95a49a")
     for dot in range(len(projects)):
-        x = 782 + dot * 17
+        x = 978 - len(projects) * 17 + dot * 17
         draw.rounded_rectangle((x, 737, x + 10, 741), radius=2, fill="#c8ff4d" if dot == index else "#405146")
     frames.append(frame.quantize(colors=256, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE))
     x, y = (index % 3) * 320, (index // 3) * 244
