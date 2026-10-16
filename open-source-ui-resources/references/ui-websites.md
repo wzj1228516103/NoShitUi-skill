@@ -33,9 +33,26 @@ These resources can provide code, examples, or copy/paste components. They are n
 | daisyUI | Tailwind component classes | Quick semantic styling and themes | MIT project; still review dependencies and included assets | https://daisyui.com/ |
 | Magic UI | React/Tailwind animated components | Motion-heavy landing pages and product moments | Check repository/package terms and third-party assets | https://magicui.design/ |
 | Aceternity UI | React/Tailwind visual components | Distinctive hero sections and effects | Verify the current component/repository license | https://ui.aceternity.com/ |
+| Motion | JavaScript animation engine with React APIs | Layout transitions, springs, gestures, and restrained effects for a custom visual direction | MIT core; Motion+ paid resources have separate terms | [Documentation](https://motion.dev/docs) · [Repository](https://github.com/motiondivision/motion) · [License](https://github.com/motiondivision/motion/blob/main/LICENSE.md) |
+| Reka UI | Unstyled Vue primitives | Custom Vue interfaces with accessible dialogs, menus, and other interaction foundations | MIT; styling and product behavior remain the integrator's responsibility | [Documentation](https://reka-ui.com/) · [Repository](https://github.com/unovue/reka-ui) |
+| Bits UI | Headless Svelte components | Svelte interfaces with a custom design language and reusable interaction primitives | MIT; verify the target Svelte version and each component's integration requirements | [Documentation](https://bits-ui.com/) · [Repository](https://github.com/huntabyte/bits-ui) |
+| assistant-ui | React components and runtime integrations for AI chat | Streaming conversations, tool interactions, and chat-specific states | MIT repository; hosted services and external model providers have separate terms | [Documentation](https://www.assistant-ui.com/docs) · [Repository](https://github.com/assistant-ui/assistant-ui) |
+| xyflow / React Flow / Svelte Flow | React and Svelte node-and-edge editors | Workflow builders, node orchestration, and interactive graph canvases | MIT libraries; paid Pro examples and services have separate terms | [React documentation](https://reactflow.dev/) · [Svelte documentation](https://svelteflow.dev/) · [Repository](https://github.com/xyflow/xyflow) |
+| TanStack Table | Headless table engine with framework adapters | Custom data tables with sorting, filtering, grouping, and controlled state | MIT; provide the visual layer and check the selected adapter/version | [Documentation](https://tanstack.com/table/latest/docs/overview) · [Repository](https://github.com/TanStack/table) |
 | Figma Community | Figma files, UI kits, and design systems | Starting points for visual systems and prototypes | Each file has its own author and license terms | https://www.figma.com/community |
 
 Do not describe a site as fully open source when it mixes open-source core, paid templates, hosted examples, or per-author assets. Record the exact source URL and license next to copied components.
+
+## Source-available visual effects / restricted redistribution
+
+The following projects are visual-effect candidates with **MIT + Commons Clause** terms, not standard MIT-licensed open-source recommendations. Check the actual `LICENSE.md` at the revision being adopted: a README badge or summary does not override that license.
+
+| Resource | Useful for | License boundary | Official sources |
+| --- | --- | --- | --- |
+| React Bits | React backgrounds, text effects, and visual interactions for expressive hero sections | MIT + Commons Clause. The terms allow use within applications, websites, and products, but prohibit selling, sublicensing, or redistributing the components themselves, including bundled or ported versions. Check the selected component's dependencies and license before adoption. | [Documentation](https://reactbits.dev/) · [Repository](https://github.com/DavidHDev/react-bits) · [License](https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md) |
+| Animate UI | Animated React components and interaction examples | MIT + Commons Clause. The terms allow use within applications, websites, and products, but prohibit selling or redistributing the components as-is, individually or in a bundle. Check the selected component's dependencies and license before adoption. | [Documentation](https://animate-ui.com/) · [Repository](https://github.com/imskyleen/animate-ui) · [License](https://github.com/imskyleen/animate-ui/blob/main/LICENSE.md) |
+
+Keep these entries as links and selection guidance. Do not bundle their component source into this Skill. For a project using them, record the applicable revision and terms, and distinguish integration into the product from redistribution of the component source itself.
 
 ## Component and pattern catalogs
 
@@ -61,6 +78,12 @@ Do not describe a site as fully open source when it mixes open-source core, paid
 | "Show me how onboarding or checkout usually works" | Page Flows, Mobbin, Screenlane | A flow outline with states and edge cases |
 | "Give me reusable open-source buttons/cards" | UIverse, HyperUI, daisyUI | License-checked component shortlist and integration code |
 | "Build a polished React page quickly" | shadcn/ui, Magic UI, Aceternity UI | One coherent component stack and working screen |
+| "Add custom motion or spatial effects to an interface" | Motion core; React Bits or Animate UI only under their restricted terms above | A small effect integrated into the existing visual system, with mobile performance and reduced-motion checks |
+| "Build a custom Vue interface" | Reka UI | Styled Vue primitives with verified keyboard, focus, and interaction states |
+| "Build a custom Svelte interface" | Bits UI; xyflow / Svelte Flow for a node canvas | A Svelte-native component strategy and a representative working flow |
+| "Build an AI chat interface" | assistant-ui | A working conversation flow with streaming, tool, loading, error, and empty states |
+| "Build a node-based workflow editor" | xyflow / React Flow or Svelte Flow | An editable node-and-edge canvas with connection rules, state, and a verified representative workflow |
+| "Build a custom data table" | TanStack Table | A styled table with the required sorting, filtering, selection, and pagination behavior; choose virtualization separately if needed |
 | "Compare component behavior across frameworks" | Component Gallery, Component Party | Framework-aware recommendation |
 | "Make the UI accessible" | React Aria, Radix UI, Headless UI | Behavior primitives plus an accessibility verification plan |
 

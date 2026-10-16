@@ -2,6 +2,8 @@
 
 This is a practical shortlist, not an exhaustive registry. Names and license labels are based on the projects' public repositories and documentation; confirm the current license, package version, peer dependencies, and maintenance status before adoption. A library's dependencies can have separate licenses.
 
+See the [library verification record](library-verification.md) for dated version, license, dependency, and maintenance evidence for the latest additions.
+
 ## Quick selection map
 
 | Need | Good starting points | Why |
@@ -11,10 +13,15 @@ This is a practical shortlist, not an exhaustive registry. Names and license lab
 | React primitives with strong interaction/accessibility foundations | Radix UI, React Aria, Headless UI | Behavior and semantics without committing to a visual theme |
 | React design-system compliance | Fluent UI, React Spectrum | Enterprise patterns, tokens, accessibility and platform guidance |
 | Vue 3 enterprise/admin product | Element Plus, Naive UI, Arco Design Vue, PrimeVue | Broad business components and mature Vue integration |
+| Vue 3 with a custom visual system | Reka UI | Unstyled interaction primitives without adopting an enterprise theme |
 | Vue 3 Material-style product | Vuetify | Integrated Material Design system and theming |
 | Vue app with a full framework/toolkit | Quasar | UI components plus app tooling and multi-platform targets |
-| Svelte app | Skeleton, Melt UI, shadcn-svelte | Svelte-native theming, primitives, or source-owned components |
+| Svelte app | Skeleton, Bits UI, Melt UI, shadcn-svelte | Svelte-native theming, unstyled components, builders, or source-owned components |
 | CSS-first or framework-agnostic markup | Bootstrap, Bulma, Pico CSS, Tailwind CSS + daisyUI | Useful when the team owns composition and markup |
+| Custom motion and interaction | Motion | Animation, gestures, layout transitions, and scroll effects alongside the primary UI system |
+| React AI chat or assistant interface | assistant-ui | Chat primitives and runtime integration for streaming responses, threads, and tools |
+| React or Svelte node-based editor | React Flow / Svelte Flow | Interactive nodes, edges, connections, and viewport controls |
+| Custom data-table UI | TanStack Table | Headless table state and row models while the app controls markup and styling |
 | Icons | Lucide, Heroicons, Tabler Icons, Phosphor | Keep icons consistent and avoid hand-drawn SVGs |
 | Data visualization | Apache ECharts, Recharts, Nivo | Choose based on chart breadth, React integration, and output control |
 
@@ -58,12 +65,14 @@ This is a practical shortlist, not an exhaustive registry. Names and license lab
 | Quasar | Vue framework and component system | SPA/SSR/PWA/mobile/desktop targets and rich components | Adopts a wider framework model than a component-only library | MIT | https://github.com/quasarframework/quasar |
 | PrimeVue | Styled Vue 3 system | Broad enterprise controls, tables, themes, and accessibility work | Large API surface and theme choices need governance | MIT | https://github.com/primefaces/primevue |
 | Arco Design Vue | Styled Vue 3 system | Enterprise admin patterns and polished data components | Design language is intentionally Arco-specific | MIT | https://github.com/arco-design/arco-design-vue |
+| Reka UI | Unstyled Vue 3 component primitives | Dialogs, menus, popovers, and other interaction foundations for a custom design system | You own styling and composition; check the Vue peer version and verify focus, portals, and SSR behavior in the target app | MIT | [Repository](https://github.com/unovue/reka-ui) · [Documentation](https://reka-ui.com/docs/overview/introduction) |
 
 ## Svelte and framework-agnostic options
 
 | Library | Model | Strengths | Tradeoffs | License | Official source |
 | --- | --- | --- | --- | --- | --- |
 | Skeleton | Svelte UI toolkit | Svelte-native themes, layouts, and utilities | Tied to SvelteKit conventions and its release cadence | MIT | https://github.com/skeletonlabs/skeleton |
+| Bits UI | Unstyled Svelte component primitives | Svelte-native dialogs, menus, selections, and other behavior foundations; useful beneath a custom visual system or shadcn-svelte | Current releases require Svelte 5; check the exact Svelte and date-package peer dependencies, then own styling and verify composition | MIT | [Repository](https://github.com/huntabyte/bits-ui) · [Documentation](https://bits-ui.com/docs/introduction) |
 | Melt UI | Svelte headless builders | Flexible accessible behavior with Svelte actions/builders | Requires building and documenting the visual layer | MIT | https://github.com/melt-ui/melt-ui |
 | shadcn-svelte | Copy/paste Svelte components | Source ownership and familiar shadcn patterns | You own upgrades and component maintenance | MIT for the repository; review dependencies | https://github.com/huntabyte/shadcn-svelte |
 | Bootstrap | CSS/component framework | Familiar responsive grid and broad documentation | Global styles and markup conventions can constrain custom design | MIT | https://github.com/twbs/bootstrap |
@@ -71,6 +80,22 @@ This is a practical shortlist, not an exhaustive registry. Names and license lab
 | Pico CSS | Minimal semantic CSS | Very small, attractive defaults for simple forms and content tools | Not a full application component catalog | MIT | https://github.com/picocss/pico |
 | Tailwind CSS | Utility-first CSS | Fine-grained control and strong ecosystem | Utilities do not provide complete behavior or accessibility by themselves | MIT | https://github.com/tailwindlabs/tailwindcss |
 | daisyUI | Tailwind component classes | Faster semantic component styling on top of Tailwind | Class abstractions can hide design decisions; version compatibility matters | MIT | https://github.com/saadeghi/daisyui |
+
+## Motion and interaction
+
+| Library | Model | Strengths | Tradeoffs | License | Official source |
+| --- | --- | --- | --- | --- | --- |
+| Motion | JavaScript animation library with React integration | Gestures, layout and exit transitions, and scroll-linked effects without replacing the primary component system | Keep motion purposeful, honor reduced-motion preferences, and check bundle impact and client boundaries; optional Motion+ products have separate terms | MIT for the open-source library | [Repository](https://github.com/motiondivision/motion) · [Documentation](https://motion.dev/docs) |
+
+## Specialized product capabilities
+
+Use these for a concrete product requirement alongside one primary component system. They provide specialized behavior rather than a complete application theme.
+
+| Library | Model | Strengths | Tradeoffs | License | Official source |
+| --- | --- | --- | --- | --- | --- |
+| assistant-ui | React chat primitives and assistant runtime integration | Streaming conversation UI, message composition, threads, and tool interaction with custom rendering | Requires choosing and integrating a backend or runtime adapter; authentication, model access, persistence, and server-side secrets remain application work; optional hosted services have separate terms | MIT for the open-source library | [Repository](https://github.com/assistant-ui/assistant-ui) · [Documentation](https://www.assistant-ui.com/docs) |
+| React Flow / Svelte Flow | Node-based editor components for React and Svelte | Custom nodes and edges, connections, dragging, zooming, and viewport controls for workflow or diagram editors | You own domain validation, execution, persistence, and any automatic layout integration; check layout-engine licenses and distinguish optional Pro examples or support from the core | MIT for the core libraries | [Repository](https://github.com/xyflow/xyflow) · [React documentation](https://reactflow.dev/learn) · [Svelte documentation](https://svelteflow.dev/learn) |
+| TanStack Table | Headless table core with framework adapters | Sorting, filtering, grouping, selection, and pagination while the app owns table markup and appearance | Provides no finished visual system; rendering, keyboard behavior, server data loading, and optional virtualization require integration; check the chosen adapter's major version, peers, and runtime requirements | MIT | [Repository](https://github.com/TanStack/table) · [Documentation](https://tanstack.com/table/latest/docs/overview) |
 
 ## Icons and visualization support
 
