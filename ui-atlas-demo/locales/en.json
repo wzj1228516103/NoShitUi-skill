@@ -1,0 +1,292 @@
+{
+  "language": "en",
+  "readme": "README.en.md",
+  "installAnchor": "installation",
+  "ui": {
+    "pageTitle": "NoShitUi-skill — UI discovery, selection & implementation",
+    "pageDescription": "An AI skill for discovering UI resources, comparing approaches, and building intentional interfaces. Explore its workflow, installation guide, and twenty working examples.",
+    "languageLabel": "Language",
+    "loadError": "This language could not load. Please try again.",
+    "brandAria": "NoShitUi-skill home",
+    "navAria": "NoShitUi-skill navigation",
+    "repoNav": "GitHub",
+    "repoAria": "Open the NoShitUi-skill GitHub repository in a new tab",
+    "navAbout": "About the Skill",
+    "navExamples": "Output examples",
+    "navInstall": "Install & use ↗",
+    "repoNoteAria": "Project repository and guide",
+    "repoIntro": "An AI skill for UI resource discovery, selection, and implementation. Explore its output examples below.",
+    "repoStrong": "Installation, usage, and source are on GitHub. Star the project to support it.",
+    "repoCta": "Read the GitHub guide ↗",
+    "repoCtaAria": "Read the English installation and usage guide on GitHub in a new tab",
+    "repoCtaSmall": "Install · Usage · Source",
+    "eyebrow": "NoShitUi-skill / AI UI skill",
+    "heroLine1": "Design with",
+    "heroLine2": "intent.",
+    "heroDescription": "NoShitUi-skill helps your AI discover UI resources, compare approaches, and build a coherent interface. Follow a workflow from resource discovery to implementation and verification, then explore the working examples below.",
+    "oneSkill": "One Skill.",
+    "examplesSuffix": " examples.",
+    "workflow": "Discover → Compare → Build → Verify.",
+    "workflowDetail1": "Explore the outputs, then install the Skill",
+    "workflowDetail2": "to bring the workflow to your own project.",
+    "heroJump": "Explore Skill outputs ↓",
+    "findAria": "Find an output example",
+    "searchLabel": "SEARCH SKILL OUTPUTS",
+    "searchPlaceholder": "Try art, learning, food, workflow…",
+    "filtersAria": "Example category",
+    "filterAll": "All examples",
+    "filter3d": "3D experiences",
+    "filterProduct": "Product & tools",
+    "filterCreative": "Creative tools",
+    "filterBrand": "Brand & content",
+    "filterMotion": "Motion & space",
+    "collectionTitle": "Skill output examples",
+    "allCount": "{total} examples",
+    "filteredCount": "{visible} of {total} examples",
+    "badge3d": "↻ EXPLORE IN 3D",
+    "badgeNew": "TRY THIS EXAMPLE",
+    "emptyTitle": "No examples in this view.",
+    "emptyText": "Try another keyword or return to all Skill outputs.",
+    "clearFilters": "Clear search & filters ↗",
+    "notesTitle": "The workflow behind every example.",
+    "notesText1": "These demos show the outputs of NoShitUi-skill: resource research becomes a visual direction, a representative workflow, and a working interface. Discover resources, compare approaches, implement the design, and verify the result.",
+    "notesText2": "All twenty examples belong to this Skill showcase, from four 3D experiences to product workflows, creative tools, and brand pages. The resource atlas and shadcn dashboard are examples within the collection. Use the GitHub guide to install the Skill and apply its workflow to your own project.",
+    "directoryAria": "NoShitUi-skill output examples",
+    "footer": "NoShitUi-skill / UI discovery, selection & implementation / 2026"
+  },
+  "projects": {
+    "object": {
+      "name": "OBJECT//",
+      "role": "CONFIGURATOR",
+      "slogan": "Make it yours.",
+      "description": "A Three.js lamp studio with CC0 glTF models, material choices, and brightness controls for a live 3D preview.",
+      "tags": [
+        "Three.js",
+        "CC0 glTF",
+        "Materials"
+      ],
+      "action": "Configure the object ↗"
+    },
+    "botanical": {
+      "name": "rooted.",
+      "role": "BOTANICAL",
+      "slogan": "Grow something good.",
+      "description": "Four sculpted plants to turn and explore, with warm ceramic pots, care guidance, filters, and a working shopping bag.",
+      "tags": [
+        "Shop & bag",
+        "Three.js",
+        "3D plants"
+      ],
+      "action": "Visit the shop ↗"
+    },
+    "drift": {
+      "name": "DRIFT.",
+      "role": "MAP EXPLORER",
+      "slogan": "Take the long way.",
+      "description": "Explore a Three.js coastal map with terrain, places, and routes, then collect stops in a saved itinerary.",
+      "tags": [
+        "Three.js",
+        "3D map",
+        "Routes"
+      ],
+      "action": "Explore the map ↗"
+    },
+    "mission": {
+      "name": "ORBITAL/",
+      "role": "CONTROL ROOM",
+      "slogan": "Every orbit. Under control.",
+      "description": "A dense mission dashboard with telemetry, subsystem status, orbit visualization, and simulation controls.",
+      "tags": [
+        "Three.js",
+        "Simulation"
+      ],
+      "action": "Launch mission control ↗"
+    },
+    "tempo": {
+      "name": "TEMPO",
+      "role": "ORIGINAL MUSIC & LISTENING ROOM",
+      "slogan": "A good place\nto press play.",
+      "description": "An original listening room with three local tracks, a live waveform, a record collection, and a queue that follows the music.",
+      "tags": [
+        "Real audio",
+        "Original tracks",
+        "Saved favorites"
+      ],
+      "action": "Explore TEMPO ↗"
+    },
+    "frame": {
+      "name": "FRAME",
+      "role": "POSTER DESIGN & EXPORT STUDIO",
+      "slogan": "Make something\nworth keeping.",
+      "description": "A hands-on poster studio. Choose a template, move the layers, find your words, and take home a real PNG or SVG.",
+      "tags": [
+        "SVG canvas",
+        "Undo & redo",
+        "PNG export"
+      ],
+      "action": "Explore FRAME ↗"
+    },
+    "stay": {
+      "name": "STAY",
+      "role": "COASTAL RETREAT & BOOKING EXPERIENCE",
+      "slogan": "Somewhere\nto slow down.",
+      "description": "A sun-soaked coastal retreat with room discovery, date and guest selection, a complete booking flow, and saved reservations.",
+      "tags": [
+        "Boutique hotel",
+        "Booking flow",
+        "Mobile ready"
+      ],
+      "action": "Explore STAY ↗"
+    },
+    "node": {
+      "name": "NODE",
+      "role": "VISUAL WORKFLOW EDITOR",
+      "slogan": "A little logic.\nA lot of possibility.",
+      "description": "Build a flow, connect the pieces, and watch a local simulation bring it to life. An editable canvas with parameters, validation, and a run log.",
+      "tags": [
+        "Editable nodes",
+        "Keyboard connections",
+        "Simulation"
+      ],
+      "action": "Explore NODE ↗"
+    },
+    "loop": {
+      "name": "LOOP",
+      "role": "SMALL LESSONS AND LASTING PROGRESS",
+      "slogan": "A little better.\nEvery day.",
+      "description": "A thoughtful learning space with three practical design lessons, quizzes with explanations, field notes, and progress that stays with you.",
+      "tags": [
+        "Learning path",
+        "Real quizzes",
+        "Saved progress"
+      ],
+      "action": "Explore LOOP ↗"
+    },
+    "source": {
+      "name": "SOURCE",
+      "role": "DEVELOPER DOCS AND API PLAYGROUND",
+      "slogan": "Less searching.\nMore building.",
+      "description": "Explore a complete fictional API, search the docs, switch code examples, and try requests in an interactive local playground.",
+      "tags": [
+        "Searchable docs",
+        "Code examples",
+        "API playground"
+      ],
+      "action": "Explore SOURCE ↗"
+    },
+    "archive": {
+      "name": "ARCHIVE",
+      "role": "OPEN ART AND PERSONAL EXHIBITIONS",
+      "slogan": "A slower\nway to see.",
+      "description": "Five public-domain paintings to look at closely. Explore the periods, zoom into the details, and take home a personal exhibition guide.",
+      "tags": [
+        "The Met Open Access",
+        "Artwork zoom",
+        "Exhibition export"
+      ],
+      "action": "Explore ARCHIVE ↗"
+    },
+    "plate": {
+      "name": "PLATE",
+      "role": "A NEIGHBORHOOD KITCHEN AND ORDERING",
+      "slogan": "Good food.\nYour way.",
+      "description": "A neighborhood Italian kitchen with a menu to explore, dishes to make your own, a working bag, and a complete demonstration ordering flow.",
+      "tags": [
+        "Menu discovery",
+        "Dish customization",
+        "Order flow"
+      ],
+      "action": "Explore PLATE ↗"
+    },
+    "precision": {
+      "name": "PRECISION_",
+      "role": "OPERATIONS",
+      "slogan": "Make work visible.",
+      "description": "A calm operations workspace for records, filters, edits, and the small states that make a product trustworthy.",
+      "tags": [
+        "Data table",
+        "Filters & edits"
+      ],
+      "action": "Open the workspace ↗"
+    },
+    "shadcn": {
+      "name": "SHADCN/OPS",
+      "role": "COMPONENT WORKSPACE",
+      "slogan": "Orders in focus.",
+      "description": "A shadcn/ui orders dashboard with search, status filters, and an edit dialog for session-based records.",
+      "tags": [
+        "React",
+        "shadcn/ui",
+        "Tailwind CSS"
+      ],
+      "action": "Open the dashboard ↗"
+    },
+    "atlas": {
+      "name": "Resource atlas",
+      "role": "RESOURCE DISCOVERY EXAMPLE",
+      "slogan": "Research with intent.",
+      "description": "A resource discovery example for NoShitUi-skill: browse UI references, filter by category, save useful finds, and compare visual directions.",
+      "tags": [
+        "Resource discovery",
+        "SVG",
+        "Local storage"
+      ],
+      "action": "Try the resource discovery example ↗"
+    },
+    "editorial": {
+      "name": "FORME",
+      "role": "EDITORIAL",
+      "slogan": "The quiet issue.",
+      "description": "An architecture journal for considered living, with serif typography, image-led pacing, and focused reading.",
+      "tags": [
+        "Editorial",
+        "Serif typography"
+      ],
+      "action": "Open the journal ↗"
+    },
+    "studio": {
+      "name": "OFFGRID®",
+      "role": "STUDIO",
+      "slogan": "Make some noise.",
+      "description": "A rebellious design studio built from posters, marquee type, acid color, and big gestures.",
+      "tags": [
+        "Portfolio",
+        "Marquee type"
+      ],
+      "action": "Enter the studio ↗"
+    },
+    "nova": {
+      "name": "NOVA//25",
+      "role": "NEON FESTIVAL",
+      "slogan": "Sound after dark.",
+      "description": "A neon festival concept with an animated particle field, glowing signals, and an interactive ticket moment.",
+      "tags": [
+        "Canvas particles",
+        "Festival concept"
+      ],
+      "action": "Lock the signal ↗"
+    },
+    "aether": {
+      "name": "AETHER",
+      "role": "ATMOSPHERIC",
+      "slogan": "The air remembers.",
+      "description": "An atmospheric visual experiment built from fluid color, orbiting light, and magnetic cursor interaction.",
+      "tags": [
+        "Fluid color",
+        "Cursor interaction"
+      ],
+      "action": "Enter the atmosphere ↗"
+    },
+    "kinetic": {
+      "name": "KINETIC_",
+      "role": "TYPE LAB",
+      "slogan": "Move. Type. Matter.",
+      "description": "A typographic playground where cursor trails, offset color, and a burst control make letters feel physical.",
+      "tags": [
+        "Type playground",
+        "Cursor trails"
+      ],
+      "action": "Enter the lab ↗"
+    }
+  }
+}

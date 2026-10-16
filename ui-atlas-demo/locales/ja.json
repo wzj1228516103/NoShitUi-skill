@@ -1,0 +1,43 @@
+{
+  "language": "ja", "readme": "README.ja.md", "installAnchor": "インストール",
+  "ui": {
+    "pageTitle":"NoShitUi-skill — UI リソースの発見・選定・実装",
+    "pageDescription":"UI リソースを探し、手法を比較し、一貫したインターフェースを実装する AI Skill。使い方と 20 の制作例を紹介します。",
+    "languageLabel":"言語","loadError":"この言語を読み込めませんでした。もう一度お試しください。",
+    "brandAria":"NoShitUi-skill ホーム","navAria":"NoShitUi-skill ナビゲーション","repoNav":"GitHub","repoAria":"NoShitUi-skill の GitHub リポジトリを新しいタブで開く",
+    "navAbout":"プロジェクト紹介","navExamples":"制作例","navInstall":"導入と使い方 ↗",
+    "repoNoteAria":"リポジトリと利用ガイド","repoIntro":"UI リソースの発見・選定・実装を支援する AI Skill。下の制作例を体験してください。","repoStrong":"導入方法、使い方、ソースコードは GitHub にあります。Star で応援できます。",
+    "repoCta":"GitHub のガイドを読む ↗","repoCtaAria":"日本語の導入・利用ガイドを GitHub の新しいタブで開く","repoCtaSmall":"導入 · 使い方 · ソース",
+    "eyebrow":"NoShitUi-skill / AI の UI 制作スキル","heroLine1":"意図から、","heroLine2":"UI をつくる。",
+    "heroDescription":"NoShitUi-skill は、AI による UI リソースの探索、手法の比較、一貫した画面の実装を支援します。発見から実装・検証までの流れを知り、実際に動く制作例を体験してください。",
+    "oneSkill":"ひとつの Skill。","examplesSuffix":" 件の制作例。","workflow":"発見 → 比較 → 実装 → 検証。","workflowDetail1":"まず制作例を体験し、Skill を導入して、","workflowDetail2":"自分のプロジェクトでも活用しましょう。","heroJump":"Skill の制作例を見る ↓",
+    "findAria":"制作例を探す","searchLabel":"SKILL の制作例を検索","searchPlaceholder":"照明、学習、料理、ワークフロー…","filtersAria":"制作例の分類",
+    "filterAll":"すべての例","filter3d":"3D 体験","filterProduct":"製品とツール","filterCreative":"創作ツール","filterBrand":"ブランドとコンテンツ","filterMotion":"動きと空間",
+    "collectionTitle":"Skill の制作例","allCount":"全 {total} 件","filteredCount":"{total} 件中 {visible} 件","badge3d":"↻ 3D で体験","badgeNew":"この制作例を体験",
+    "emptyTitle":"該当する制作例がありません。","emptyText":"別のキーワードを試すか、すべての制作例に戻ってください。","clearFilters":"検索と絞り込みを解除 ↗",
+    "notesTitle":"制作例を支えるワークフロー。","notesText1":"NoShitUi-skill は、リソースの調査を視覚的な方向性、代表的な操作フロー、動く画面へとつなげます。発見・比較・実装・検証の順で進めます。","notesText2":"20 の制作例には、4 つの 3D 体験、製品の操作フロー、創作ツール、ブランドサイトが含まれます。リソース図鑑と shadcn 管理画面も制作例のひとつです。GitHub のガイドから Skill を導入し、自分のプロジェクトで活用してください。",
+    "directoryAria":"NoShitUi-skill の全制作例","footer":"NoShitUi-skill / UI リソースの発見・選定・実装 / 2026"
+  },
+  "projects": {
+    "object":{"role":"照明コンフィギュレーター","slogan":"自分らしい照明に。","description":"Three.js と CC0 glTF モデルで、素材や明るさを切り替えながらデスクライトの 3D 表示を確認できます。","tags":["Three.js","CC0 glTF","素材の切り替え"],"action":"照明をカスタマイズ ↗"},
+    "botanical":{"role":"立体植物ショップ","slogan":"心地よい緑を育てよう。","description":"4 種類の立体植物と陶器の鉢を回転して観察。育て方、商品フィルター、買い物バッグも使えます。","tags":["ショップとバッグ","Three.js","3D 植物"],"action":"植物ショップへ ↗"},
+    "drift":{"role":"3D 地図の探索","slogan":"遠回りを楽しもう。","description":"地形やスポット、ルートのある海岸地図を探索し、訪れたい場所を保存できる旅程にまとめます。","tags":["Three.js","3D 地図","ルート"],"action":"海岸地図を探索 ↗"},
+    "mission":{"role":"軌道管制室","slogan":"すべての軌道を掌握。","description":"テレメトリー、サブシステム状態、軌道表示、シミュレーション操作を備えたミッション管理画面。","tags":["Three.js","シミュレーション"],"action":"ミッション管制を開始 ↗"},
+    "tempo":{"role":"オリジナル音楽の試聴室","slogan":"ここで、\n再生を押そう。","description":"3 曲のローカル音源、リアルタイム波形、レコード一覧、音楽に合わせて進む再生キューを体験できます。","tags":["音声再生","オリジナル楽曲","お気に入り保存"],"action":"TEMPO を体験 ↗"},
+    "frame":{"role":"ポスター制作と書き出し","slogan":"残したくなる\n一枚をつくろう。","description":"テンプレートを選び、レイヤーを動かし、文字を編集。完成したポスターを PNG や SVG で書き出せます。","tags":["SVG キャンバス","元に戻す・やり直す","PNG 出力"],"action":"FRAME を体験 ↗"},
+    "stay":{"role":"海辺のホテル予約","slogan":"ゆっくり過ごす\n場所を見つけよう。","description":"客室を探し、日程と人数を選び、予約完了まで進める海辺のホテル。予約記録の保存にも対応。","tags":["ブティックホテル","予約フロー","モバイル対応"],"action":"STAY を体験 ↗"},
+    "node":{"role":"ビジュアルフロー編集","slogan":"小さなロジック。\n大きな可能性。","description":"ノードを配置して接続し、パラメーターを調整。検証結果や実行ログをローカルシミュレーションで確認できます。","tags":["ノード編集","キーボード接続","シミュレーション"],"action":"NODE を体験 ↗"},
+    "loop":{"role":"学習と進捗管理","slogan":"毎日、\n少しずつ前へ。","description":"3 つの実践的なデザイン講座、解説付きクイズ、学習メモ、保存できる進捗を備えた学習スペース。","tags":["学習パス","実際のクイズ","進捗保存"],"action":"LOOP を体験 ↗"},
+    "source":{"role":"開発ドキュメントと API 体験","slogan":"探す時間より、\nつくる時間を。","description":"架空の API のドキュメントを検索し、コード例を切り替え、ローカルの操作画面でリクエストを試せます。","tags":["ドキュメント検索","コード例","API 体験"],"action":"SOURCE を体験 ↗"},
+    "archive":{"role":"アートと個人展覧会","slogan":"ゆっくり、\n深く見つめよう。","description":"パブリックドメインの絵画 5 点を鑑賞。時代を探り、細部を拡大し、自分だけの展覧会ガイドを出力できます。","tags":["The Met Open Access","作品の拡大","展覧会出力"],"action":"ARCHIVE を体験 ↗"},
+    "plate":{"role":"街のレストランと注文","slogan":"おいしさを、\n自分好みに。","description":"イタリア料理店のメニューを閲覧し、料理をカスタマイズしてバッグに追加。注文デモを最後まで体験できます。","tags":["メニュー閲覧","料理のカスタマイズ","注文フロー"],"action":"PLATE を体験 ↗"},
+    "precision":{"role":"業務ワークスペース","slogan":"仕事を見える形に。","description":"レコードの検索、絞り込み、編集と、製品の信頼性を支える細かな状態を扱う落ち着いた業務画面。","tags":["データテーブル","絞り込みと編集"],"action":"業務画面を開く ↗"},
+    "shadcn":{"role":"コンポーネント管理画面","slogan":"注文をひと目で。","description":"shadcn/ui による注文管理画面。検索、状態フィルター、セッション内データを編集するダイアログを備えます。","tags":["React","shadcn/ui","Tailwind CSS"],"action":"注文管理を開く ↗"},
+    "atlas":{"name":"リソース図鑑","role":"リソース発見の制作例","slogan":"意図を持って調べよう。","description":"NoShitUi-skill のリソース発見デモ。UI の参考資料を分類し、役立つものを保存して、視覚的な方向性を比較できます。","tags":["リソース発見","SVG","ローカル保存"],"action":"リソース発見を体験 ↗"},
+    "editorial":{"role":"建築と編集デザイン","slogan":"静かな一冊を。","description":"セリフ体、画像のリズム、集中して読める構成で、丁寧な暮らしを紹介する建築ジャーナル。","tags":["編集デザイン","セリフ体"],"action":"ジャーナルを開く ↗"},
+    "studio":{"role":"デザインスタジオ","slogan":"創造の声を響かせよう。","description":"ポスター、流れる大きな文字、鮮やかな色と大胆な表現で構成した独立系デザインスタジオ。","tags":["ポートフォリオ","流れる文字"],"action":"スタジオへ ↗"},
+    "nova":{"role":"ネオン音楽フェス","slogan":"夜に響くサウンド。","description":"動く粒子、光るシグナル、チケット操作を組み合わせたネオン音楽フェスのコンセプト。","tags":["Canvas パーティクル","音楽フェス"],"action":"シグナルをつかむ ↗"},
+    "aether":{"role":"空気感のある視覚実験","slogan":"空気は覚えている。","description":"流れる色、周回する光、磁力のようなカーソル操作による視覚実験。","tags":["流れる色彩","カーソル操作"],"action":"空間に入る ↗"},
+    "kinetic":{"role":"動く文字の実験室","slogan":"動かす。打つ。感じる。","description":"カーソルの軌跡、色のずれ、バースト操作で文字に動きと手触りを与えるタイポグラフィ実験。","tags":["文字の実験","カーソルの軌跡"],"action":"文字の実験室へ ↗"}
+  }
+}

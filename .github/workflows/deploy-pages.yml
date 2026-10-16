@@ -6,6 +6,7 @@ on:
     paths:
       - ui-atlas-demo/**
       - shadcn-demo/**
+      - scripts/check-showcase-locales.mjs
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 
@@ -35,6 +36,9 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: shadcn-demo/package-lock.json
+
+      - name: Validate homepage translations
+        run: node scripts/check-showcase-locales.mjs
 
       - name: Build shadcn/ui example
         run: npm ci --prefix shadcn-demo
