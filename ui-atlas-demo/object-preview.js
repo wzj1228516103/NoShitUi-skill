@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from './vendor/three/OrbitControls.js';
 import { GLTFLoader } from './vendor/three/GLTFLoader.js';
 import { RoomEnvironment } from './vendor/three/RoomEnvironment.js';
+import { alignTaskLampAssembly } from './object-lamp-assembly.js';
 
 const models = {
   task: './assets/models/desk-lamp.glb',
@@ -188,8 +189,9 @@ export function createLampPreview({ canvas, onStatus }) {
     materials.forEach(material => material.dispose());
   }
 
-  function prepareModel(asset) {
+  function prepareModel(asset, model) {
     const root = asset.scene;
+    if (model === 'task') alignTaskLampAssembly(root);
     const bounds = new THREE.Box3().setFromObject(root);
     const size = bounds.getSize(new THREE.Vector3());
     if (!Number.isFinite(size.y) || size.y <= 0) throw new Error('Empty model bounds');
@@ -249,7 +251,7 @@ export function createLampPreview({ canvas, onStatus }) {
     lens.rotation.x = -Math.PI / 2;
     lens.position.copy(bulbPosition);
     lens.position.y = shadeBox.min.y + 0.028;
-    if (state.model === 'task') lens.rotation.x -= 0.297;
+    if (model === 'task') lens.rotation.x -= 0.297;
     container.add(lens);
     return { container, parts, lens, weight, bulbPosition, baseCenter, baseRadius };
   }
@@ -307,6 +309,7 @@ export function createLampPreview({ canvas, onStatus }) {
     onStatus({ kind: 'loading', model, message: `Loading ${model.toUpperCase()} model…` });
     let timeout;
     let candidate;
+    let loadedAsset;
     try {
       const load = loader.loadAsync(models[model]);
       // Dispose a late response from a cancelled or timed-out request.
@@ -318,7 +321,8 @@ export function createLampPreview({ canvas, onStatus }) {
         timeout = setTimeout(() => { timedOut = true; reject(new Error('Model request timed out')); }, 15000);
       })]);
       if (token !== generation || disposed) return;
-      candidate = prepareModel(asset);
+      loadedAsset = asset;
+      candidate = prepareModel(asset, model);
       if (current) { scene.remove(current.container); disposeObject(current.container); }
       current = candidate;
       scene.add(current.container);
@@ -330,6 +334,7 @@ export function createLampPreview({ canvas, onStatus }) {
       if (token !== generation || disposed) return;
       requestedModel = null;
       if (candidate) disposeObject(candidate.container);
+      else if (loadedAsset) disposeObject(loadedAsset.scene);
       onStatus({ kind: 'error', model, message: 'The 3D model could not load. Retry or choose the other model.', error });
     } finally { clearTimeout(timeout); }
   }
