@@ -54,6 +54,27 @@ Ces capacités se déclenchent directement en langage naturel, sans mémoriser d
 
 ## Exemples de résultats (aperçu rapide, à titre de démonstration)
 
+### Page d’accueil en ligne
+
+La page d’accueil associe un blanc froid et des tons argentés à des effets de lumière bleue, des fenêtres flottantes présentant de vrais projets et un effet de parallaxe au mouvement du pointeur.
+
+- **20 exemples fonctionnels** : recherche par mots-clés, catégories et filtre 3D pour accéder à chaque démonstration.
+- **Huit langues** : chinois simplifié, anglais, japonais, coréen, espagnol, français, allemand et portugais, avec des liens vers les guides README correspondants.
+- **Ordinateur et mobile** : la mise en page et les aperçus s’adaptent à l’écran et respectent la préférence système de réduction des animations.
+
+<p align="center">
+  <a href="https://wzj1228516103.github.io/NoShitUi-skill/?lang=fr"><img src="docs/screenshots/concepts/showcase-desktop.png" alt="Page d’accueil argentée et bleue de NoShitUi-skill avec des aperçus flottants de projets, affichée en chinois" width="920"></a>
+</p>
+
+<details>
+  <summary>Voir la page d’accueil sur mobile</summary>
+  <p align="center">
+    <img src="docs/screenshots/concepts/showcase-mobile.png" alt="Page d’accueil mobile argentée et bleue avec texte et aperçus flottants disposés à la verticale, affichée en chinois" width="320">
+  </p>
+</details>
+
+### 20 exemples interactifs
+
 Le carrousel présente les 20 projets réalisés, en commençant par les quatre expériences 3D : OBJECT, rooted., DRIFT et ORBITAL. Il montre ensuite les interfaces opérationnelles, le tableau de commandes shadcn, le catalogue UI ATLAS et tous les autres concepts de marque et de mouvement. La page d’accueil suit le même ordre, avec un filtre 3D, des catégories et une recherche. Le projet reste centré sur la découverte, le choix, l’intégration et la vérification des ressources. [Explorer la présentation complète en ligne](https://wzj1228516103.github.io/NoShitUi-skill/) · [Consulter le code des exemples](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorer le catalogue visuel des ressources](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">

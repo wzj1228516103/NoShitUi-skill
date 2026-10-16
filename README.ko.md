@@ -54,6 +54,27 @@ NoShitUi-skill은 UI 작업에서 재작업이 발생하기 쉬운 문제를 다
 
 ## 결과 예시 (빠르게 살펴보기, 전시용)
 
+### 온라인 홈페이지
+
+쇼케이스 홈페이지는 차가운 흰색과 은색 바탕에 파란 빛 효과를 더했습니다. 실제 프로젝트 화면을 떠 있는 창으로 배치하고 마우스 움직임에 따른 시차 효과를 적용했습니다.
+
+- **20개 구현 예시**: 키워드 검색, 카테고리와 3D 필터로 예시를 찾고 각 데모를 열 수 있습니다.
+- **8개 언어**: 중국어 간체, 영어, 일본어, 한국어, 스페인어, 프랑스어, 독일어와 포르투갈어를 지원하며 해당 언어의 README 안내로 연결합니다.
+- **데스크톱과 모바일**: 화면 크기에 따라 레이아웃과 미리보기를 조정하고 시스템의 모션 줄이기 설정을 따릅니다.
+
+<p align="center">
+  <a href="https://wzj1228516103.github.io/NoShitUi-skill/?lang=ko"><img src="docs/screenshots/concepts/showcase-desktop.png" alt="실제 프로젝트 미리보기가 떠 있는 은색과 파란색 NoShitUi-skill 홈페이지, 중국어 화면" width="920"></a>
+</p>
+
+<details>
+  <summary>모바일 홈페이지 미리보기</summary>
+  <p align="center">
+    <img src="docs/screenshots/concepts/showcase-mobile.png" alt="소개와 떠 있는 프로젝트 미리보기를 세로로 배치한 은색과 파란색 모바일 홈페이지, 중국어 화면" width="320">
+  </p>
+</details>
+
+### 20개 인터랙티브 예시
+
 캐러셀은 구현된 20개 프로젝트를 모두 보여 줍니다. 3D 경험인 OBJECT, rooted., DRIFT, ORBITAL을 먼저 소개하고, 운영 화면, shadcn 주문 대시보드, UI ATLAS 리소스 지도 및 나머지 브랜드·모션 페이지를 이어서 보여 줍니다. 홈페이지도 같은 순서이며 3D 필터, 카테고리 및 키워드 검색을 지원합니다. 리소스 탐색, 선택 근거, 통합 및 검증이 프로젝트의 중심입니다. [전체 쇼케이스 보기](https://wzj1228516103.github.io/NoShitUi-skill/) · [쇼케이스 소스 보기](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [온라인 리소스 아틀라스](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">

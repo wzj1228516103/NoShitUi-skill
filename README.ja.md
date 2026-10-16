@@ -54,6 +54,27 @@ NoShitUi-skill は、UI 制作で手戻りが生じやすい問題に取り組�
 
 ## 出力例（手軽なプレビュー、展示用）
 
+### オンラインのホームページ
+
+ショーケースのホームページは、クールな白とシルバーに青い光を重ねたデザインです。実際のプロジェクト画面を浮遊ウィンドウとして配置し、マウスの動きに合わせた視差効果を加えています。
+
+- **20 の実装例**：キーワード検索、カテゴリ、3D フィルターで絞り込み、各デモを開けます。
+- **8 言語**：簡体字中国語、英語、日本語、韓国語、スペイン語、フランス語、ドイツ語、ポルトガル語に対応し、各言語の README ガイドにリンクしています。
+- **デスクトップとモバイル**：画面幅に応じてレイアウトとプレビューを調整し、システムの「動きを減らす」設定を尊重します。
+
+<p align="center">
+  <a href="https://wzj1228516103.github.io/NoShitUi-skill/?lang=ja"><img src="docs/screenshots/concepts/showcase-desktop.png" alt="実際のプロジェクト画面が浮かぶ銀色と青の NoShitUi-skill ホームページ（中国語表示）" width="920"></a>
+</p>
+
+<details>
+  <summary>モバイル版のホームページを見る</summary>
+  <p align="center">
+    <img src="docs/screenshots/concepts/showcase-mobile.png" alt="紹介文と浮遊するプロジェクト画面を縦に並べた銀色と青のモバイル版ホームページ（中国語表示）" width="320">
+  </p>
+</details>
+
+### 20 のインタラクティブな実装例
+
 カルーセルは実装済みの全20プロジェクトを紹介します。3D体験の OBJECT、rooted.、DRIFT、ORBITAL を先頭に置き、運用画面、shadcn の注文ダッシュボード、UI ATLAS のリソース図譜、残りのブランド・動的ページを続けています。ホームページも同じ順序で、3D絞り込み、カテゴリ、キーワード検索に対応します。リソース発見、選定理由、統合と検証がプロジェクトの中心です。 [展示をオンラインで体験](https://wzj1228516103.github.io/NoShitUi-skill/) · [展示のソースコード](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [オンラインのリソースマップ](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
