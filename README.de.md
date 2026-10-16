@@ -54,6 +54,27 @@ Diese Funktionen lassen sich direkt in natürlicher Sprache aufrufen; feste Slas
 
 ## Beispielergebnisse (kurzer Einblick, nur zur Demonstration)
 
+### Online-Startseite
+
+Die Startseite verbindet kühles Weiß und Silber mit blauen Lichteffekten, schwebenden Vorschaufenstern echter Projekte und einem Parallaxeffekt bei Mausbewegungen.
+
+- **20 funktionsfähige Beispiele**: Stichwortsuche, Kategorien und ein 3D-Filter führen zu den jeweiligen Demos.
+- **Acht Sprachen**: vereinfachtes Chinesisch, Englisch, Japanisch, Koreanisch, Spanisch, Französisch, Deutsch und Portugiesisch, mit Links zu den passenden README-Anleitungen.
+- **Desktop und Mobilgeräte**: Layout und Vorschauen passen sich dem Bildschirm an und berücksichtigen die Systemeinstellung für reduzierte Bewegung.
+
+<p align="center">
+  <a href="https://wzj1228516103.github.io/NoShitUi-skill/?lang=de"><img src="docs/screenshots/concepts/showcase-desktop.png" alt="Silberblaue NoShitUi-skill-Startseite mit schwebenden Projektvorschauen, auf Chinesisch dargestellt" width="920"></a>
+</p>
+
+<details>
+  <summary>Vorschau der mobilen Startseite ansehen</summary>
+  <p align="center">
+    <img src="docs/screenshots/concepts/showcase-mobile.png" alt="Silberblaue mobile Startseite mit Text und schwebenden Projektvorschauen untereinander, auf Chinesisch dargestellt" width="320">
+  </p>
+</details>
+
+### 20 interaktive Beispiele
+
 Das Karussell zeigt alle 20 umgesetzten Projekte, beginnend mit den vier 3D-Erlebnissen OBJECT, rooted., DRIFT und ORBITAL. Danach folgen Betriebsoberflächen, das shadcn-Bestell-Dashboard, der UI ATLAS und alle weiteren Marken- und Bewegungskonzepte. Die Startseite verwendet dieselbe Reihenfolge sowie einen 3D-Filter, Kategorien und eine Suche. Ressourcenrecherche, Auswahl, Integration und Überprüfung bleiben der Schwerpunkt. [Vollständige Präsentation online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/) · [Quellcode der Beispiele ansehen](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Ressourcenatlas online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">

@@ -56,7 +56,32 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 ## 产出示例（快速浏览，仅作展示）
 
-轮播图完整展示全部 20 个已实现项目，并将 OBJECT 灯具配置器、rooted. 立体植物商店、DRIFT 三维地图和 ORBITAL 轨道控制台放在最前面。随后展示 TEMPO 音乐播放器、FRAME 海报编辑器、STAY 酒店预约、NODE 流程编辑器、LOOP 学习应用、SOURCE 文档站、ARCHIVE 数字展览、PLATE 餐厅点单、运营工作台、shadcn 订单后台、UI ATLAS 资源图谱，以及其余品牌和动态页面。首页采用相同顺序，支持 3D 筛选、分类浏览和关键词搜索。项目重点仍然是资源发现、选型依据、集成规则与验证流程。 [在线体验完整展示](https://wzj1228516103.github.io/NoShitUi-skill/) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) 
+### 在线首页
+
+[体验新版首页](https://wzj1228516103.github.io/NoShitUi-skill/?lang=zh-CN) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html) · [shadcn 运营后台](https://wzj1228516103.github.io/NoShitUi-skill/shadcn-demo/)
+
+首页采用明亮的银蓝科技风格：冷白底色、蓝色光效与银色圆环，搭配 OBJECT、PRECISION_、NODE 的真实项目预览浮窗，通过轻微漂浮和鼠标视差呈现空间层次。
+
+- **浏览 20 个产出示例**：关键词搜索、分类切换和 3D 体验筛选，点击卡片进入对应演示。
+- **八种语言**：简体中文、英语、日语、韩语、西班牙语、法语、德语和葡萄牙语，语言入口与对应 README 使用指南关联。
+- **桌面与手机适配**：浮窗和页面布局随屏幕调整，并尊重系统的减少动态效果设置。
+
+<p align="center">
+  <a href="https://wzj1228516103.github.io/NoShitUi-skill/?lang=zh-CN">
+    <img src="docs/screenshots/concepts/showcase-desktop.png" alt="银蓝科技风首页：中文介绍、真实项目预览浮窗、搜索和分类入口" width="920">
+  </a>
+</p>
+
+<details>
+  <summary>查看手机端首页预览</summary>
+  <p align="center">
+    <img src="docs/screenshots/concepts/showcase-mobile.png" alt="手机端银蓝首页：纵向介绍与项目预览浮窗" width="320">
+  </p>
+</details>
+
+### 20 个交互示例
+
+轮播图完整展示全部 20 个已实现项目，并将 OBJECT 灯具配置器、rooted. 立体植物商店、DRIFT 三维地图和 ORBITAL 轨道控制台放在最前面。随后展示 TEMPO 音乐播放器、FRAME 海报编辑器、STAY 酒店预约、NODE 流程编辑器、LOOP 学习应用、SOURCE 文档站、ARCHIVE 数字展览、PLATE 餐厅点单、运营工作台、shadcn 订单后台、UI ATLAS 资源图谱，以及其余品牌和动态页面。首页采用相同顺序。项目重点仍然是资源发现、选型依据、集成规则与验证流程。
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全部 20 个展示项目轮播，3D 项目优先" width="920">

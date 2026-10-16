@@ -54,6 +54,27 @@ You can trigger these capabilities in natural language without memorizing fixed 
 
 ## Output examples (quick preview, for illustration only)
 
+### Live homepage
+
+The showcase homepage combines cool white and silver surfaces with blue light effects, floating previews of real projects, and pointer parallax.
+
+- **20 working examples**: keyword search, category filters, and a dedicated 3D filter lead to each interactive demo.
+- **Eight languages**: Simplified Chinese, English, Japanese, Korean, Spanish, French, German, and Portuguese, with links to the corresponding README guides.
+- **Desktop and mobile**: responsive layouts and project previews respect the system's reduced-motion preference.
+
+<p align="center">
+  <a href="https://wzj1228516103.github.io/NoShitUi-skill/?lang=en"><img src="docs/screenshots/concepts/showcase-desktop.png" alt="Silver-and-blue NoShitUi-skill homepage with floating project previews, shown in Chinese" width="920"></a>
+</p>
+
+<details>
+  <summary>Preview the mobile homepage</summary>
+  <p align="center">
+    <img src="docs/screenshots/concepts/showcase-mobile.png" alt="Silver-and-blue mobile homepage with stacked text and floating project previews, shown in Chinese" width="320">
+  </p>
+</details>
+
+### 20 interactive examples
+
 The carousel covers all 20 implemented projects, starting with four 3D experiences: OBJECT, rooted., DRIFT, and ORBITAL. TEMPO music playback, FRAME poster editing, STAY hotel booking, NODE workflow editing, LOOP learning, SOURCE developer docs, ARCHIVE art curation, PLATE restaurant ordering, operations workspaces, the shadcn orders dashboard, the UI ATLAS resource atlas, and all remaining brand and motion concepts follow. The homepage uses the same order, with a 3D filter, categories, and keyword search. The project remains focused on resource discovery, selection rationale, integration, and verification. [Explore the full showcase](https://wzj1228516103.github.io/NoShitUi-skill/) · [View the showcase source](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explore the resource atlas](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
 <p align="center">
