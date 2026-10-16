@@ -3,23 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f6f2">
+  <meta name="theme-color" content="#f4f7fc">
   <meta name="color-scheme" content="light">
   <title>NoShitUi-skill — UI discovery, selection & implementation</title>
   <meta name="description" content="NoShitUi-skill is an AI skill for discovering UI resources, comparing approaches, and building intentional interfaces. Explore its workflow, installation guide, and twenty working output examples.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c8ff4d'/%3E%3Cpath d='M8 8h6v6H8zm10 0h6v6h-6zM8 18h6v6H8zm10 0h6v6h-6z' fill='%2317300e'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23315cff'/%3E%3Cpath d='M8 8h6v6H8zm10 0h6v6h-6zM8 18h6v6H8zm10 0h6v6h-6z' fill='%23ffffff'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./showcase.css?v=20261016-light">
+  <link rel="stylesheet" href="./showcase.css?v=20261016-spatial-1">
+  <link rel="stylesheet" href="./showcase-scene.css?v=20261016-spatial-1">
 </head>
 <body>
   <div class="wrap">
     <header class="top" id="top"><a class="brand" href="#top" aria-label="NoShitUi-skill home"><span class="mark" aria-hidden="true">✣</span>NoShitUi-skill</a><nav class="top-links" aria-label="NoShitUi-skill navigation"><a class="top-link repo-nav" href="https://github.com/wzj1228516103/NoShitUi-skill" target="_blank" rel="noopener noreferrer" aria-label="Open the NoShitUi-skill GitHub repository in a new tab"><img class="github-icon" src="assets/icons/github.svg" alt="" width="22" height="22">GitHub <span aria-hidden="true">↗</span></a><a class="top-link" href="#about-skill">About the Skill</a><a class="top-link" href="#examples">Output examples</a><a class="top-link" href="https://github.com/wzj1228516103/NoShitUi-skill/blob/master/README.en.md#installation" target="_blank" rel="noopener noreferrer">Install &amp; use ↗</a><label class="language-control" for="language-select" hidden><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg><span id="language-label" class="sr-only">Language</span><select id="language-select" aria-label="Language"><option value="zh-CN" lang="zh-CN">简体中文</option><option value="en" lang="en" selected>English</option><option value="ja" lang="ja">日本語</option><option value="ko" lang="ko">한국어</option><option value="es" lang="es">Español</option><option value="fr" lang="fr">Français</option><option value="de" lang="de">Deutsch</option><option value="pt" lang="pt">Português</option></select></label></nav></header>
     <p id="language-status" class="language-status" role="status" hidden></p>
     <main>
+      <section class="hero" id="about-skill"><div class="hero-copy"><span class="eyebrow">NoShitUi-skill / AI UI skill</span><h1>Design with<br><em>intent.</em></h1><p>NoShitUi-skill helps your AI discover UI resources, compare approaches, and build a coherent interface. Follow a workflow from resource discovery to implementation and verification, then explore the working examples below.</p></div>
+        <div class="hero-stage" aria-hidden="true">
+          <div class="scene-aura"></div>
+          <div class="scene-grid"></div>
+          <div class="scene-orbit scene-orbit-one"></div>
+          <div class="scene-orbit scene-orbit-two"></div>
+          <div class="scene-chrome"></div>
+          <div class="scene-panels">
+            <div class="scene-window scene-window-back">
+              <div class="scene-bar"><span class="scene-dots"><i></i><i></i><i></i></span><span>PRECISION_</span><span>13 / 20</span></div>
+              <img src="assets/previews/precision.webp" alt="" width="960" height="635" decoding="async">
+            </div>
+            <div class="scene-window scene-window-main">
+              <div class="scene-bar"><span class="scene-dots"><i></i><i></i><i></i></span><span>OBJECT//</span><span>01 / 20</span></div>
+              <img src="assets/previews/object.webp" alt="" width="960" height="635" decoding="async">
+            </div>
+            <div class="scene-window scene-window-front">
+              <div class="scene-bar"><span class="scene-dots"><i></i><i></i><i></i></span><span>NODE</span><span>08 / 20</span></div>
+              <img src="assets/previews/node.webp" alt="" width="960" height="635" decoding="async">
+            </div>
+          </div>
+          <span class="scene-spark">✣</span>
+          <span class="scene-index">01 — 20</span>
+          <span class="scene-cross scene-cross-one">+</span>
+          <span class="scene-cross scene-cross-two">+</span>
+        </div>
+        <aside class="hero-aside"><strong>One Skill.<br><span id="project-total">20</span> examples.</strong><div>Discover → Compare → Build → Verify.<br>Explore the outputs, then install the Skill<br>to bring the workflow to your own project.</div><a class="hero-jump" href="#examples">Explore Skill outputs ↓</a></aside></section>
       <aside class="repo-note" aria-label="Project repository and guide"><span class="repo-emblem" aria-hidden="true"><img src="assets/icons/github.svg" alt="" width="38" height="38"></span><div class="repo-copy"><span class="repo-owner">GITHUB / wzj1228516103</span><h2>NoShitUi-skill</h2><p>An AI skill for UI resource discovery, selection, and implementation. Explore its output examples below. <strong>Installation, usage, and source are on GitHub. Star the project to support it.</strong></p></div><a class="repo-cta" href="https://github.com/wzj1228516103/NoShitUi-skill/blob/master/README.en.md" target="_blank" rel="noopener noreferrer" aria-label="Read the English installation and usage guide on GitHub in a new tab"><span>Read the GitHub guide ↗</span><small>Install · Usage · Source</small></a></aside>
-      <section class="hero" id="about-skill"><div><span class="eyebrow">NoShitUi-skill / AI UI skill</span><h1>Design with<br><em>intent.</em></h1><p>NoShitUi-skill helps your AI discover UI resources, compare approaches, and build a coherent interface. Follow a workflow from resource discovery to implementation and verification, then explore the working examples below.</p></div><aside class="hero-aside"><strong>One Skill.<br><span id="project-total">20</span> examples.</strong><div>Discover → Compare → Build → Verify.<br>Explore the outputs, then install the Skill<br>to bring the workflow to your own project.</div><a class="hero-jump" href="#examples">Explore Skill outputs ↓</a></aside></section>
       <section class="catalog-tools" id="catalog-tools" aria-label="Find a project" hidden>
         <div class="search-field"><label for="project-search">SEARCH SKILL OUTPUTS</label><input id="project-search" type="search" placeholder="Try art, learning, food, workflow…" autocomplete="off" aria-controls="project-grid"></div>
         <div class="filters" role="group" aria-label="Project category">
@@ -60,5 +87,6 @@
     <footer><span>NoShitUi-skill / UI discovery, selection &amp; implementation / 2026</span><a href="https://github.com/wzj1228516103/NoShitUi-skill" rel="noreferrer">github.com/wzj1228516103/NoShitUi-skill ↗</a></footer>
   </div>
   <script type="module" src="./showcase.js?v=20261016-i18n"></script>
+  <script src="./showcase-motion.js?v=20261016-spatial-1" defer></script>
 </body>
 </html>
