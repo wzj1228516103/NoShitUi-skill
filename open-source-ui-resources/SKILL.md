@@ -35,6 +35,7 @@ Use this skill to discover useful UI references and component resources, or to s
 
 ## Selection rules
 
+- For motion, AI chat, node workflows, or custom data tables, use the specialist sections of [the library catalog](references/ui-libraries.md). For Vue/Svelte products with custom styling, compare framework-native headless primitives. The [dated verification notes](references/library-verification.md) record the new entries' package constraints and license sources.
 - Prefer a framework-native library when the project already has a clear framework.
 - Choose a complete styled system for dashboards and CRUD-heavy products that need many consistent components quickly.
 - Choose headless or unstyled primitives when the product needs a distinctive visual language, strict markup control, or a small CSS surface.
@@ -42,6 +43,7 @@ Use this skill to discover useful UI references and component resources, or to s
 - Use inspiration galleries to study patterns, not as dependency sources. Mobbin, Page Flows, Dribbble, Awwwards, and similar sites may show work that is not open source or licensed for reuse.
 - Prefer an official repository, package, or component source page when the user asks for code. A visual showcase alone is not evidence that its code, images, fonts, or brand assets may be copied.
 - Treat "free", "copy/paste", "MIT", and "open source" as different claims. Verify the exact license and any attribution or commercial-use restriction for the resource being used.
+- When a LICENSE adds conditions such as Commons Clause, use its actual terms rather than a README badge or package label. List restricted visual resources separately; link to the upstream source instead of redistributing their components in skill assets or reusable component bundles.
 - Do not call a catalog entry fully open source when it combines open-source code with paid templates, hosted demos, community uploads, or separately licensed assets.
 - Treat accessibility as an implementation criterion, not a marketing label. Confirm keyboard navigation, focus management, screen-reader semantics, and disabled/loading/error states in the actual components used.
 - A source-based/copy-paste library still carries transitive dependency and license obligations. Review every copied component and keep its provenance in the project.

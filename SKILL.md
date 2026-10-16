@@ -16,12 +16,15 @@ Use this skill to turn a UI request into a clear visual direction, a license-awa
 3. For library comparison or implementation, read [the UI library catalog](open-source-ui-resources/references/ui-libraries.md) and the relevant parts of [selection and adoption](open-source-ui-resources/references/selection-and-adoption.md).
 4. Inspect the project's framework, package manager, styling system, runtime, and existing component/icon packages before choosing a stack.
 
+For animation, AI chat, node editors, or custom data tables, use the library catalog's specialist sections. For Vue or Svelte with a custom visual language, compare framework-native headless primitives before adding another styled system. Consult [the dated verification notes](open-source-ui-resources/references/library-verification.md) for the newly cataloged packages and restricted visual resources.
+
 ## Make a recommendation
 
 - Recommend one primary component strategy and at most one supporting icon strategy.
 - Choose a styled system for broad dashboards and CRUD-heavy products; choose headless or source-owned primitives when the visual language and markup need to remain distinctive.
 - Treat galleries and showcase sites as inspiration. Use an official repository, package, or component source when the user asks for reusable code.
 - Verify the current package version, peer dependencies, license, runtime/SSR behavior, theme and token model, accessibility behavior, and maintenance signals before adoption.
+- Read the actual LICENSE for additional conditions; a README badge or package's MIT label can omit redistribution restrictions. Keep source-available resources with such restrictions distinct from unrestricted open-source libraries.
 - Explain the fit, the main tradeoff, and the exact packages or source files that will be used.
 
 ## Implement and verify
