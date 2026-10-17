@@ -35,7 +35,7 @@ Use this skill to discover useful UI references and component resources, or to s
 
 ## Selection rules
 
-- For motion, AI chat, node workflows, or custom data tables, use the specialist sections of [the library catalog](references/ui-libraries.md). For Vue/Svelte products with custom styling, compare framework-native headless primitives. The [dated verification notes](references/library-verification.md) record the new entries' package constraints and license sources.
+- For motion, AI chat, node workflows, data tables, rich-text editing, forms, drag-and-drop, calendars, or large-list rendering, use the specialist sections of [the library catalog](references/ui-libraries.md). For Vue/Svelte products with custom styling, compare framework-native headless primitives. The [dated verification notes](references/library-verification.md) record package constraints, API generations, and license sources.
 - Prefer a framework-native library when the project already has a clear framework.
 - Choose a complete styled system for dashboards and CRUD-heavy products that need many consistent components quickly.
 - Choose headless or unstyled primitives when the product needs a distinctive visual language, strict markup control, or a small CSS surface.

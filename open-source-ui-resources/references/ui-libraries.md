@@ -22,6 +22,11 @@ See the [library verification record](library-verification.md) for dated version
 | React AI chat or assistant interface | assistant-ui | Chat primitives and runtime integration for streaming responses, threads, and tools |
 | React or Svelte node-based editor | React Flow / Svelte Flow | Interactive nodes, edges, connections, and viewport controls |
 | Custom data-table UI | TanStack Table | Headless table state and row models while the app controls markup and styling |
+| Rich-text or document editor | Tiptap, Lexical | Editor state and extensibility beneath an application-owned editing interface |
+| Sortable lists, kanban, or custom drag interactions | dnd-kit | Input sensors, drop targets, and sorting behavior while the app owns its data model |
+| React form state and validation | React Hook Form | Field registration, validation, errors, and submission state alongside the chosen controls |
+| Long scrolling lists or grids | TanStack Virtual | Headless windowing while the app controls markup, measurements, and focus behavior |
+| React date or date-range selection | React DayPicker | Focused calendar selection, localization, and time-zone support |
 | Icons | Lucide, Heroicons, Tabler Icons, Phosphor | Keep icons consistent and avoid hand-drawn SVGs |
 | Data visualization | Apache ECharts, Recharts, Nivo | Choose based on chart breadth, React integration, and output control |
 
@@ -86,6 +91,14 @@ See the [library verification record](library-verification.md) for dated version
 | Library | Model | Strengths | Tradeoffs | License | Official source |
 | --- | --- | --- | --- | --- | --- |
 | Motion | JavaScript animation library with React integration | Gestures, layout and exit transitions, and scroll-linked effects without replacing the primary component system | Keep motion purposeful, honor reduced-motion preferences, and check bundle impact and client boundaries; optional Motion+ products have separate terms | MIT for the open-source library | [Repository](https://github.com/motiondivision/motion) · [Documentation](https://motion.dev/docs) |
+| dnd-kit | Drag-and-drop toolkit with a DOM layer and framework adapters | Sortable lists, grids, multiple containers, custom drop targets, and pointer, touch, and keyboard interaction | Current React documentation uses `@dnd-kit/react`; legacy `@dnd-kit/core` / `@dnd-kit/sortable` use different APIs. Preserve an existing stack until a migration is planned; own domain state, persistence, collision rules, and accessibility verification | MIT | [Repository](https://github.com/clauderic/dnd-kit) · [React documentation](https://dndkit.com/react/quickstart) · [Legacy React documentation](https://docs.dndkit.com/) |
+
+## Rich-text editing
+
+| Library | Model | Strengths | Tradeoffs | License | Official source |
+| --- | --- | --- | --- | --- | --- |
+| Tiptap | Headless editor framework built on ProseMirror, with framework integrations | Extensible rich-text and document editing through schemas, commands, and extensions; open-source collaboration extensions are available | You own the toolbar, styling, schema choices, storage, content validation, and collaboration infrastructure; review each extension because Pro extensions and Cloud services have separate terms | MIT for the open-source core | [Repository](https://github.com/ueberdosis/tiptap) · [Documentation](https://tiptap.dev/docs/editor/introduction) |
+| Lexical | Extensible editor framework with React bindings | Editor state, custom nodes, commands, and plugins for a tailored rich-text experience | Requires assembling the editing UI and plugins, defining serialization and persistence, and testing selection, paste, input methods, and accessibility in actual flows | MIT | [Repository](https://github.com/facebook/lexical) · [Documentation](https://lexical.dev/docs/intro) |
 
 ## Specialized product capabilities
 
@@ -96,6 +109,9 @@ Use these for a concrete product requirement alongside one primary component sys
 | assistant-ui | React chat primitives and assistant runtime integration | Streaming conversation UI, message composition, threads, and tool interaction with custom rendering | Requires choosing and integrating a backend or runtime adapter; authentication, model access, persistence, and server-side secrets remain application work; optional hosted services have separate terms | MIT for the open-source library | [Repository](https://github.com/assistant-ui/assistant-ui) · [Documentation](https://www.assistant-ui.com/docs) |
 | React Flow / Svelte Flow | Node-based editor components for React and Svelte | Custom nodes and edges, connections, dragging, zooming, and viewport controls for workflow or diagram editors | You own domain validation, execution, persistence, and any automatic layout integration; check layout-engine licenses and distinguish optional Pro examples or support from the core | MIT for the core libraries | [Repository](https://github.com/xyflow/xyflow) · [React documentation](https://reactflow.dev/learn) · [Svelte documentation](https://svelteflow.dev/learn) |
 | TanStack Table | Headless table core with framework adapters | Sorting, filtering, grouping, selection, and pagination while the app owns table markup and appearance | Provides no finished visual system; rendering, keyboard behavior, server data loading, and optional virtualization require integration; check the chosen adapter's major version, peers, and runtime requirements | MIT | [Repository](https://github.com/TanStack/table) · [Documentation](https://tanstack.com/table/latest/docs/overview) |
+| React Hook Form | React form-state and validation library | Field registration, validation, submission state, errors, and controlled-component integration alongside existing UI controls | Provides no styled fields; connect controlled widgets deliberately, manage accessible errors and focus, and choose schema adapters when needed. Server-side validation remains application work | MIT | [Repository](https://github.com/react-hook-form/react-hook-form) · [Documentation](https://react-hook-form.com/get-started) |
+| TanStack Virtual | Headless virtualization core with framework adapters | Windowing for long lists, tables, and grids while preserving control over markup and styling | You own item rendering, measurements, dynamic-size behavior, SSR integration, keyboard focus, and scroll restoration; profile the actual screen rather than assuming a frame-rate guarantee | MIT | [Repository](https://github.com/TanStack/virtual) · [Documentation](https://tanstack.com/virtual/latest/docs/introduction) |
+| React DayPicker | Customizable React calendar and date-selection component | Single, multiple, and range selection, locale support, and time-zone-aware calendars | New v10 work uses `@daypicker/react`; `react-day-picker` remains for compatibility. Check the installed major and local Calendar wrapper before upgrading, including removed props, CSS mappings, and separate non-Gregorian add-ons; input fields, popovers, and time selection require composition | MIT | [Repository](https://github.com/gpbl/react-day-picker) · [Documentation](https://daypicker.dev/start) · [Upgrade guide](https://daypicker.dev/upgrading) |
 
 ## Icons and visualization support
 

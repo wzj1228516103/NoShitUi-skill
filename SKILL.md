@@ -16,7 +16,7 @@ Use this skill to turn a UI request into a clear visual direction, a license-awa
 3. For library comparison or implementation, read [the UI library catalog](open-source-ui-resources/references/ui-libraries.md) and the relevant parts of [selection and adoption](open-source-ui-resources/references/selection-and-adoption.md).
 4. Inspect the project's framework, package manager, styling system, runtime, and existing component/icon packages before choosing a stack.
 
-For animation, AI chat, node editors, or custom data tables, use the library catalog's specialist sections. For Vue or Svelte with a custom visual language, compare framework-native headless primitives before adding another styled system. Consult [the dated verification notes](open-source-ui-resources/references/library-verification.md) for the newly cataloged packages and restricted visual resources.
+For animation, AI chat, node editors, data tables, rich-text editing, forms, drag-and-drop, calendars, or large-list rendering, use the library catalog's specialist sections. For Vue or Svelte with a custom visual language, compare framework-native headless primitives before adding another styled system. Consult [the dated verification notes](open-source-ui-resources/references/library-verification.md) for package constraints, API generations, and restricted visual resources.
 
 ## Make a recommendation
 
