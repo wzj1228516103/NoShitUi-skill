@@ -77,6 +77,8 @@ NoShitUi-skill は、UI 制作で手戻りが生じやすい問題に取り組�
 
 カルーセルは実装済みの全20プロジェクトを紹介します。3D体験の OBJECT、rooted.、DRIFT、ORBITAL を先頭に置き、運用画面、shadcn の注文ダッシュボード、UI ATLAS のリソース図譜、残りのブランド・動的ページを続けています。ホームページも同じ順序で、3D絞り込み、カテゴリ、キーワード検索に対応します。リソース発見、選定理由、統合と検証がプロジェクトの中心です。 [展示をオンラインで体験](https://wzj1228516103.github.io/NoShitUi-skill/) · [展示のソースコード](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [オンラインのリソースマップ](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+オンラインのリソース図鑑は厳選したデモです。選定用の全一覧は [Skill のライブラリ一覧](open-source-ui-resources/references/ui-libraries.md)を参照してください。
+
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全20プロジェクトのプレビュー、3D体験を先頭に" width="920">
 </p>
@@ -120,10 +122,15 @@ NoShitUi-skill は、UI 制作で手戻りが生じやすい問題に取り組�
 
 - **React のスタイル付きシステム**：MUI、Ant Design、Mantine、Chakra UI、PrimeReact、Fluent UI。
 - **React のスタイルを持たない方式とソースコード方式**：shadcn/ui、Radix UI、React Aria、Headless UI、Base UI。
-- **Vue のコンポーネントシステム**：Element Plus、Naive UI、Vuetify、Quasar、PrimeVue、Arco Design Vue。
-- **Svelte とフレームワークに依存しない方式**：Skeleton、Melt UI、shadcn-svelte、Bootstrap、Bulma、Pico CSS、Tailwind CSS、daisyUI。
+- **Vue のコンポーネントシステム**：Element Plus、Naive UI、Vuetify、Quasar、PrimeVue、Arco Design Vue、Reka UI。
+- **Svelte とフレームワークに依存しない方式**：Skeleton、Bits UI、Melt UI、shadcn-svelte、Bootstrap、Bulma、Pico CSS、Tailwind CSS、daisyUI。
 - **アイコンとデータ可視化**：Lucide、Heroicons、Tabler Icons、Phosphor、Apache ECharts、Recharts、Nivo。
 - **デザインの参考とパターン**：Mobbin、Page Flows、Godly、Awwwards、UIverse、HyperUI、Component Gallery、Component Party。
+- **動きと用途別の UI**：Motion、assistant-ui、React Flow / Svelte Flow、TanStack Table。
+- **編集と操作**：Tiptap、Lexical、dnd-kit、React Hook Form、TanStack Virtual、React DayPicker。
+- **追加制限のあるビジュアルソース**：React Bits、Animate UI。採用前に実際の LICENSE と Commons Clause の条件を確認してください。
+
+日付付きのバージョン情報、依存条件、ライセンスの出典は[検証記録](open-source-ui-resources/references/library-verification.md)にあります。既存プロジェクトの更新を求めるものではありません。
 
 この一覧は網羅的な登録簿ではありません。展示サイトは主に、階層、フロー、余白、状態、レスポンシブな変化を研究するために使います。再利用するコードの出典にできるのは、公式リポジトリ、公式パッケージ、またはソースコードであることを明示したページです。各リソースのコード、画像、フォント、アイコン、ブランド素材についても、利用条件を個別に確認する必要があります。
 
@@ -163,12 +170,15 @@ npx skills list -g -a codex
 ├─ SKILL.md                              # そのままインストールできるルートの Skill 入口
 ├─ README.*.md                           # 多言語の概要と利用ガイド
 ├─ agents/openai.yaml                    # Codex の UI メタデータ
+├─ .github/workflows/check-catalog.yml
 ├─ open-source-ui-resources/
 │  ├─ SKILL.md                           # リソースの発見と導入のルール
 │  ├─ references/ui-libraries.md         # フレームワークと用途別の UI ライブラリ
 │  ├─ references/ui-websites.md          # デザイン参考、コンポーネント、パターンのサイト
 │  ├─ references/selection-and-adoption.md
-│  └─ scripts/check_catalog.py           # ローカル参照とリンクの確認スクリプト
+│  ├─ references/library-verification.md
+│  ├─ scripts/check_catalog.py           # ローカル参照とリンクの確認スクリプト
+│  └─ scripts/test_check_catalog.py
 ```
 
 ## 検証と保守
@@ -177,7 +187,10 @@ npx skills list -g -a codex
 
 ```bash
 python open-source-ui-resources/scripts/check_catalog.py
+python -m unittest discover -s open-source-ui-resources/scripts -p "test_*.py"
 ```
+
+CI はオフラインの回帰テストを実行し、両方の Skill 入口、一覧、8 言語の README のローカルリンクと画像を確認します。外部リンクは必要に応じて手動で確認します。
 
 ネットワークが利用できる場合は、外部リンクも確認できます。
 

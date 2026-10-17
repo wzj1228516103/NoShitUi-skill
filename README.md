@@ -60,6 +60,8 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 [体验新版首页](https://wzj1228516103.github.io/NoShitUi-skill/?lang=zh-CN) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html) · [shadcn 运营后台](https://wzj1228516103.github.io/NoShitUi-skill/shadcn-demo/)
 
+在线资源图谱是精选演示；完整选型清单以 [Skill 资源目录](open-source-ui-resources/references/ui-libraries.md)为准。
+
 首页采用明亮的银蓝科技风格：冷白底色、蓝色光效与银色圆环，搭配 OBJECT、PRECISION_、NODE 的真实项目预览浮窗，通过轻微漂浮和鼠标视差呈现空间层次。
 
 - **浏览 20 个产出示例**：关键词搜索、分类切换和 3D 体验筛选，点击卡片进入对应演示。
@@ -126,10 +128,15 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 - **React 样式系统**：MUI、Ant Design、Mantine、Chakra UI、PrimeReact、Fluent UI。
 - **React 无样式与源码方案**：shadcn/ui、Radix UI、React Aria、Headless UI、Base UI。
-- **Vue 组件系统**：Element Plus、Naive UI、Vuetify、Quasar、PrimeVue、Arco Design Vue。
-- **Svelte 与框架无关方案**：Skeleton、Melt UI、shadcn-svelte、Bootstrap、Bulma、Pico CSS、Tailwind CSS、daisyUI。
+- **Vue 组件系统**：Element Plus、Naive UI、Vuetify、Quasar、PrimeVue、Arco Design Vue、Reka UI。
+- **Svelte 与框架无关方案**：Skeleton、Bits UI、Melt UI、shadcn-svelte、Bootstrap、Bulma、Pico CSS、Tailwind CSS、daisyUI。
 - **图标和可视化**：Lucide、Heroicons、Tabler Icons、Phosphor、Apache ECharts、Recharts、Nivo。
 - **灵感和模式参考**：Mobbin、Page Flows、Godly、Awwwards、UIverse、HyperUI、Component Gallery、Component Party。
+- **动效与专业界面**：Motion、assistant-ui、React Flow / Svelte Flow、TanStack Table。
+- **编辑与交互能力**：Tiptap、Lexical、dnd-kit、React Hook Form、TanStack Virtual、React DayPicker。
+- **附带限制的视觉源码**：React Bits、Animate UI；采用前阅读实际 LICENSE 中的 Commons Clause 条件。
+
+新增资源的版本快照、依赖约束和许可证出处见[核验记录](open-source-ui-resources/references/library-verification.md)，这些快照不代表需要升级现有项目。
 
 目录不是完整注册表。展示网站主要用于研究层级、流程、间距、状态和响应式变化；只有官方仓库、包或明确标注源码的页面，才可以作为可复用代码来源。每个资源的代码、图片、字体、图标和品牌资产仍需分别核对条款。
 
@@ -169,12 +176,15 @@ npx skills list -g -a codex
 ├─ SKILL.md                              # 可直接安装的根级 Skill 入口
 ├─ README.*.md                           # 多语言简介与使用指南
 ├─ agents/openai.yaml                    # Codex 界面元数据
+├─ .github/workflows/check-catalog.yml
 ├─ open-source-ui-resources/
 │  ├─ SKILL.md                           # 资源发现与集成规则
 │  ├─ references/ui-libraries.md         # 按框架和用途整理的 UI 库
 │  ├─ references/ui-websites.md          # 灵感、组件和模式网站
 │  ├─ references/selection-and-adoption.md
-│  └─ scripts/check_catalog.py           # 本地引用与链接检查脚本
+│  ├─ references/library-verification.md
+│  ├─ scripts/check_catalog.py           # 本地引用与链接检查脚本
+│  └─ scripts/test_check_catalog.py
 ```
 
 ## 验证和维护
@@ -183,7 +193,10 @@ npx skills list -g -a codex
 
 ```bash
 python open-source-ui-resources/scripts/check_catalog.py
+python -m unittest discover -s open-source-ui-resources/scripts -p "test_*.py"
 ```
+
+CI 会运行离线回归测试，并检查根/嵌套 Skill、资源目录及八份 README 的本地链接和图片。外链检查按需手动运行。
 
 网络可用时可以检查外部链接：
 

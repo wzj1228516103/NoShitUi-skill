@@ -77,6 +77,8 @@ NoShitUi-skill은 UI 작업에서 재작업이 발생하기 쉬운 문제를 다
 
 캐러셀은 구현된 20개 프로젝트를 모두 보여 줍니다. 3D 경험인 OBJECT, rooted., DRIFT, ORBITAL을 먼저 소개하고, 운영 화면, shadcn 주문 대시보드, UI ATLAS 리소스 지도 및 나머지 브랜드·모션 페이지를 이어서 보여 줍니다. 홈페이지도 같은 순서이며 3D 필터, 카테고리 및 키워드 검색을 지원합니다. 리소스 탐색, 선택 근거, 통합 및 검증이 프로젝트의 중심입니다. [전체 쇼케이스 보기](https://wzj1228516103.github.io/NoShitUi-skill/) · [쇼케이스 소스 보기](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [온라인 리소스 아틀라스](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+온라인 리소스 아틀라스는 엄선한 데모입니다. 전체 선택 목록은 [Skill 라이브러리 목록](open-source-ui-resources/references/ui-libraries.md)을 참고하세요.
+
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="전체 20개 프로젝트 미리보기, 3D 경험 우선" width="920">
 </p>
@@ -120,10 +122,15 @@ NoShitUi-skill은 UI 작업에서 재작업이 발생하기 쉬운 문제를 다
 
 - **React 스타일 시스템**: MUI, Ant Design, Mantine, Chakra UI, PrimeReact, Fluent UI.
 - **React의 스타일 없는 방식과 소스 코드 방식**: shadcn/ui, Radix UI, React Aria, Headless UI, Base UI.
-- **Vue 컴포넌트 시스템**: Element Plus, Naive UI, Vuetify, Quasar, PrimeVue, Arco Design Vue.
-- **Svelte 및 프레임워크 독립 방식**: Skeleton, Melt UI, shadcn-svelte, Bootstrap, Bulma, Pico CSS, Tailwind CSS, daisyUI.
+- **Vue 컴포넌트 시스템**: Element Plus, Naive UI, Vuetify, Quasar, PrimeVue, Arco Design Vue, Reka UI.
+- **Svelte 및 프레임워크 독립 방식**: Skeleton, Bits UI, Melt UI, shadcn-svelte, Bootstrap, Bulma, Pico CSS, Tailwind CSS, daisyUI.
 - **아이콘과 데이터 시각화**: Lucide, Heroicons, Tabler Icons, Phosphor, Apache ECharts, Recharts, Nivo.
 - **디자인 참고와 패턴**: Mobbin, Page Flows, Godly, Awwwards, UIverse, HyperUI, Component Gallery, Component Party.
+- **모션과 전문 UI**: Motion, assistant-ui, React Flow / Svelte Flow, TanStack Table.
+- **편집과 상호작용**: Tiptap, Lexical, dnd-kit, React Hook Form, TanStack Virtual, React DayPicker.
+- **추가 제한이 있는 시각 효과 소스**: React Bits, Animate UI. 도입 전에 실제 LICENSE의 Commons Clause 조건을 확인하세요.
+
+날짜별 버전, 의존성 조건, 라이선스 출처는 [검증 기록](open-source-ui-resources/references/library-verification.md)에 있습니다. 기존 프로젝트의 업그레이드를 요구하는 정보는 아닙니다.
 
 이 목록은 모든 리소스를 망라한 등록부가 아닙니다. 전시 사이트는 주로 계층 구조, 흐름, 간격, 상태, 반응형 변화를 연구하는 데 사용합니다. 재사용 가능한 코드 출처로 삼을 수 있는 것은 공식 저장소, 공식 패키지, 또는 소스 코드임을 명확히 표시한 페이지입니다. 각 리소스의 코드, 이미지, 폰트, 아이콘, 브랜드 자산도 이용 조건을 개별적으로 확인해야 합니다.
 
@@ -163,12 +170,15 @@ npx skills list -g -a codex
 ├─ SKILL.md                              # 바로 설치할 수 있는 루트 Skill 진입점
 ├─ README.*.md                           # 다국어 소개와 사용 가이드
 ├─ agents/openai.yaml                    # Codex UI 메타데이터
+├─ .github/workflows/check-catalog.yml
 ├─ open-source-ui-resources/
 │  ├─ SKILL.md                           # 리소스 탐색과 통합 규칙
 │  ├─ references/ui-libraries.md         # 프레임워크와 용도별 UI 라이브러리
 │  ├─ references/ui-websites.md          # 디자인 참고, 컴포넌트, 패턴 사이트
 │  ├─ references/selection-and-adoption.md
-│  └─ scripts/check_catalog.py           # 로컬 참조와 링크 검사 스크립트
+│  ├─ references/library-verification.md
+│  ├─ scripts/check_catalog.py           # 로컬 참조와 링크 검사 스크립트
+│  └─ scripts/test_check_catalog.py
 ```
 
 ## 검증과 유지보수
@@ -177,7 +187,10 @@ npx skills list -g -a codex
 
 ```bash
 python open-source-ui-resources/scripts/check_catalog.py
+python -m unittest discover -s open-source-ui-resources/scripts -p "test_*.py"
 ```
+
+CI는 오프라인 회귀 테스트를 실행하고 두 Skill 진입점, 리소스 목록, 8개 README의 로컬 링크와 이미지를 검사합니다. 외부 링크 검사는 필요할 때 수동으로 실행합니다.
 
 네트워크를 사용할 수 있다면 외부 링크도 확인할 수 있습니다.
 

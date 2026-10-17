@@ -14,7 +14,7 @@ Use this skill to turn a UI request into a clear visual direction, a license-awa
 1. Identify whether the user wants discovery, project-specific recommendation, or implementation.
 2. For inspiration and website discovery, read [the UI website catalog](open-source-ui-resources/references/ui-websites.md).
 3. For library comparison or implementation, read [the UI library catalog](open-source-ui-resources/references/ui-libraries.md) and the relevant parts of [selection and adoption](open-source-ui-resources/references/selection-and-adoption.md).
-4. Inspect the project's framework, package manager, styling system, runtime, and existing component/icon packages before choosing a stack.
+4. For project-specific recommendations or implementation, inspect the project's framework, package manager, styling system, runtime, and existing component/icon packages before choosing a stack. For discovery-only requests, return a shortlist without inspecting or changing project files.
 
 For animation, AI chat, node editors, data tables, rich-text editing, forms, drag-and-drop, calendars, or large-list rendering, use the library catalog's specialist sections. For Vue or Svelte with a custom visual language, compare framework-native headless primitives before adding another styled system. Consult [the dated verification notes](open-source-ui-resources/references/library-verification.md) for package constraints, API generations, and restricted visual resources.
 
@@ -41,9 +41,10 @@ When changing the catalog, verify official sources and run:
 
 ```bash
 python open-source-ui-resources/scripts/check_catalog.py
+python -m unittest discover -s open-source-ui-resources/scripts -p "test_*.py"
 ```
 
-Use `--check-links` when network access is available. Blocked or rate-limited links are unverified, not proof that a resource is dead.
+In this repository, the local check covers both Skill entrypoints, the reference catalog, and README links/images; it also works for the nested Skill installed on its own. These offline checks run in CI. Use `--check-links` when network access is available. Blocked or rate-limited links are unverified, not proof that a resource is dead.
 
 ## Scope
 
