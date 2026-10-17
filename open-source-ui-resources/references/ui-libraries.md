@@ -9,8 +9,8 @@ See the [library verification record](library-verification.md) for dated version
 | Need | Good starting points | Why |
 | --- | --- | --- |
 | React product with a broad, styled component set | MUI, Ant Design, Mantine, Chakra UI | Fast delivery, theming, forms/layout/data-display coverage |
-| React with source ownership and a custom visual language | shadcn/ui + Radix UI, or Base UI | Components live in the app; high control over markup and CSS |
-| React primitives with strong interaction/accessibility foundations | Radix UI, React Aria, Headless UI | Behavior and semantics without committing to a visual theme |
+| React with source ownership and a custom visual language | shadcn/ui | Component source lives in the app; review its primitive dependencies separately |
+| React primitives with strong interaction/accessibility foundations | Radix UI, Base UI, React Aria, Headless UI | Behavior and semantics without committing to a visual theme |
 | React design-system compliance | Fluent UI, React Spectrum | Enterprise patterns, tokens, accessibility and platform guidance |
 | Vue 3 enterprise/admin product | Element Plus, Naive UI, Arco Design Vue, PrimeVue | Broad business components and mature Vue integration |
 | Vue 3 with a custom visual system | Reka UI | Unstyled interaction primitives without adopting an enterprise theme |

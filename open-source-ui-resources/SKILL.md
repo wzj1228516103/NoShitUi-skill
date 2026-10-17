@@ -12,7 +12,7 @@ Use this skill to discover useful UI references and component resources, or to s
 ## Workflow
 
 1. Identify the request mode before inspecting a project: discovery/reference research, project-specific recommendation, or implementation.
-2. For discovery/reference research, read [references/ui-websites.md](references/ui-websites.md) and give a concise categorized shortlist. Do not inspect or modify a project unless the user asks for a project-specific recommendation or implementation.
+2. For discovery/reference research, read [references/ui-websites.md](references/ui-websites.md) for inspiration and source sites, or [references/ui-libraries.md](references/ui-libraries.md) for reusable libraries. Give a concise categorized shortlist. Do not inspect or modify a project unless the user asks for a project-specific recommendation or implementation.
 3. For project-specific recommendations or implementation, inspect the framework and version, router, styling system, package manager, SSR/build setup, existing component/icon packages, and whether a full design system or only primitives are needed. Read [references/ui-libraries.md](references/ui-libraries.md) and the relevant sections of [references/ui-websites.md](references/ui-websites.md). For a consequential library choice, also read [references/selection-and-adoption.md](references/selection-and-adoption.md).
 4. Treat catalog license labels as a starting point. Verify the current official repository, package metadata, and page-specific terms before adding or copying anything.
 5. Ask only for a missing product constraint that changes the recommendation. Useful constraints are framework, need for SSR/RSC, visual direction, accessibility requirements, bundle-size sensitivity, and whether copy/paste source ownership is preferred.
@@ -31,6 +31,7 @@ Use this skill to discover useful UI references and component resources, or to s
 ## Maintaining the catalog
 
 - When adding or changing catalog entries, verify the official source and license/terms manually, then run `python scripts/check_catalog.py` to catch broken local references and malformed entries.
+- Run `python -m unittest discover -s scripts -p "test_*.py"` from this Skill's directory when changing the checker. Repository CI runs the offline checks for both entrypoints, the catalog, and README links/images; a standalone installation checks only its own files.
 - Run `python scripts/check_catalog.py --check-links` when network access is available. Treat blocked, rate-limited, and timed-out results as unverified, not as proof that a site is dead. Link reachability does not validate license claims or maintenance quality.
 
 ## Selection rules

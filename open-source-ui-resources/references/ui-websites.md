@@ -78,6 +78,8 @@ Keep these entries as links and selection guidance. Do not bundle their componen
 
 ## Resource-to-action routing
 
+Match the project's framework and runtime before following a route. Keep suitable existing libraries and use version-matched documentation; implement only when requested.
+
 | User intent | Start with | Deliverable |
 | --- | --- | --- |
 | "Give me visual direction for a SaaS landing page" | Godly, Land-book, Lapa Ninja, Awwwards | A short pattern audit and a project-specific visual direction |
@@ -87,14 +89,14 @@ Keep these entries as links and selection guidance. Do not bundle their componen
 | "Add custom motion or spatial effects to an interface" | Motion core; React Bits or Animate UI only under their restricted terms above | A small effect integrated into the existing visual system, with mobile performance and reduced-motion checks |
 | "Build a custom Vue interface" | Reka UI | Styled Vue primitives with verified keyboard, focus, and interaction states |
 | "Build a custom Svelte interface" | Bits UI; xyflow / Svelte Flow for a node canvas | A Svelte-native component strategy and a representative working flow |
-| "Build an AI chat interface" | assistant-ui | A working conversation flow with streaming, tool, loading, error, and empty states |
+| "Build a React AI chat interface" | assistant-ui | A working conversation flow with streaming, tool, loading, error, and empty states |
 | "Build a node-based workflow editor" | xyflow / React Flow or Svelte Flow | An editable node-and-edge canvas with connection rules, state, and a verified representative workflow |
 | "Build a custom data table" | TanStack Table | A styled table with the required sorting, filtering, selection, and pagination behavior; choose virtualization separately if needed |
 | "Build a rich-text or document editor" | Tiptap for extension-based composition; Lexical for custom editor behavior and UI | A version-matched editor with the required schema, toolbar, paste/import, serialization, undo/redo, and input-method behavior verified |
 | "Add drag-and-drop sorting or movement between lists" | dnd-kit, using the documentation for the installed package family | A working drag flow with pointer and keyboard input, collision rules, announcements, cancellation, and saved application state |
-| "Build a form with validation and submission feedback" | React Hook Form | A form using the existing component strategy, with validation, keyboard/focus behavior, and loading, success, and error states |
+| "Build a React form with validation and submission feedback" | React Hook Form | A form using the existing component strategy, with validation, keyboard/focus behavior, and loading, success, and error states |
 | "Render a very long list or table efficiently" | TanStack Virtual; pair with TanStack Table only when table behavior is needed | A measured virtual window with stable item keys, scrolling, and verified focus and responsive behavior |
-| "Add a calendar or date-range picker" | React DayPicker, matching the installed package and wrapper versions | A styled date-selection flow with locale, disabled dates, selection rules, keyboard navigation, and any separate text-input/popover integration |
+| "Add a React calendar or date-range picker" | React DayPicker, matching the installed package and wrapper versions | A styled date-selection flow with locale, disabled dates, selection rules, keyboard navigation, and any separate text-input/popover integration |
 | "Compare component behavior across frameworks" | Component Gallery, Component Party | Framework-aware recommendation |
 | "Make the UI accessible" | React Aria, Radix UI, Headless UI | Behavior primitives plus an accessibility verification plan |
 

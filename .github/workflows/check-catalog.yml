@@ -1,0 +1,46 @@
+name: Validate Skill catalog
+
+on:
+  push:
+    branches: [master, showcase-source]
+    paths:
+      - SKILL.md
+      - open-source-ui-resources/**
+      - README*.md
+      - docs/**
+      - agents/**
+      - LICENSE
+      - THIRD-PARTY-NOTICES.md
+      - .github/workflows/check-catalog.yml
+  pull_request:
+    paths:
+      - SKILL.md
+      - open-source-ui-resources/**
+      - README*.md
+      - docs/**
+      - agents/**
+      - LICENSE
+      - THIRD-PARTY-NOTICES.md
+      - .github/workflows/check-catalog.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Test catalog checker
+        run: python -m unittest discover -s open-source-ui-resources/scripts -p "test_*.py"
+
+      - name: Validate Skill entrypoints, catalog, and README references
+        run: python open-source-ui-resources/scripts/check_catalog.py

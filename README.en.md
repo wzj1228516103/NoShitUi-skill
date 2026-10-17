@@ -77,6 +77,8 @@ The showcase homepage combines cool white and silver surfaces with blue light ef
 
 The carousel covers all 20 implemented projects, starting with four 3D experiences: OBJECT, rooted., DRIFT, and ORBITAL. TEMPO music playback, FRAME poster editing, STAY hotel booking, NODE workflow editing, LOOP learning, SOURCE developer docs, ARCHIVE art curation, PLATE restaurant ordering, operations workspaces, the shadcn orders dashboard, the UI ATLAS resource atlas, and all remaining brand and motion concepts follow. The homepage uses the same order, with a 3D filter, categories, and keyword search. The project remains focused on resource discovery, selection rationale, integration, and verification. [Explore the full showcase](https://wzj1228516103.github.io/NoShitUi-skill/) · [View the showcase source](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explore the resource atlas](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+The online resource atlas is a curated demo; use the [Skill library catalog](open-source-ui-resources/references/ui-libraries.md) for the full selection list.
+
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="All 20 projects, with 3D experiences first" width="920">
 </p>
@@ -120,10 +122,15 @@ The detailed catalog in [`open-source-ui-resources/references/`](open-source-ui-
 
 - **React styled systems**: MUI, Ant Design, Mantine, Chakra UI, PrimeReact, Fluent UI.
 - **React headless and source ownership approaches**: shadcn/ui, Radix UI, React Aria, Headless UI, Base UI.
-- **Vue component systems**: Element Plus, Naive UI, Vuetify, Quasar, PrimeVue, Arco Design Vue.
-- **Svelte and framework-independent approaches**: Skeleton, Melt UI, shadcn-svelte, Bootstrap, Bulma, Pico CSS, Tailwind CSS, daisyUI.
+- **Vue component systems**: Element Plus, Naive UI, Vuetify, Quasar, PrimeVue, Arco Design Vue, Reka UI.
+- **Svelte and framework-independent approaches**: Skeleton, Bits UI, Melt UI, shadcn-svelte, Bootstrap, Bulma, Pico CSS, Tailwind CSS, daisyUI.
 - **Icons and visualization**: Lucide, Heroicons, Tabler Icons, Phosphor, Apache ECharts, Recharts, Nivo.
 - **Inspiration and pattern references**: Mobbin, Page Flows, Godly, Awwwards, UIverse, HyperUI, Component Gallery, Component Party.
+- **Motion and specialist interfaces**: Motion, assistant-ui, React Flow / Svelte Flow, TanStack Table.
+- **Editing and interaction**: Tiptap, Lexical, dnd-kit, React Hook Form, TanStack Virtual, React DayPicker.
+- **Visual source with additional restrictions**: React Bits, Animate UI; read the actual LICENSE and its Commons Clause conditions before adoption.
+
+See the [verification record](open-source-ui-resources/references/library-verification.md) for dated package snapshots, dependency constraints, and license sources. These snapshots do not imply that an existing project should upgrade.
 
 The catalog is not an exhaustive registry. Showcase sites primarily help study hierarchy, flows, spacing, states, and responsive changes. Only official repositories, packages, or pages explicitly providing source code qualify as reusable code sources. Check the terms for each resource's code, images, fonts, icons, and brand assets separately.
 
@@ -163,12 +170,15 @@ Review this UI change for global style conflicts, lost keyboard focus, horizonta
 ├─ SKILL.md                              # Directly installable root Skill entry point
 ├─ README.*.md                           # Multilingual overviews and usage guides
 ├─ agents/openai.yaml                    # Codex UI metadata
+├─ .github/workflows/check-catalog.yml
 ├─ open-source-ui-resources/
 │  ├─ SKILL.md                           # Resource discovery and integration rules
 │  ├─ references/ui-libraries.md         # UI libraries by framework and purpose
 │  ├─ references/ui-websites.md          # Inspiration, components, and pattern sites
 │  ├─ references/selection-and-adoption.md
-│  └─ scripts/check_catalog.py           # Local reference and link validation script
+│  ├─ references/library-verification.md
+│  ├─ scripts/check_catalog.py           # Local reference and link validation script
+│  └─ scripts/test_check_catalog.py
 ```
 
 ## Validation and maintenance
@@ -177,7 +187,10 @@ After updating the resource catalog, run:
 
 ```bash
 python open-source-ui-resources/scripts/check_catalog.py
+python -m unittest discover -s open-source-ui-resources/scripts -p "test_*.py"
 ```
+
+CI runs offline regression tests and checks both Skill entrypoints, the catalog, and local links/images in all eight READMEs. Run external-link checks manually when needed.
 
 When network access is available, check external links with:
 

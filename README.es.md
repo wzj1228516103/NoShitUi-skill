@@ -77,6 +77,8 @@ La página de inicio combina blancos fríos y tonos plateados con efectos de luz
 
 El carrusel muestra los 20 proyectos implementados, empezando por las cuatro experiencias 3D: OBJECT, rooted., DRIFT y ORBITAL. Después aparecen las interfaces operativas, el panel de pedidos shadcn, el atlas de recursos UI ATLAS y todos los demás conceptos de marca y movimiento. La página de inicio mantiene el mismo orden y ofrece filtro 3D, categorías y búsqueda. El proyecto sigue centrado en descubrir, seleccionar, integrar y verificar recursos. [Explorar la demostración completa](https://wzj1228516103.github.io/NoShitUi-skill/) · [Ver el código de la demostración](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorar el mapa de recursos](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+El atlas en línea es una demo seleccionada; consulta el [catálogo de bibliotecas del Skill](open-source-ui-resources/references/ui-libraries.md) para ver la lista completa.
+
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="Los 20 proyectos, con las experiencias 3D primero" width="920">
 </p>
@@ -120,10 +122,15 @@ El catálogo detallado está en [`open-source-ui-resources/references/`](open-so
 
 - **Sistemas con estilos para React**: MUI, Ant Design, Mantine, Chakra UI, PrimeReact, Fluent UI.
 - **Primitivas sin estilos y soluciones de código fuente para React**: shadcn/ui, Radix UI, React Aria, Headless UI, Base UI.
-- **Sistemas de componentes para Vue**: Element Plus, Naive UI, Vuetify, Quasar, PrimeVue, Arco Design Vue.
-- **Soluciones para Svelte e independientes del framework**: Skeleton, Melt UI, shadcn-svelte, Bootstrap, Bulma, Pico CSS, Tailwind CSS, daisyUI.
+- **Sistemas de componentes para Vue**: Element Plus, Naive UI, Vuetify, Quasar, PrimeVue, Arco Design Vue, Reka UI.
+- **Soluciones para Svelte e independientes del framework**: Skeleton, Bits UI, Melt UI, shadcn-svelte, Bootstrap, Bulma, Pico CSS, Tailwind CSS, daisyUI.
 - **Iconos y visualización**: Lucide, Heroicons, Tabler Icons, Phosphor, Apache ECharts, Recharts, Nivo.
 - **Inspiración y referencias de patrones**: Mobbin, Page Flows, Godly, Awwwards, UIverse, HyperUI, Component Gallery, Component Party.
+- **Movimiento e interfaces especializadas**: Motion, assistant-ui, React Flow / Svelte Flow, TanStack Table.
+- **Edición e interacción**: Tiptap, Lexical, dnd-kit, React Hook Form, TanStack Virtual, React DayPicker.
+- **Código visual con restricciones adicionales**: React Bits, Animate UI; revisa el LICENSE real y sus condiciones Commons Clause antes de adoptarlos.
+
+El [registro de verificación](open-source-ui-resources/references/library-verification.md) incluye versiones fechadas, requisitos de dependencias y fuentes de licencias. Estos datos no implican actualizar un proyecto existente.
 
 El catálogo no es un registro exhaustivo. Los sitios de demostración sirven principalmente para estudiar jerarquía, flujos, espaciado, estados y cambios adaptables. Solo los repositorios oficiales, los paquetes o las páginas que indiquen expresamente que ofrecen código fuente pueden utilizarse como fuentes de código reutilizable. Las condiciones del código, las imágenes, las fuentes, los iconos y los recursos de marca deben comprobarse por separado para cada recurso.
 
@@ -163,12 +170,15 @@ Revisa si este cambio de UI tiene conflictos de estilos globales, pérdida del f
 ├─ SKILL.md                              # Punto de entrada del Skill instalable desde la raíz
 ├─ README.*.md                           # Introducción y guías de uso en varios idiomas
 ├─ agents/openai.yaml                    # Metadatos de la interfaz de Codex
+├─ .github/workflows/check-catalog.yml
 ├─ open-source-ui-resources/
 │  ├─ SKILL.md                           # Reglas de descubrimiento e integración de recursos
 │  ├─ references/ui-libraries.md         # Bibliotecas de UI por framework y uso
 │  ├─ references/ui-websites.md          # Sitios de inspiración, componentes y patrones
 │  ├─ references/selection-and-adoption.md
-│  └─ scripts/check_catalog.py           # Script para comprobar referencias locales y enlaces
+│  ├─ references/library-verification.md
+│  ├─ scripts/check_catalog.py           # Script para comprobar referencias locales y enlaces
+│  └─ scripts/test_check_catalog.py
 ```
 
 ## Validación y mantenimiento
@@ -177,7 +187,10 @@ Después de modificar el catálogo de recursos, ejecuta:
 
 ```bash
 python open-source-ui-resources/scripts/check_catalog.py
+python -m unittest discover -s open-source-ui-resources/scripts -p "test_*.py"
 ```
+
+CI ejecuta pruebas de regresión sin red y comprueba ambas entradas del Skill, el catálogo y los enlaces e imágenes locales de los ocho README. Comprueba los enlaces externos manualmente cuando sea necesario.
 
 Cuando haya acceso a la red, puedes comprobar los enlaces externos:
 
