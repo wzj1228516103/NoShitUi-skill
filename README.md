@@ -67,6 +67,8 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 - **浏览 20 个产出示例**：关键词搜索、分类切换和 3D 体验筛选，点击卡片进入对应演示。
 - **八种语言**：简体中文、英语、日语、韩语、西班牙语、法语、德语和葡萄牙语，语言入口与对应 README 使用指南关联。
 - **桌面与手机适配**：浮窗和页面布局随屏幕调整，并尊重系统的减少动态效果设置。
+- **分享筛选结果**：链接可携带搜索词、分类和语言，刷新及浏览器前进、后退均可恢复。例如[查看海报工具](https://wzj1228516103.github.io/NoShitUi-skill/?category=creative&q=poster&lang=zh-CN#examples)。
+- **失败后继续使用**：语言加载失败可直接重试；资源图谱在浏览器存储不可用时仍可在本次访问内收藏和切换主题，并提示保存范围。
 
 <p align="center">
   <a href="https://wzj1228516103.github.io/NoShitUi-skill/?lang=zh-CN">
@@ -85,10 +87,24 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 轮播图完整展示全部 20 个已实现项目，并将 OBJECT 灯具配置器、rooted. 立体植物商店、DRIFT 三维地图和 ORBITAL 轨道控制台放在最前面。随后展示 TEMPO 音乐播放器、FRAME 海报编辑器、STAY 酒店预约、NODE 流程编辑器、LOOP 学习应用、SOURCE 文档站、ARCHIVE 数字展览、PLATE 餐厅点单、运营工作台、shadcn 订单后台、UI ATLAS 资源图谱，以及其余品牌和动态页面。首页采用相同顺序。项目重点仍然是资源发现、选型依据、集成规则与验证流程。
 
+交互用于验证设计与流程：STAY 和 PLATE 的记录保存在当前浏览器，不提交真实预约、订单或付款；NODE 执行确定性的本地模拟；SHADCN/OPS 的编辑记录用于当前页面会话，部分工具按钮仍为原型提示。
+
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全部 20 个展示项目轮播，3D 项目优先" width="920">
 </p>
 <p align="center"><sub>OBJECT// · rooted. · DRIFT. · ORBITAL/ · TEMPO · FRAME · STAY · NODE · LOOP · SOURCE · ARCHIVE · PLATE · PRECISION_ · SHADCN/OPS · UI ATLAS · FORME · OFFGRID · NOVA//25 · AETHER · KINETIC_</sub></p>
+
+### 可复现选型案例
+
+[在线浏览三个案例（英文）](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html)，了解同一 Skill 如何根据项目约束选择不同实现路线：
+
+| 案例 | 实现路线与验证重点 |
+| --- | --- |
+| [SHADCN/OPS](https://github.com/wzj1228516103/NoShitUi-skill/blob/showcase-source/docs/case-studies/shadcn-ops.md) | React、shadcn/ui 与 Radix；源码所有权、订单编辑流程及来源记录 |
+| [NODE](https://github.com/wzj1228516103/NoShitUi-skill/blob/showcase-source/docs/case-studies/node-native.md) | 原生 DOM 与 SVG；有边界的流程编排、拓扑校验、运行与取消 |
+| [OBJECT](https://github.com/wzj1228516103/NoShitUi-skill/blob/showcase-source/docs/case-studies/object-threejs.md) | Three.js 与 CC0 模型；渲染需求、素材许可及灯具装配验证 |
+
+案例从固定代码重建可复现任务，记录候选取舍、来源与许可证、复验步骤和适用限制。
 
 ## 工作流
 
@@ -188,6 +204,22 @@ npx skills list -g -a codex
 ```
 
 ## 验证和维护
+
+### 分支分工
+
+| 分支 | 维护内容 |
+| --- | --- |
+| `master` | 可安装的 Skill、资源目录与使用维护文档 |
+| `showcase-source` | 展示站源码、网站运行所需的静态资源、选型案例与展示站回归和部署流程 |
+
+只安装 Skill 时使用默认分支；运行展示站或其回归时，检出 `showcase-source`，按[浏览器回归说明](https://github.com/wzj1228516103/NoShitUi-skill/blob/showcase-source/tests/browser/README.md)执行。展示站由该分支更新触发部署，文档通过链接引用网站和案例。
+
+### 展示站与行为评测
+
+- **浏览器回归**：截至 2026-10-18，[展示站 CI](https://github.com/wzj1228516103/NoShitUi-skill/actions/runs/39137674954) 已通过 120 项 Chromium 检查（60 个用例 × 桌面/手机两种视口），覆盖 20 个页面入口、关键交互、语言重试、存储恢复和键盘焦点。旧概念页的入口检查不代表全部控件均已验证。浏览器检查通过后才会构建和部署网站。
+- **Skill 行为评测**：[评测指南](https://github.com/wzj1228516103/NoShitUi-skill/blob/showcase-source/evals/README.md)提供 9 个固定场景及证据记录规则。框架校验、合成示例和实际模型运行分别记录，不将校验通过当作模型效果证明。
+
+### Skill 目录检查
 
 修改资源目录后运行：
 
