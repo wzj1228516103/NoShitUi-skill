@@ -1,6 +1,8 @@
 {
   "language": "ja", "readme": "README.ja.md", "installAnchor": "インストール",
   "ui": {
+    "retryLanguage": "{language} を再読み込み",
+    "loadingLanguage": "{language} を読み込み中…",
     "pageTitle":"NoShitUi-skill — UI リソースの発見・選定・実装",
     "pageDescription":"UI リソースを探し、手法を比較し、一貫したインターフェースを実装する AI Skill。使い方と 20 の制作例を紹介します。",
     "languageLabel":"言語","loadError":"この言語を読み込めませんでした。もう一度お試しください。",

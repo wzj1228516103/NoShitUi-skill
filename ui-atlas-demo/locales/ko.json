@@ -1,6 +1,8 @@
 {
   "language":"ko","readme":"README.ko.md","installAnchor":"설치",
   "ui": {
+    "retryLanguage": "{language} 다시 불러오기",
+    "loadingLanguage": "{language} 불러오는 중…",
     "pageTitle":"NoShitUi-skill — UI 리소스 탐색, 선택과 구현","pageDescription":"UI 리소스를 찾고 접근 방식을 비교하며 일관된 인터페이스를 구현하는 AI Skill입니다. 사용 방법과 20개의 실제 예시를 살펴보세요.",
     "languageLabel":"언어","loadError":"이 언어를 불러오지 못했습니다. 다시 시도해 주세요.","brandAria":"NoShitUi-skill 홈","navAria":"NoShitUi-skill 탐색","repoNav":"GitHub","repoAria":"새 탭에서 NoShitUi-skill GitHub 저장소 열기",
     "navAbout":"프로젝트 소개","navExamples":"결과 예시","navInstall":"설치 및 사용 ↗","repoNoteAria":"프로젝트 저장소 및 사용 안내",

@@ -1,6 +1,8 @@
 {
   "language":"es","readme":"README.es.md","installAnchor":"instalación",
   "ui": {
+    "retryLanguage": "Reintentar {language}",
+    "loadingLanguage": "Cargando {language}…",
     "pageTitle":"NoShitUi-skill — Descubrimiento, selección e implementación de UI","pageDescription":"Un Skill de IA para descubrir recursos de UI, comparar opciones y crear interfaces coherentes. Conoce el flujo de trabajo y veinte ejemplos interactivos.",
     "languageLabel":"Idioma","loadError":"No se pudo cargar este idioma. Inténtalo de nuevo.","brandAria":"Inicio de NoShitUi-skill","navAria":"Navegación de NoShitUi-skill","repoNav":"GitHub","repoAria":"Abrir el repositorio de NoShitUi-skill en GitHub en una pestaña nueva",
     "navAbout":"Sobre el Skill","navExamples":"Ejemplos","navInstall":"Instalación y uso ↗","repoNoteAria":"Repositorio y guía del proyecto",

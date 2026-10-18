@@ -8,6 +8,7 @@ const projects = JSON.parse(read('docs/screenshots/concepts/showcase-slides.json
 const english = JSON.parse(read('ui-atlas-demo/locales/en.json'));
 const html = read('ui-atlas-demo/showcase.html');
 const keys = object => Object.keys(object).sort();
+const placeholders = text => [...text.matchAll(/\{(\w+)\}/g)].map(match => match[1]).sort();
 for (const code of codes) {
   const bundle = JSON.parse(read(`ui-atlas-demo/locales/${code}.json`));
   assert.equal(bundle.language, code);
@@ -18,6 +19,7 @@ for (const code of codes) {
   for (const [key, value] of Object.entries(bundle.ui)) {
     assert.ok(typeof value === 'string' && value.trim(), `${code}: ${key} must be translated`);
     assert.ok(!/TODO|TRANSLATE|undefined/.test(value), `${code}: ${key} has placeholder text`);
+    assert.deepEqual(placeholders(value), placeholders(english.ui[key]), `${code}: ${key} preserves template variables`);
   }
   for (const { id } of projects) {
     const entry = bundle.projects[id];

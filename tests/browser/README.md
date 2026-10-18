@@ -23,6 +23,7 @@ npm test
 
 The test runner starts and stops its own preview server on port 4183. Override
 `SHOWCASE_TEST_PORT` if needed. It does not use the interactive preview on 4173.
+GitHub jobs use the verified `ubuntu-24.04` runner rather than a moving OS label.
 For a local Windows run with an installed Microsoft Edge, set
 `$env:PLAYWRIGHT_CHANNEL = 'msedge'` in PowerShell before `npm test`; no browser
 download is then required. CI uses the pinned Playwright Chromium build.
@@ -57,3 +58,8 @@ fallback; retries use the real local bundles. Tests also cover stale-request
 cancellation, disabled storage/History APIs, and the twenty static links with
 JavaScript disabled. If a browser blocks History updates, controls remain usable
 but the address cannot track the selected view.
+
+The language error includes a direct, localized retry button, including when
+the initial English bundle fails. The resource atlas also supports session-only
+saved items and themes when storage fails, recovers malformed stored data, and
+preserves useful keyboard focus when a saved resource disappears from a view.

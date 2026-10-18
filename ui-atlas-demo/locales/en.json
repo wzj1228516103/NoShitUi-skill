@@ -7,6 +7,8 @@
     "pageDescription": "An AI skill for discovering UI resources, comparing approaches, and building intentional interfaces. Explore its workflow, installation guide, and twenty working examples.",
     "languageLabel": "Language",
     "loadError": "This language could not load. Please try again.",
+    "retryLanguage": "Retry {language}",
+    "loadingLanguage": "Loading {language}…",
     "brandAria": "NoShitUi-skill home",
     "navAria": "NoShitUi-skill navigation",
     "repoNav": "GitHub",

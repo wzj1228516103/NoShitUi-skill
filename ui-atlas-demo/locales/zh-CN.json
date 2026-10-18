@@ -7,6 +7,8 @@
     "pageDescription": "帮助 AI 发现 UI 资源、比较方案并实现清晰一致界面的 Skill。了解工作流、安装方法，以及 20 个可交互的产出示例。",
     "languageLabel": "语言",
     "loadError": "此语言暂时无法加载，请重试。",
+    "retryLanguage": "重试加载{language}",
+    "loadingLanguage": "正在加载{language}…",
     "brandAria": "NoShitUi-skill 首页",
     "navAria": "NoShitUi-skill 导航",
     "repoNav": "GitHub",

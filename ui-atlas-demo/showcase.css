@@ -108,6 +108,22 @@ button, input, select, a { -webkit-tap-highlight-color: transparent; }
 }
 .language-control select:hover { border-color: #cbd7ee; background: #ffffffb8; }
 .language-status { color: var(--muted); font-size: 12px; margin: 12px 0 0; }
+.language-retry {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 40px;
+  margin-top: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.language-retry:hover:not(:disabled) { border-color: var(--accent); }
+.language-retry:disabled { cursor: wait; opacity: .65; }
 
 .repo-note {
   display: grid;

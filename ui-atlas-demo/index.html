@@ -123,6 +123,7 @@
     }
     button, input { font: inherit; }
     button { cursor: pointer; }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--acid); outline-offset: 4px; }
     .atlas-icon { width: 18px; height: 18px; display: inline-block; vertical-align: middle; flex-shrink: 0; }
     a { color: inherit; text-decoration: none; }
     .mono { font-family: "DM Mono", monospace; }
@@ -150,6 +151,7 @@
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 12px var(--acid); }
     .icon-btn { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--panel); border-radius: 10px; color: var(--ink); }
     .icon-btn:hover { border-color: var(--acid); color: var(--acid); box-shadow: 0 0 18px rgba(200,255,77,.15); }
+    .icon-btn[aria-pressed="true"] { background: var(--acid); color: var(--acid-dark); border-color: var(--acid); }
     .theme-btn { margin-right: -3px; }
     .style-lab { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0 17px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
     .style-lab-copy { display: flex; align-items: baseline; gap: 10px; white-space: nowrap; }
@@ -274,7 +276,8 @@
 
     .footer { margin-top: 72px; border-top: 1px solid var(--line); padding: 20px 0; color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; gap: 15px; }
     .footer a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-    .toast { position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: var(--ink); color: white; padding: 11px 16px; border-radius: 999px; font-size: 13px; box-shadow: var(--shadow); transition: opacity .2s ease, transform .2s ease; z-index: 20; }
+    .storage-status { margin: -12px 0 24px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .toast { position: fixed; left: 50%; bottom: 26px; max-width: calc(100% - 32px); width: max-content; text-align: center; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: var(--ink); color: var(--paper); padding: 11px 16px; border-radius: 999px; font-size: 13px; box-shadow: var(--shadow); transition: opacity .2s ease, transform .2s ease; z-index: 20; }
     .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
     @media (max-width: 1040px) {
@@ -335,7 +338,7 @@
       </nav>
       <div class="top-actions">
         <span class="tiny-status"><span class="status-dot"></span>license-aware catalog</span>
-        <button class="icon-btn" id="savedTop" aria-label="Show saved resources" title="Saved resources"><i data-lucide="bookmark"></i></button>
+        <button class="icon-btn" id="savedTop" aria-label="Show saved resources" title="Saved resources" aria-pressed="false" aria-controls="resourceGrid"><i data-lucide="bookmark"></i></button>
       </div>
     </div>
   </header>
@@ -373,28 +376,29 @@
         </div>
         <div class="toolbar">
           <label class="search"><i data-lucide="search"></i><input id="searchInput" type="search" placeholder="Search resources" aria-label="Search by name, framework, or use case"></label>
-          <button class="filter-btn" id="licenseFilter"><i data-lucide="shield-check"></i><span>Open source only</span></button>
-          <div class="view-switch" aria-label="View layout">
-            <button class="active" id="gridView" aria-label="Grid view" title="Grid view"><i data-lucide="layout-grid"></i></button>
-            <button id="listView" aria-label="List view" title="List view"><i data-lucide="list"></i></button>
+          <button class="filter-btn" id="licenseFilter" aria-pressed="false" aria-controls="resourceGrid"><i data-lucide="shield-check"></i><span>Open source only</span></button>
+          <div class="view-switch" role="group" aria-label="View layout">
+            <button class="active" id="gridView" aria-label="Grid view" title="Grid view" aria-pressed="true" aria-controls="resourceGrid"><i data-lucide="layout-grid"></i></button>
+            <button id="listView" aria-label="List view" title="List view" aria-pressed="false" aria-controls="resourceGrid"><i data-lucide="list"></i></button>
           </div>
         </div>
+        <p class="storage-status" id="storageStatus" role="status" aria-live="polite" aria-atomic="true" hidden></p>
 
         <div class="layout">
           <aside class="sidebar" aria-label="Resource categories">
             <div class="sidebar-title">Browse by intent</div>
-            <div class="category-list" id="categoryList">
-              <button class="category active" data-category="All">Everything <small>12</small></button>
-              <button class="category" data-category="Inspiration">Inspiration <small>3</small></button>
-              <button class="category" data-category="Components">Components <small>4</small></button>
-              <button class="category" data-category="Systems">UI systems <small>3</small></button>
-              <button class="category" data-category="Primitives">Primitives <small>2</small></button>
+            <div class="category-list" id="categoryList" role="group" aria-label="Resource category">
+              <button class="category active" data-category="All" aria-pressed="true" aria-controls="resourceGrid">Everything <small>12</small></button>
+              <button class="category" data-category="Inspiration" aria-pressed="false" aria-controls="resourceGrid">Inspiration <small>3</small></button>
+              <button class="category" data-category="Components" aria-pressed="false" aria-controls="resourceGrid">Components <small>4</small></button>
+              <button class="category" data-category="Systems" aria-pressed="false" aria-controls="resourceGrid">UI systems <small>3</small></button>
+              <button class="category" data-category="Primitives" aria-pressed="false" aria-controls="resourceGrid">Primitives <small>2</small></button>
             </div>
             <div class="sidebar-note" id="guides"><strong>How to use this atlas</strong>Start with a pattern. Verify the source. Keep a record of what you ship.</div>
           </aside>
 
-          <section class="results" aria-live="polite">
-            <div class="content-head"><div><h2>Curated resources</h2><p>Sorted for usefulness, clarity, and a clean path to production.</p></div><span class="results-count" id="resultsCount">12 results</span></div>
+          <section class="results">
+            <div class="content-head"><div><h2>Curated resources</h2><p>Sorted for usefulness, clarity, and a clean path to production.</p></div><span class="results-count" id="resultsCount" role="status" aria-atomic="true">12 results</span></div>
             <div class="resource-grid" id="resourceGrid"></div>
             <div class="empty" id="emptyState"><strong>No matching resources.</strong><br>Try a different keyword or category.</div>
           </section>
@@ -428,12 +432,49 @@
     const resultsCount = document.getElementById('resultsCount');
     const emptyState = document.getElementById('emptyState');
     const toast = document.getElementById('toast');
+    const storageStatus = document.getElementById('storageStatus');
+    const savedTop = document.getElementById('savedTop');
+    const gridView = document.getElementById('gridView');
+    const listView = document.getElementById('listView');
+    const categoryOptions = document.querySelectorAll('[data-category]');
     const styleOptions = document.querySelectorAll('[data-style-choice]');
     const availableStyles = new Set(Array.from(styleOptions, (button) => button.dataset.styleChoice));
+    const resourceNames = new Set(resources.map(resource => resource.name));
+    let storageUnavailable = false;
     let category = 'All';
     let openOnly = false;
-    let saved = JSON.parse(localStorage.getItem('ui-atlas-saved') || '[]');
+    let saved = readSaved();
     let savedOnly = false;
+    let listMode = false;
+
+    function markStorageUnavailable() {
+      if (storageUnavailable) return;
+      storageUnavailable = true;
+      // Keep one persistent notice rather than announce the same failure on
+      // every search, filter, bookmark, or style change.
+      storageStatus.textContent = 'Browser storage is unavailable. Changes to favorites and styles stay only for this visit.';
+      storageStatus.hidden = false;
+    }
+
+    function readPreference(key) {
+      if (storageUnavailable) return null;
+      try { return localStorage.getItem(key); }
+      catch { markStorageUnavailable(); return null; }
+    }
+
+    function writePreference(key, value) {
+      if (storageUnavailable) return false;
+      try { localStorage.setItem(key, value); return true; }
+      catch { markStorageUnavailable(); return false; }
+    }
+
+    function readSaved() {
+      try {
+        const value = JSON.parse(readPreference('ui-atlas-saved') || '[]');
+        return Array.isArray(value)
+          ? [...new Set(value.filter(name => typeof name === 'string' && resourceNames.has(name)))] : [];
+      } catch { return []; }
+    }
 
     // The CDN is a visual enhancement, never a prerequisite for resource actions.
     // These small fallback glyphs are original page geometry, not copied Lucide source.
@@ -482,8 +523,24 @@
         button.classList.toggle('active', selected);
         button.setAttribute('aria-pressed', String(selected));
       });
-      localStorage.setItem('ui-atlas-style', style);
-      if (announce) showToast(`${styleOptions[Array.from(styleOptions).findIndex((button) => button.dataset.styleChoice === style)].textContent.trim()} selected`);
+      if (announce) {
+        const persisted = writePreference('ui-atlas-style', style);
+        const label = Array.from(styleOptions).find(button => button.dataset.styleChoice === style).textContent.trim();
+        showToast(`${label} selected${persisted ? '' : ' for this visit'}`);
+      }
+    }
+
+    function syncControls() {
+      for (const [button, pressed] of [[licenseFilter, openOnly], [savedTop, savedOnly], [gridView, !listMode], [listView, listMode]]) {
+        button.classList.toggle('active', pressed);
+        button.setAttribute('aria-pressed', String(pressed));
+      }
+      categoryOptions.forEach(button => {
+        const selected = button.dataset.category === category;
+        button.classList.toggle('active', selected);
+        button.setAttribute('aria-pressed', String(selected));
+      });
+      grid.classList.toggle('list-view', listMode);
     }
 
     function render() {
@@ -495,26 +552,35 @@
       });
       resultsCount.textContent = `${filtered.length} result${filtered.length === 1 ? '' : 's'}`;
       emptyState.classList.toggle('show', filtered.length === 0);
+      syncControls();
       grid.innerHTML = filtered.map((resource) => {
         const isSaved = saved.includes(resource.name);
         return `<article class="resource-card">
           <div class="card-preview ${resource.tone}">
             <div class="preview-grid"><div class="preview-main"><b></b><i></i><i></i><i></i></div><div class="preview-side"><span></span><span></span></div></div>
             <span class="card-tag">${resource.type}</span>
-            <button class="bookmark ${isSaved ? 'saved' : ''}" data-save="${resource.name}" aria-label="${isSaved ? 'Remove' : 'Save'} ${resource.name}" title="${isSaved ? 'Remove from saved' : 'Save resource'}"><i data-lucide="bookmark"></i></button>
+            <button class="bookmark ${isSaved ? 'saved' : ''}" data-save="${resource.name}" aria-pressed="${isSaved}" aria-label="${isSaved ? 'Remove' : 'Save'} ${resource.name}" title="${isSaved ? 'Remove from saved' : 'Save resource'}"><i data-lucide="bookmark"></i></button>
           </div>
           <div class="card-body"><div class="card-title-row"><div><h3 class="card-title">${resource.name}</h3><p class="card-site">${resource.site}</p></div></div><p class="card-description">${resource.description}</p><div class="card-footer"><span class="license"><span class="license-dot ${resource.open ? '' : 'reference'}"></span>${resource.license}</span><a class="open-link" href="${resource.url}" target="_blank" rel="noreferrer">Open <i data-lucide="arrow-up-right"></i></a></div></div>
         </article>`;
       }).join('');
       renderIcons();
-      document.querySelectorAll('[data-save]').forEach((button) => button.addEventListener('click', () => toggleSave(button.dataset.save)));
+      grid.querySelectorAll('[data-save]').forEach((button) => button.addEventListener('click', () => toggleSave(button)));
     }
 
-    function toggleSave(name) {
+    function toggleSave(button) {
+      const name = button.dataset.save;
+      const index = Array.from(grid.querySelectorAll('[data-save]')).indexOf(button);
       saved = saved.includes(name) ? saved.filter((item) => item !== name) : [...saved, name];
-      localStorage.setItem('ui-atlas-saved', JSON.stringify(saved));
-      showToast(saved.includes(name) ? `${name} saved` : `${name} removed`);
+      const persisted = writePreference('ui-atlas-saved', JSON.stringify(saved));
+      showToast(`${name} ${saved.includes(name) ? 'saved' : 'removed'}${persisted ? '' : ' for this visit'}`);
       render();
+      const remaining = Array.from(grid.querySelectorAll('[data-save]'));
+      const same = remaining.find(item => item.dataset.save === name);
+      // Saved-only removal focuses the next item, then the previous item, or
+      // the Saved toggle when the collection has become empty.
+      const target = same || remaining[Math.min(index, remaining.length - 1)] || savedTop;
+      target.focus({ preventScroll: Boolean(same) });
     }
 
     function showToast(message) {
@@ -525,17 +591,23 @@
     }
 
     searchInput.addEventListener('input', render);
-    licenseFilter.addEventListener('click', () => { openOnly = !openOnly; licenseFilter.classList.toggle('active', openOnly); render(); });
-    document.querySelectorAll('.category').forEach((button) => button.addEventListener('click', () => {
+    licenseFilter.addEventListener('click', () => { openOnly = !openOnly; render(); });
+    categoryOptions.forEach((button) => button.addEventListener('click', () => {
       category = button.dataset.category;
-      document.querySelectorAll('.category').forEach((item) => item.classList.toggle('active', item === button));
       render();
     }));
-    document.getElementById('gridView').addEventListener('click', () => { grid.classList.remove('list-view'); document.getElementById('gridView').classList.add('active'); document.getElementById('listView').classList.remove('active'); });
-    document.getElementById('listView').addEventListener('click', () => { grid.classList.add('list-view'); document.getElementById('listView').classList.add('active'); document.getElementById('gridView').classList.remove('active'); });
-    document.getElementById('savedTop').addEventListener('click', () => { savedOnly = !savedOnly; searchInput.value = ''; openOnly = false; licenseFilter.classList.remove('active'); category = 'All'; document.querySelectorAll('.category').forEach((item) => item.classList.toggle('active', item.dataset.category === 'All')); render(); showToast(savedOnly ? (saved.length ? `${saved.length} saved resource${saved.length === 1 ? '' : 's'}` : 'No saved resources yet') : 'Showing all resources'); });
+    gridView.addEventListener('click', () => { listMode = false; syncControls(); });
+    listView.addEventListener('click', () => { listMode = true; syncControls(); });
+    savedTop.addEventListener('click', () => {
+      savedOnly = !savedOnly;
+      searchInput.value = '';
+      openOnly = false;
+      category = 'All';
+      render();
+      showToast(savedOnly ? (saved.length ? `${saved.length} saved resource${saved.length === 1 ? '' : 's'}` : 'No saved resources yet') : 'Showing all resources');
+    });
     styleOptions.forEach((button) => button.addEventListener('click', () => applyStyle(button.dataset.styleChoice, true)));
-    applyStyle(localStorage.getItem('ui-atlas-style') || 'neon');
+    applyStyle(readPreference('ui-atlas-style') || 'neon');
     document.getElementById('atlasIcons').addEventListener('load', renderIcons);
     render();
   </script>

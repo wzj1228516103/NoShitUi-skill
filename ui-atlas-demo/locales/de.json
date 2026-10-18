@@ -1,6 +1,8 @@
 {
   "language":"de","readme":"README.de.md","installAnchor":"installation",
   "ui": {
+    "retryLanguage": "{language} erneut laden",
+    "loadingLanguage": "{language} wird geladen…",
     "pageTitle":"NoShitUi-skill — UI-Ressourcen entdecken, auswählen und umsetzen","pageDescription":"Ein KI-Skill zum Entdecken von UI-Ressourcen, Vergleichen von Ansätzen und Umsetzen stimmiger Oberflächen. Mit Anleitung und zwanzig interaktiven Beispielen.",
     "languageLabel":"Sprache","loadError":"Diese Sprache konnte nicht geladen werden. Bitte erneut versuchen.","brandAria":"NoShitUi-skill Startseite","navAria":"NoShitUi-skill Navigation","repoNav":"GitHub","repoAria":"Das GitHub-Repository von NoShitUi-skill in einem neuen Tab öffnen",
     "navAbout":"Über den Skill","navExamples":"Beispiele","navInstall":"Installation und Nutzung ↗","repoNoteAria":"Repository und Projektanleitung","repoIntro":"Ein KI-Skill für die Suche, Auswahl und Umsetzung von UI-Ressourcen. Entdecke die Ergebnisse weiter unten.","repoStrong":"Installation, Nutzung und Quellcode findest du auf GitHub. Unterstütze das Projekt mit einem Stern.","repoCta":"GitHub-Anleitung lesen ↗","repoCtaAria":"Die deutsche Installations- und Nutzungsanleitung in einem neuen Tab öffnen","repoCtaSmall":"Installation · Nutzung · Quellcode",

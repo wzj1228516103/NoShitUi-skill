@@ -136,3 +136,32 @@ local bundles, controlled failures, and delayed requests. The complete pinned
 Chromium suite passed all 98 checks locally on Windows. Catalog, translation,
 syntax, and whitespace checks also passed. Linux CI and deployment remain
 independently verified by the corresponding GitHub Actions run.
+
+### Storage recovery, keyboard bookmarks, and direct language retries
+
+The resource atlas validates stored favorites as known resource names, removes
+duplicates, and ignores malformed values without blocking initialization. Reads
+and writes are guarded independently: existing readable preferences survive a
+write failure, while new favorites and style changes remain usable in memory.
+A persistent status explains this visit-only mode without repeating the same
+announcement after every action. The toast uses the active theme's contrasting
+foreground/background colors.
+
+Bookmarking restores focus to the same control after rendering. Removing a
+saved-only result focuses an adjacent resource or the Saved toolbar when empty.
+Categories, license filtering, view controls, and bookmarks expose their actual
+toggle state. The results count is the live region, avoiding announcements of
+the entire rebuilt card grid.
+
+Language errors now offer a direct retry button in all eight languages, including
+failure of the initial English bundle. A successful English fallback retains the
+original failed target for retry; if both requests fail, English can recover
+directly. Busy retries disable repeat activation, preserve newer focus choices,
+and can be cancelled by choosing another language or navigating Back. The picker
+shows the pending target so choosing the currently displayed language also works
+as a cancellation. No application runtime dependency was added.
+
+Twenty-two additional desktop/mobile checks bring the complete suite to 120.
+They use real bundles and resource data with controlled failures. Translation
+validation also checks template variables. CI jobs now use the already verified
+Ubuntu 24.04 runner, preserving the quality → build → deploy gate.

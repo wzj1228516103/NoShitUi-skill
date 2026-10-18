@@ -1,6 +1,6 @@
 const LANGUAGES = ['zh-CN', 'en', 'ja', 'ko', 'es', 'fr', 'de', 'pt'];
 const STORAGE_KEY = 'noshitui-language';
-const LOCALE_VERSION = '20261018-cases-1';
+const LOCALE_VERSION = '20261018-recovery-1';
 const REPOSITORY = 'https://github.com/wzj1228516103/NoShitUi-skill';
 const cards = [...document.querySelectorAll('#project-grid .card')];
 const directory = [...document.querySelectorAll('.project-index a')];
@@ -12,6 +12,7 @@ const emptyState = document.getElementById('empty-state');
 const picker = document.getElementById('language-select');
 const languageControl = document.querySelector('.language-control');
 const languageStatus = document.getElementById('language-status');
+const retryLanguage = document.getElementById('retry-language');
 const total = document.getElementById('project-total');
 const bundles = new Map();
 const pending = new Map();
@@ -24,10 +25,12 @@ let activeLocale = 'en';
 let activeUi = {
   allCount: '{total} examples', filteredCount: '{visible} of {total} examples',
   loadError: 'This language could not load. Please try again.',
+  retryLanguage: 'Retry {language}', loadingLanguage: 'Loading {language}…',
 };
 let category = 'all';
 let generation = 0;
 let searchable = new Map();
+let failedLocale = null;
 
 const normalize = text => text.normalize('NFKC').toLocaleLowerCase().trim();
 const text = (selector, value) => { document.querySelector(selector).textContent = value; };
@@ -218,15 +221,43 @@ function loadBundle(locale) {
   return request;
 }
 
-async function changeLanguage(locale, { persist = false, initial = false, syncUrl = false, showError = false } = {}) {
+function retryLabel(locale, loading = false) {
+  const language = [...picker.options].find(option => option.value === locale).textContent.trim();
+  return format(activeUi[loading ? 'loadingLanguage' : 'retryLanguage'], { language });
+}
+
+function clearLanguageFailure() {
+  failedLocale = null;
+  languageStatus.hidden = true;
+  retryLanguage.hidden = true;
+  retryLanguage.disabled = false;
+}
+
+function showLanguageFailure(locale) {
+  failedLocale = locale;
+  languageStatus.textContent = activeUi.loadError;
+  languageStatus.hidden = false;
+  retryLanguage.textContent = retryLabel(locale);
+  retryLanguage.disabled = false;
+  retryLanguage.hidden = false;
+}
+
+async function changeLanguage(locale, { persist = false, initial = false, syncUrl = false,
+  fallbackFrom = null, retry = false } = {}) {
   const token = ++generation;
+  const retryHadFocus = retry && document.activeElement === retryLanguage;
   for (const [code, request] of pending) {
     if (code !== locale) {
       request.controller.abort();
       pending.delete(code);
     }
   }
-  languageStatus.hidden = true;
+  if (retry) {
+    picker.value = locale;
+    languageStatus.hidden = true;
+    retryLanguage.disabled = true;
+    retryLanguage.textContent = retryLabel(locale, true);
+  } else clearLanguageFailure();
   languageControl.setAttribute('aria-busy', 'true');
   try {
     const bundle = await loadBundle(locale);
@@ -236,17 +267,20 @@ async function changeLanguage(locale, { persist = false, initial = false, syncUr
       try { localStorage.setItem(STORAGE_KEY, locale); } catch { /* Optional preference storage. */ }
     }
     if (persist || syncUrl) writeLocale(locale);
-    if (showError) {
-      languageStatus.textContent = activeUi.loadError;
-      languageStatus.hidden = false;
+    if (fallbackFrom) showLanguageFailure(fallbackFrom);
+    else {
+      clearLanguageFailure();
+      // Disabling a native button can move focus to body. Preserve a user's
+      // newer focus choice while giving keyboard retries a useful next target.
+      if (retryHadFocus && [retryLanguage, document.body].includes(document.activeElement)) picker.focus();
     }
   } catch {
     if (token !== generation) return;
-    if (initial && locale !== 'en') return changeLanguage('en', { initial: true, syncUrl: true, showError: true });
+    if (initial && locale !== 'en') return changeLanguage('en', { initial: true, syncUrl: true, fallbackFrom: locale });
     picker.value = activeLocale;
     if (new URL(location.href).searchParams.has('lang')) writeLocale(activeLocale);
-    languageStatus.textContent = activeUi.loadError;
-    languageStatus.hidden = false;
+    showLanguageFailure(locale);
+    if (retryHadFocus && document.activeElement === document.body) retryLanguage.focus();
   } finally {
     if (token === generation) languageControl.removeAttribute('aria-busy');
   }
@@ -274,6 +308,9 @@ document.getElementById('clear-filters').addEventListener('click', () => {
   search.focus();
 });
 picker.addEventListener('change', () => changeLanguage(picker.value, { persist: true }));
+retryLanguage.addEventListener('click', () => {
+  if (failedLocale && !retryLanguage.disabled) changeLanguage(failedLocale, { persist: true, syncUrl: true, retry: true });
+});
 window.addEventListener('popstate', () => {
   restoreCatalog();
   const locale = preferredLocale();
