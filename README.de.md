@@ -79,6 +79,8 @@ Das Karussell zeigt alle 20 umgesetzten Projekte, beginnend mit den vier 3D-Erle
 
 Die [3 reproduzierbaren Auswahl-Fallstudien (Englisch)](docs/case-studies/README.md) zu SHADCN/OPS, NODE und OBJECT verbinden Anforderungen, Alternativen, Quellen und Lizenzen, Implementierung und Prüfschritte. [Fallstudien online](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html).
 
+Links enthalten auf Wunsch Suche, Kategorie und Sprache, etwa [Poster-Werkzeuge](https://wzj1228516103.github.io/NoShitUi-skill/?category=creative&q=poster&lang=de#examples). Neuladen sowie Zurück/Vorwärts stellen die gewählte Ansicht wieder her.
+
 Der Online-Ressourcenatlas ist eine kuratierte Demo; die vollständige Auswahlliste steht im [Bibliothekskatalog des Skills](open-source-ui-resources/references/ui-libraries.md).
 
 <p align="center">

@@ -79,6 +79,8 @@ NoShitUi-skill は、UI 制作で手戻りが生じやすい問題に取り組�
 
 [再現可能な3つの選定事例（英語）](docs/case-studies/README.md)では、SHADCN/OPS・NODE・OBJECT の制約、候補の比較、出典とライセンス、実装、検証手順を確認できます。[オンライン事例一覧](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html)。
 
+検索語・分類・言語を含むリンクを共有できます（例：[ポスターツール](https://wzj1228516103.github.io/NoShitUi-skill/?category=creative&q=poster&lang=ja#examples)）。再読み込みやブラウザーの戻る・進むで選択した表示を復元します。
+
 オンラインのリソース図鑑は厳選したデモです。選定用の全一覧は [Skill のライブラリ一覧](open-source-ui-resources/references/ui-libraries.md)を参照してください。
 
 <p align="center">

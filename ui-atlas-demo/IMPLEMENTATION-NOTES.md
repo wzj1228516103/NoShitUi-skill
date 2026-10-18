@@ -114,3 +114,25 @@ behavior, ran the unchanged project checks, and accurately stated that browser
 validation was unavailable. Its operator-reviewed, agent-reported trace and
 artifacts remain outside the repository; this single diagnostic is not an
 overall Skill pass rate or evidence of causal improvement over a baseline.
+
+### Shareable collection views and language recovery
+
+The collection now restores search, category, and language from a shared URL.
+Category changes and clearing an empty view create history entries; typing
+replaces the current entry. Back/Forward restores the controls and matching
+cards while preserving unrelated parameters, fragments, and host history state.
+Search combines the original metadata with the active translation, so results
+do not depend on which languages happened to load earlier in the visit.
+
+Initial preferences become an explicit URL language. Superseded language
+requests are cancelled, including Back during initial loading. Failed language
+loads keep useful content, expose feedback, and align the URL with the displayed
+fallback. History/storage restrictions preserve local controls; the twenty
+static project links remain usable without JavaScript. No runtime dependency
+was added. All eight README guides include a working filtered-link example.
+
+Eighteen additional desktop/mobile checks cover these interactions using actual
+local bundles, controlled failures, and delayed requests. The complete pinned
+Chromium suite passed all 98 checks locally on Windows. Catalog, translation,
+syntax, and whitespace checks also passed. Linux CI and deployment remain
+independently verified by the corresponding GitHub Actions run.

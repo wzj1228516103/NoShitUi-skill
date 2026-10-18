@@ -79,6 +79,8 @@ The carousel covers all 20 implemented projects, starting with four 3D experienc
 
 Read [3 reproducible selection case studies](docs/case-studies/README.md): SHADCN/OPS, NODE, and OBJECT connect project constraints, candidate tradeoffs, source/license evidence, implementation, and verification steps. [Browse the case index](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html).
 
+Share links that include search, category, and language, such as [poster tools](https://wzj1228516103.github.io/NoShitUi-skill/?category=creative&q=poster&lang=en#examples). Reloading and browser Back/Forward restore the selected view.
+
 The online resource atlas is a curated demo; use the [Skill library catalog](open-source-ui-resources/references/ui-libraries.md) for the full selection list.
 
 <p align="center">

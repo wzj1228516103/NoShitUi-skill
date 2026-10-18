@@ -6,6 +6,7 @@ const cards = [...document.querySelectorAll('#project-grid .card')];
 const directory = [...document.querySelectorAll('.project-index a')];
 const search = document.getElementById('project-search');
 const filters = [...document.querySelectorAll('[data-filter]')];
+const categories = new Set(filters.map(button => button.dataset.filter));
 const summary = document.getElementById('result-summary');
 const emptyState = document.getElementById('empty-state');
 const picker = document.getElementById('language-select');
@@ -55,12 +56,42 @@ function preferredLocale() {
 function refreshSearchIndex() {
   searchable = new Map(cards.map(card => {
     const id = card.dataset.project;
-    const translations = [...bundles.values()].map(bundle => {
-      const project = bundle.projects[id];
-      return [project.name, project.role, project.slogan, project.description, ...project.tags, project.action].join(' ');
-    });
-    return [card, normalize([original.get(id).search, ...translations].join(' '))];
+    const project = bundles.get(activeLocale)?.projects[id];
+    const translation = project
+      ? [project.name, project.role, project.slogan, project.description, ...project.tags, project.action].join(' ') : '';
+    return [card, normalize(`${original.get(id).search} ${translation}`)];
   }));
+}
+
+function restoreCatalog() {
+  const params = new URL(location.href).searchParams;
+  const requested = params.get('category');
+  category = categories.has(requested) ? requested : 'all';
+  // Treat shared query text as input text, including markup-like characters.
+  search.value = params.get('q') || '';
+  render();
+}
+
+function writeCatalog(method) {
+  const url = new URL(location.href);
+  if (search.value) url.searchParams.set('q', search.value);
+  else url.searchParams.delete('q');
+  if (category === 'all') url.searchParams.delete('category');
+  else url.searchParams.set('category', category);
+  // Preserve language, unrelated query parameters, the fragment, and host state.
+  writeHistory(method, url);
+}
+
+function writeLocale(locale) {
+  const url = new URL(location.href);
+  url.searchParams.set('lang', locale);
+  writeHistory('replaceState', url);
+}
+
+function writeHistory(method, url) {
+  if (url.href === location.href) return;
+  try { history[method](history.state, '', url); }
+  catch { /* Filtering and language controls still work when URL updates are blocked. */ }
 }
 
 function render() {
@@ -163,9 +194,9 @@ function applyBundle(bundle) {
 
 function loadBundle(locale) {
   if (bundles.has(locale)) return Promise.resolve(bundles.get(locale));
-  if (pending.has(locale)) return pending.get(locale);
+  if (pending.has(locale)) return pending.get(locale).promise;
+  const controller = new AbortController();
   const request = (async () => {
-    const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 10000);
     try {
       const url = new URL(`./locales/${locale}.json`, import.meta.url);
@@ -180,15 +211,21 @@ function loadBundle(locale) {
       return bundle;
     } finally {
       clearTimeout(timeout);
-      pending.delete(locale);
+      if (pending.get(locale)?.promise === request) pending.delete(locale);
     }
   })();
-  pending.set(locale, request);
+  pending.set(locale, { promise: request, controller });
   return request;
 }
 
-async function changeLanguage(locale, { persist = false, initial = false } = {}) {
+async function changeLanguage(locale, { persist = false, initial = false, syncUrl = false, showError = false } = {}) {
   const token = ++generation;
+  for (const [code, request] of pending) {
+    if (code !== locale) {
+      request.controller.abort();
+      pending.delete(code);
+    }
+  }
   languageStatus.hidden = true;
   languageControl.setAttribute('aria-busy', 'true');
   try {
@@ -197,14 +234,17 @@ async function changeLanguage(locale, { persist = false, initial = false } = {})
     applyBundle(bundle);
     if (persist) {
       try { localStorage.setItem(STORAGE_KEY, locale); } catch { /* Optional preference storage. */ }
-      const url = new URL(location.href);
-      url.searchParams.set('lang', locale);
-      history.replaceState(history.state, '', url);
+    }
+    if (persist || syncUrl) writeLocale(locale);
+    if (showError) {
+      languageStatus.textContent = activeUi.loadError;
+      languageStatus.hidden = false;
     }
   } catch {
     if (token !== generation) return;
-    if (initial && locale !== 'en') return changeLanguage('en', { initial: true });
+    if (initial && locale !== 'en') return changeLanguage('en', { initial: true, syncUrl: true, showError: true });
     picker.value = activeLocale;
+    if (new URL(location.href).searchParams.has('lang')) writeLocale(activeLocale);
     languageStatus.textContent = activeUi.loadError;
     languageStatus.hidden = false;
   } finally {
@@ -216,20 +256,34 @@ total.textContent = cards.length;
 filters.forEach(button => {
   button.querySelector('[data-filter-count]').textContent = cards.filter(card => button.dataset.filter === 'all'
     || (button.dataset.filter === '3d' ? card.dataset['3d'] === 'true' : card.dataset.category === button.dataset.filter)).length;
-  button.addEventListener('click', () => { category = button.dataset.filter; render(); });
+  button.addEventListener('click', () => {
+    category = button.dataset.filter;
+    writeCatalog('pushState');
+    render();
+  });
 });
-search.addEventListener('input', render);
+search.addEventListener('input', () => {
+  writeCatalog('replaceState');
+  render();
+});
 document.getElementById('clear-filters').addEventListener('click', () => {
   category = 'all';
   search.value = '';
+  writeCatalog('pushState');
   render();
   search.focus();
 });
 picker.addEventListener('change', () => changeLanguage(picker.value, { persist: true }));
+window.addEventListener('popstate', () => {
+  restoreCatalog();
+  const locale = preferredLocale();
+  picker.value = locale;
+  changeLanguage(locale, { syncUrl: true });
+});
 refreshSearchIndex();
-render();
+restoreCatalog();
 document.getElementById('catalog-tools').hidden = false;
 languageControl.hidden = false;
 const initialLocale = preferredLocale();
 picker.value = initialLocale;
-changeLanguage(initialLocale, { initial: true });
+changeLanguage(initialLocale, { initial: true, syncUrl: true });

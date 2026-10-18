@@ -62,6 +62,8 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 新增 [3 个可复现选型案例（英文）](docs/case-studies/README.md)：SHADCN/OPS、NODE、OBJECT，串联项目约束、候选取舍、精确来源与许可、关键代码和验证步骤。[在线案例索引](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html)。
 
+展示站支持分享包含搜索词、分类和语言的链接，例如[筛选海报工具](https://wzj1228516103.github.io/NoShitUi-skill/?category=creative&q=poster&lang=zh-CN#examples)。刷新及浏览器前进、后退可恢复筛选状态。
+
 在线资源图谱是精选演示；完整选型清单以 [Skill 资源目录](open-source-ui-resources/references/ui-libraries.md)为准。
 
 首页采用明亮的银蓝科技风格：冷白底色、蓝色光效与银色圆环，搭配 OBJECT、PRECISION_、NODE 的真实项目预览浮窗，通过轻微漂浮和鼠标视差呈现空间层次。

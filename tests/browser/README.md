@@ -43,3 +43,17 @@ The reusable `.github/workflows/check-showcase.yml` runs on relevant pull reques
 and is a required dependency of the Pages workflow. It builds the React example,
 runs translation and lamp-assembly checks, installs the pinned browser, and
 retains reports for seven days. A failing quality job prevents Pages deployment.
+
+Collection links accept `q` (search text), `category` (`3d`, `product`, `creative`,
+`brand`, or `motion`; omitted or unknown means all), and the existing `lang`.
+For example, `/?category=creative&q=poster&lang=en#examples` opens FRAME's view.
+Category changes and clearing an empty view create history entries; typing
+updates the current entry. Reload and Back/Forward restore controls and results,
+while unrelated query parameters and fragments survive. Searches use the
+original English metadata plus the active translation, so a shared link does
+not depend on languages loaded during a previous visit.
+Language failures expose feedback and keep the URL aligned with the displayed
+fallback; retries use the real local bundles. Tests also cover stale-request
+cancellation, disabled storage/History APIs, and the twenty static links with
+JavaScript disabled. If a browser blocks History updates, controls remain usable
+but the address cannot track the selected view.

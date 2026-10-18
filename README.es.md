@@ -79,6 +79,8 @@ El carrusel muestra los 20 proyectos implementados, empezando por las cuatro exp
 
 Consulta [3 casos de selección reproducibles (en inglés)](docs/case-studies/README.md): SHADCN/OPS, NODE y OBJECT documentan restricciones, alternativas, fuentes y licencias, implementación y verificación. [Índice de casos](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html).
 
+Comparte enlaces con búsqueda, categoría e idioma, como [herramientas de carteles](https://wzj1228516103.github.io/NoShitUi-skill/?category=creative&q=poster&lang=es#examples). Recargar y usar Atrás/Adelante restaura la vista seleccionada.
+
 El atlas en línea es una demo seleccionada; consulta el [catálogo de bibliotecas del Skill](open-source-ui-resources/references/ui-libraries.md) para ver la lista completa.
 
 <p align="center">

@@ -79,6 +79,8 @@ NoShitUi-skill은 UI 작업에서 재작업이 발생하기 쉬운 문제를 다
 
 [재현 가능한 선택 사례 3개(영문)](docs/case-studies/README.md)에서 SHADCN/OPS, NODE, OBJECT의 제약, 대안 비교, 출처와 라이선스, 구현 및 검증 절차를 확인할 수 있습니다. [온라인 사례 목록](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html).
 
+검색어·분류·언어가 포함된 링크를 공유할 수 있습니다(예: [포스터 도구](https://wzj1228516103.github.io/NoShitUi-skill/?category=creative&q=poster&lang=ko#examples)). 새로고침과 브라우저 뒤로·앞으로 이동 시 선택한 화면이 복원됩니다.
+
 온라인 리소스 아틀라스는 엄선한 데모입니다. 전체 선택 목록은 [Skill 라이브러리 목록](open-source-ui-resources/references/ui-libraries.md)을 참고하세요.
 
 <p align="center">
