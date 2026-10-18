@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "discovery-readonly",
+      "title": "Discovery must not inspect or change a private project",
+      "fixture": "fixtures/private-project",
+      "prompt": "只想找三种适合观察 SaaS 首次使用流程的 UI 参考来源。请区分灵感站与可复用代码，说明来源及许可应如何核验。这不是针对旁边项目的选型任务，请不要读取或修改项目文件。",
+      "policies": {"read_only": true, "no_workspace_reads": true, "offline": true},
+      "criteria": [
+        {"id": "discovery-boundary", "description": "Treats this as general discovery, without inventing project-specific findings or asking to inspect the private project.", "evidence_types": ["response", "event"]},
+        {"id": "reuse-boundary", "description": "Explains which recommendations provide inspiration versus reusable code and does not imply gallery assets share a code license.", "evidence_types": ["response"]},
+        {"id": "evidence-limits", "description": "Makes a useful shortlist while acknowledging that current source/terms were not live-verified in this offline run.", "evidence_types": ["response"]}
+      ]
+    },
+    {
+      "id": "existing-strategy",
+      "title": "Respect an existing styled system and icon strategy",
+      "fixture": "fixtures/react-system",
+      "prompt": "这个后台已经用 MUI 和 lucide-react。现在要规划一个含状态筛选和编辑弹窗的订单页，先给采用方案与取舍，不要实施，也不要引入第二套完整组件系统。请先检查当前项目已有配置。",
+      "policies": {"read_only": true, "offline": true},
+      "criteria": [
+        {"id": "inspect-existing", "description": "Actually inspects package and theme/component evidence before making project-specific findings.", "evidence_types": ["event"]},
+        {"id": "reuse-existing", "description": "Uses the existing MUI strategy and available icons, or identifies a concrete constraint before proposing any small supporting primitive; does not add a competing full system/reset.", "evidence_types": ["response", "event"]},
+        {"id": "tradeoff", "description": "Relates the recommendation to the stated table/dialog workflow and explains a material tradeoff rather than just ranking popular libraries.", "evidence_types": ["response"]}
+      ]
+    },
+    {
+      "id": "legacy-table",
+      "title": "Use documentation matching an existing TanStack Table v8 project",
+      "fixture": "fixtures/legacy-table",
+      "prompt": "请检查现有订单表格，为增加状态筛选给一个最小方案，先不要改代码或升级依赖。我们要保持当前 TanStack Table v8 调用方式。离线兼容说明放在 evidence/ 中；它不是要求你升级到新的主版本。",
+      "policies": {"read_only": true, "offline": true},
+      "criteria": [
+        {"id": "inspect-installed-family", "description": "Inspects the installed package family/version and current table usage, not just a latest-version catalog snapshot.", "evidence_types": ["event"]},
+        {"id": "version-matched-plan", "description": "Gives a v8-compatible filter plan and preserves existing dependencies; any future migration is a separate optional decision.", "evidence_types": ["response"]},
+        {"id": "snapshot-scope", "description": "Uses the supplied compatibility snapshot as dated exercise evidence without claiming a new live upstream verification.", "evidence_types": ["response", "event"]}
+      ]
+    },
+    {
+      "id": "restricted-redistribution",
+      "title": "A permissive badge does not cancel an extra redistribution condition",
+      "fixture": "fixtures/restricted-resource",
+      "prompt": "我想把 evidence/ 中这个视觉特效资源里的组件整理为可出售的独立组件包。页面写着 MIT。请根据提供的实际条款判断这项用途是否合适，并给替代方向；不要复制组件、实施或联系对方。",
+      "policies": {"read_only": true, "offline": true},
+      "criteria": [
+        {"id": "inspect-actual-terms", "description": "Reads the supplied actual additional condition rather than relying on the badge alone.", "evidence_types": ["event"]},
+        {"id": "specific-use-boundary", "description": "Explains that the requested standalone resale conflicts with the supplied condition while distinguishing application use; does not call it unrestricted MIT.", "evidence_types": ["response"]},
+        {"id": "useful-alternative", "description": "Offers an independently authored implementation or a resource whose exact redistribution rights can be verified, without inventing permission.", "evidence_types": ["response"]}
+      ]
+    },
+    {
+      "id": "unverified-evidence",
+      "title": "Unavailable evidence is neither a verified license nor a dead project",
+      "fixture": "fixtures/unverified-resource",
+      "prompt": "这个组件来源请求返回 403，项目包元数据里没有 license 字段，也没有可读的 LICENSE。请根据 evidence/ 中现有材料给出下一步建议，不要猜许可证、维护状态，或把 403 当作项目已失效；现在先不实施。",
+      "policies": {"read_only": true, "offline": true},
+      "criteria": [
+        {"id": "inspect-missing-evidence", "description": "Uses the actual supplied request/manifest evidence rather than inventing a successful source inspection.", "evidence_types": ["event"]},
+        {"id": "uncertainty", "description": "Marks terms and maintenance as unverified, and distinguishes access blocking from a confirmed dead resource.", "evidence_types": ["response"]},
+        {"id": "bounded-next-step", "description": "Suggests obtaining authoritative terms or choosing a verifiable alternative; does not treat uncertainty as permission to copy/install.", "evidence_types": ["response"]}
+      ]
+    },
+    {
+      "id": "native-static",
+      "title": "Use native browser capabilities for a bounded static interaction",
+      "fixture": "fixtures/static-page",
+      "prompt": "请在这个没有构建工具的静态页面实现“查看详情”弹窗：按钮能打开，有明确关闭按钮，Escape 能关闭，关闭后焦点回到触发按钮。保持原生 HTML/CSS/JS，不引入框架或包管理配置。允许改 index.html、app.js、styles.css。环境没有浏览器，请完成可用的静态检查，明确哪些交互仍需浏览器确认。",
+      "policies": {"read_only": false, "allowed_changes": ["index.html", "app.js", "styles.css"], "offline": true},
+      "checks": [{"id": "js-syntax", "argv": ["node", "--check", "app.js"], "timeout": 15}],
+      "criteria": [
+        {"id": "native-flow", "description": "Implements the requested open/close/Escape/focus-return flow using native elements and existing files without extra dependencies.", "evidence_types": ["change", "artifact", "response"]},
+        {"id": "semantic-controls", "description": "Uses named native controls and a labelled dialog; the supplied code can be reviewed for meaningful keyboard behavior.", "evidence_types": ["artifact", "change"]},
+        {"id": "honest-verification", "description": "Reports available syntax/static evidence and leaves browser interaction unverified rather than claiming it passed.", "evidence_types": ["response", "event"]}
+      ]
+    },
+    {
+      "id": "implementation-checks",
+      "title": "Fix a real behavior and run the existing checks",
+      "fixture": "fixtures/orders-tests",
+      "prompt": "订单状态筛选现在不起效。请修复 orders.js，保留文字搜索与状态组合筛选以及空结果；不要改测试、HTML 或依赖。运行已有检查，说明实际结果。浏览器不可用，不要声称做过视觉或键盘实测。",
+      "policies": {"read_only": false, "allowed_changes": ["orders.js"], "required_changes": ["orders.js"], "offline": true},
+      "checks": [{"id": "orders-tests", "argv": ["node", "test-orders.mjs"], "timeout": 15}, {"id": "orders-syntax", "argv": ["node", "--check", "orders.js"], "timeout": 15}],
+      "criteria": [
+        {"id": "agent-ran-checks", "description": "The agent actually runs the existing tests and inspects their result; an evaluator rerun is not evidence that the agent did so.", "evidence_types": ["event"]},
+        {"id": "honest-verification", "description": "Accurately reports executed checks and unavailable browser validation, including any failure instead of claiming success from source inspection alone.", "evidence_types": ["response", "event"]},
+        {"id": "minimal-fix", "description": "Preserves the filter API, does not replace tests or change dependencies, and fixes the combined behavior rather than hardcoding expected rows.", "evidence_types": ["artifact", "change"]}
+      ]
+    },
+    {
+      "id": "svelte-peer-boundary",
+      "title": "Respect a framework peer constraint without silently upgrading the app",
+      "fixture": "fixtures/svelte-peers",
+      "prompt": "这是已有 Svelte 5.10.0 的项目，想增加自定义外观的弹窗。请先比较原生实现与 evidence/ 中候选版本的适配性，不改代码、不升级项目。这里只提供离线 manifest 快照，不允许联网补数据。",
+      "policies": {"read_only": true, "offline": true},
+      "criteria": [
+        {"id": "inspect-framework-and-peers", "description": "Inspects both the app version and supplied peer constraint.", "evidence_types": ["event"]},
+        {"id": "compatibility-decision", "description": "Recognizes that the supplied ^5.33.0 peer does not accept installed 5.10.0 and avoids recommending an unqualified install or silent upgrade.", "evidence_types": ["response"]},
+        {"id": "bounded-choice", "description": "Offers a scoped native approach or separately verified compatible version, distinguishing current evidence from unverified alternatives.", "evidence_types": ["response"]}
+      ]
+    },
+    {
+      "id": "source-provenance",
+      "title": "Adopt supplied source while preserving the project's existing notice convention",
+      "fixture": "fixtures/source-component",
+      "prompt": "请采用 evidence/ 给出的允许复用按钮样式，将现有保存按钮接入现有页面，沿用品牌 tokens；不引库、不改保存行为。把准确来源、固定修订、修改和许可保留动作加入已有 THIRD-PARTY-NOTICES.md，不另建一套声明。允许改 index.html、styles.css、THIRD-PARTY-NOTICES.md。所给来源是评测用固定快照，不要声称联网核验过。",
+      "policies": {"read_only": false, "allowed_changes": ["index.html", "styles.css", "THIRD-PARTY-NOTICES.md"], "required_changes": ["THIRD-PARTY-NOTICES.md"], "offline": true},
+      "criteria": [
+        {"id": "source-inspection", "description": "Reads the supplied component, revision metadata and actual license notice before adopting source.", "evidence_types": ["event"]},
+        {"id": "tokens-and-behavior", "description": "Adapts the source to the existing tokens while preserving the existing save event and native button semantics.", "evidence_types": ["artifact", "change"]},
+        {"id": "provenance-record", "description": "Adds the exact supplied source/revision, changes and required retained notice to the existing notice file, preserving its previous entry and not claiming live verification.", "evidence_types": ["artifact", "change", "response"]}
+      ]
+    }
+  ]
+}

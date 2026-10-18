@@ -1,0 +1,67 @@
+name: Validate showcase behavior
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ui-atlas-demo/**
+      - shadcn-demo/**
+      - tests/browser/**
+      - scripts/check-lamp-assembly.mjs
+      - scripts/check-showcase-locales.mjs
+      - scripts/serve-showcase.cjs
+      - docs/screenshots/concepts/showcase-slides.json
+      - .github/workflows/check-showcase.yml
+      - .github/workflows/deploy-pages.yml
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            shadcn-demo/package-lock.json
+            tests/browser/package-lock.json
+
+      - name: Validate translations and lamp assembly
+        run: |
+          node scripts/check-showcase-locales.mjs
+          node scripts/check-lamp-assembly.mjs
+
+      - name: Install and build the React example
+        run: |
+          npm ci --prefix shadcn-demo --no-audit --no-fund
+          npm run build --prefix shadcn-demo
+
+      - name: Install browser test dependencies
+        run: npm ci --prefix tests/browser --no-audit --no-fund
+
+      - name: Install pinned Chromium browser
+        working-directory: tests/browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run desktop and mobile regression checks
+        run: npm test --prefix tests/browser
+
+      - name: Retain browser report and failure evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: showcase-browser-report
+          path: |
+            tests/browser/playwright-report/
+            tests/browser/test-results/
+          if-no-files-found: ignore
+          retention-days: 7

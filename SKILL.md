@@ -46,6 +46,8 @@ python -m unittest discover -s open-source-ui-resources/scripts -p "test_*.py"
 
 In this repository, the local check covers both Skill entrypoints, the reference catalog, and README links/images; it also works for the nested Skill installed on its own. These offline checks run in CI. Use `--check-links` when network access is available. Blocked or rate-limited links are unverified, not proof that a resource is dead.
 
+When changing Skill decision rules, use the maintainer-only [behavior evaluation guide](evals/README.md) to compare observable outcomes; fixture and schema checks are separate from actual model performance.
+
 ## Scope
 
 Do not copy a reference site's distinctive branding, text, images, fonts, icons, or complete composition. Translate useful interaction and layout patterns into the user's product and design system. Keep inspiration, code, and third-party assets as separate provenance decisions.

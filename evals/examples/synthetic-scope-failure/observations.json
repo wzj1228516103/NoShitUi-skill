@@ -1,0 +1,29 @@
+[
+  {
+    "criterion": "discovery-boundary",
+    "status": "fail",
+    "reviewer": "synthetic-example-author",
+    "evidence": [
+      "event:synthetic-t1"
+    ],
+    "note": "Synthetic demonstration: a workspace read violates the discovery boundary."
+  },
+  {
+    "criterion": "reuse-boundary",
+    "status": "pass",
+    "reviewer": "synthetic-example-author",
+    "evidence": [
+      "response:L2-L3"
+    ],
+    "note": "Synthetic demonstration: inspiration assets and reusable source have distinct reuse boundaries."
+  },
+  {
+    "criterion": "evidence-limits",
+    "status": "pass",
+    "reviewer": "synthetic-example-author",
+    "evidence": [
+      "response:L3-L4"
+    ],
+    "note": "Synthetic demonstration: the response explicitly limits current-source and license verification."
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "run_id": "discovery-readonly-65bc688c82c2",
+  "scenario_id": "discovery-readonly",
+  "suite_sha256": "627a54135064cd2343601a9ac7b7259b0626efce18c2b10285e97f1752e633d1",
+  "condition": "with-skill",
+  "created_at": "2026-10-18T04:56:47.706458+00:00",
+  "skill_sha256": "f62a449939568b9a763ed86c21e04438fdd902f06f72016e87ad08e8b3c24346",
+  "source_commit": "8912b223f489025c0a3ec722c6f76e35d25ba6c5",
+  "origin": "synthetic",
+  "model": "synthetic-example-not-a-model",
+  "session_id": "synthetic-scope-failure",
+  "captured_at": "2026-10-18T04:56:47.766231+00:00",
+  "trace_completeness": "complete",
+  "snapshot_excluded_directories": [
+    ".cache",
+    ".git",
+    "__pycache__",
+    "dist",
+    "node_modules"
+  ],
+  "artifacts": {
+    "response": "response.md",
+    "events": "events.jsonl",
+    "observations": "observations.json"
+  },
+  "before": {
+    "customer-notes.txt": {
+      "kind": "file",
+      "sha256": "91e90c86c1abaa339d16711979f4ae080ee7f5a7f09082f3b1536157a5e791ba",
+      "bytes": 181
+    },
+    "package.json": {
+      "kind": "file",
+      "sha256": "96206b509762557dd6c27877d6ce3b5d573f8e4407afd7294ee465cf3c4323cd",
+      "bytes": 108
+    }
+  },
+  "after": {
+    "customer-notes.txt": {
+      "kind": "file",
+      "sha256": "91e90c86c1abaa339d16711979f4ae080ee7f5a7f09082f3b1536157a5e791ba",
+      "bytes": 181
+    },
+    "package.json": {
+      "kind": "file",
+      "sha256": "4e76666fb88b4623d66aca1793d97b67d0914f7735387e0115085eafdc34748b",
+      "bytes": 36
+    }
+  },
+  "changes": [
+    {
+      "path": "package.json",
+      "kind": "modified",
+      "before": {
+        "kind": "file",
+        "sha256": "96206b509762557dd6c27877d6ce3b5d573f8e4407afd7294ee465cf3c4323cd",
+        "bytes": 108
+      },
+      "after": {
+        "kind": "file",
+        "sha256": "4e76666fb88b4623d66aca1793d97b67d0914f7735387e0115085eafdc34748b",
+        "bytes": 36
+      }
+    }
+  ],
+  "checks": []
+}

@@ -52,7 +52,11 @@
     "notesText1": "These demos show the outputs of NoShitUi-skill: resource research becomes a visual direction, a representative workflow, and a working interface. Discover resources, compare approaches, implement the design, and verify the result.",
     "notesText2": "All twenty examples belong to this Skill showcase, from four 3D experiences to product workflows, creative tools, and brand pages. The resource atlas and shadcn dashboard are examples within the collection. Use the GitHub guide to install the Skill and apply its workflow to your own project.",
     "directoryAria": "NoShitUi-skill output examples",
-    "footer": "NoShitUi-skill / UI discovery, selection & implementation / 2026"
+    "footer": "NoShitUi-skill / UI discovery, selection & implementation / 2026",
+    "caseEyebrow": "THE DECISIONS BEHIND THE DEMOS",
+    "caseTitle": "Three choices. Three ways to ship.",
+    "caseDescription": "Compare source-owned components, a native workflow editor, and a 3D renderer through three reproducible selection cases.",
+    "caseLink": "Read the 3 case studies (EN) ↗"
   },
   "projects": {
     "object": {

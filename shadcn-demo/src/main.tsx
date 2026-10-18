@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import { createRoot } from "react-dom/client"
 import { ArrowUpRight, Bell, Check, ChevronLeft, ChevronRight, CircleHelp, Command, Download, LayoutDashboard, Menu, MoreHorizontal, Package, Plus, Search, Settings2, Sparkles, Users, X } from "lucide-react"
 
@@ -29,9 +29,13 @@ function App() {
   const [query, setQuery] = useState("")
   const [status, setStatus] = useState<Status | "All">("All")
   const [selected, setSelected] = useState<Order | null>(null)
-  const [saved, setSaved] = useState(false)
+  const [editOpen, setEditOpen] = useState(false)
   const [notice, setNotice] = useState("")
   const [mobileNav, setMobileNav] = useState(false)
+  const editTrigger = useRef<HTMLButtonElement | null>(null)
+  const orderSearch = useRef<HTMLInputElement | null>(null)
+  const pendingSaveNotice = useRef<string | null>(null)
+  const noticeTimer = useRef<number | undefined>(undefined)
 
   const filteredOrders = useMemo(() => orders.filter((order) => {
     const haystack = `${order.id} ${order.customer} ${order.email} ${order.item}`.toLowerCase()
@@ -39,16 +43,29 @@ function App() {
   }), [orders, query, status])
 
   function notify(message: string) {
+    window.clearTimeout(noticeTimer.current)
     setNotice(message)
-    window.setTimeout(() => setNotice(""), 2600)
+    noticeTimer.current = window.setTimeout(() => setNotice(""), 2600)
   }
 
   function saveOrder() {
     if (!selected) return
     setOrders((current) => current.map((order) => order.id === selected.id ? selected : order))
-    setSaved(true)
-    notify(`${selected.id} updated`)
-    window.setTimeout(() => setSaved(false), 1600)
+    pendingSaveNotice.current = `${selected.id} updated`
+    setEditOpen(false)
+  }
+
+  function finishEditing(event: Event) {
+    // This controlled dialog has several row openers, not one Radix Trigger.
+    // Wait for the modal to close before announcing into the page's live region.
+    event.preventDefault()
+    const target = editTrigger.current?.isConnected ? editTrigger.current : orderSearch.current
+    target?.focus({ preventScroll: true })
+    if (pendingSaveNotice.current) {
+      notify(pendingSaveNotice.current)
+      pendingSaveNotice.current = null
+    }
+    setSelected(null)
   }
 
   return (
@@ -78,14 +95,14 @@ function App() {
 
           <section className="content-grid"><Card className="chart-card"><CardHeader className="card-row"><div><CardTitle>Revenue overview</CardTitle><CardDescription>Monthly recurring revenue</CardDescription></div><Select defaultValue="6 months"><SelectTrigger className="period-select"><SelectValue /></SelectTrigger><SelectContent><SelectItem value="6 months">Last 6 months</SelectItem><SelectItem value="year">This year</SelectItem></SelectContent></Select></CardHeader><CardContent><div className="chart-summary"><strong>$24,680</strong><span className="positive"><ArrowUpRight size={14} /> 12.4%</span></div><RevenueChart /></CardContent></Card><Card className="activity-card"><CardHeader><CardTitle>Recent activity</CardTitle><CardDescription>Updates from your team</CardDescription></CardHeader><CardContent><div className="activity-list"><Activity icon={<Check />} title="Order ORD-1048 fulfilled" time="12 minutes ago" color="green" /><Activity icon={<Users />} title="New team member invited" time="46 minutes ago" color="blue" /><Activity icon={<Package />} title="Order ORD-1046 needs review" time="2 hours ago" color="amber" /><Activity icon={<Sparkles />} title="Workspace upgraded" time="Yesterday" color="purple" /></div><Button variant="ghost" className="view-all" onClick={() => notify("All activity is up to date")}>View all activity <ArrowUpRight size={14} /></Button></CardContent></Card></section>
 
-          <section className="orders-section" id="orders"><div className="section-heading"><div><h2>Orders</h2><p>Manage and track recent customer orders.</p></div><Button variant="outline" size="sm" onClick={() => notify("Filters are ready")}>Advanced filters <Settings2 size={14} /></Button></div><Card><div className="table-toolbar"><div className="search-wrap"><Search size={15} /><Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search orders..." aria-label="Search orders" /></div><Select value={status} onValueChange={(value) => setStatus(value as Status | "All")}><SelectTrigger className="status-select"><SelectValue placeholder="All status" /></SelectTrigger><SelectContent><SelectItem value="All">All status</SelectItem><SelectItem value="Ready">Ready</SelectItem><SelectItem value="Processing">Processing</SelectItem><SelectItem value="Review">Review</SelectItem></SelectContent></Select></div><div className="table-scroll"><table><thead><tr><th>Order</th><th>Customer</th><th>Product</th><th>Amount</th><th>Status</th><th>Date</th><th><span className="sr-only">Actions</span></th></tr></thead><tbody>{filteredOrders.map((order) => <tr key={order.id}><td><span className="order-id">{order.id}</span></td><td><div className="customer-cell"><span className="avatar avatar-slate">{order.initials}</span><span><strong>{order.customer}</strong><small>{order.email}</small></span></div></td><td>{order.item}</td><td className="amount">{order.amount}</td><td><Badge variant={statusVariant[order.status]}><span className="badge-dot" />{order.status}</Badge></td><td className="date">{order.date}</td><td><Button variant="ghost" size="icon" className="row-action" aria-label={`Edit ${order.id}`} onClick={() => setSelected(order)}><MoreHorizontal size={17} /></Button></td></tr>)}{filteredOrders.length === 0 && <tr><td colSpan={7} className="empty-cell">No orders match those filters.</td></tr>}</tbody></table></div><div className="table-footer"><span>Showing {filteredOrders.length} of {orders.length} orders</span><div><Button variant="outline" size="icon" disabled><ChevronLeft size={15} /></Button><Button variant="outline" size="icon"><ChevronRight size={15} /></Button></div></div></Card></section>
+          <section className="orders-section" id="orders"><div className="section-heading"><div><h2>Orders</h2><p>Manage and track recent customer orders.</p></div><Button variant="outline" size="sm" onClick={() => notify("Filters are ready")}>Advanced filters <Settings2 size={14} /></Button></div><Card><div className="table-toolbar"><div className="search-wrap"><Search size={15} /><Input ref={orderSearch} value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search orders..." aria-label="Search orders" /></div><Select value={status} onValueChange={(value) => setStatus(value as Status | "All")}><SelectTrigger className="status-select"><SelectValue placeholder="All status" /></SelectTrigger><SelectContent><SelectItem value="All">All status</SelectItem><SelectItem value="Ready">Ready</SelectItem><SelectItem value="Processing">Processing</SelectItem><SelectItem value="Review">Review</SelectItem></SelectContent></Select></div><div className="table-scroll"><table><thead><tr><th>Order</th><th>Customer</th><th>Product</th><th>Amount</th><th>Status</th><th>Date</th><th><span className="sr-only">Actions</span></th></tr></thead><tbody>{filteredOrders.map((order) => <tr key={order.id}><td><span className="order-id">{order.id}</span></td><td><div className="customer-cell"><span className="avatar avatar-slate">{order.initials}</span><span><strong>{order.customer}</strong><small>{order.email}</small></span></div></td><td>{order.item}</td><td className="amount">{order.amount}</td><td><Badge variant={statusVariant[order.status]}><span className="badge-dot" />{order.status}</Badge></td><td className="date">{order.date}</td><td><Button variant="ghost" size="icon" className="row-action" aria-label={`Edit ${order.id}`} onClick={(event) => { editTrigger.current = event.currentTarget; setSelected({ ...order }); setEditOpen(true) }}><MoreHorizontal size={17} /></Button></td></tr>)}{filteredOrders.length === 0 && <tr><td colSpan={7} className="empty-cell">No orders match those filters.</td></tr>}</tbody></table></div><div className="table-footer"><span>Showing {filteredOrders.length} of {orders.length} orders</span><div><Button variant="outline" size="icon" disabled><ChevronLeft size={15} /></Button><Button variant="outline" size="icon"><ChevronRight size={15} /></Button></div></div></Card></section>
 
           <footer className="app-footer"><span>SHADCN OPS / UI ATLAS DEMO</span><a href="https://github.com/shadcn-ui/ui" target="_blank" rel="noreferrer">View the source components <ArrowUpRight size={13} /></a></footer>
         </div>
       </main>
 
-      {selected && <Dialog open onOpenChange={(open) => !open && setSelected(null)}><DialogContent><DialogHeader><DialogTitle>Edit {selected.id}</DialogTitle><DialogDescription>Update the order details and save when ready.</DialogDescription></DialogHeader><div className="dialog-form"><label>Customer <Input value={selected.customer} onChange={(event) => setSelected({ ...selected, customer: event.target.value })} /></label><label>Status <Select value={selected.status} onValueChange={(value) => setSelected({ ...selected, status: value as Status })}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectItem value="Ready">Ready</SelectItem><SelectItem value="Processing">Processing</SelectItem><SelectItem value="Review">Review</SelectItem></SelectContent></Select></label><Button onClick={saveOrder}>{saved ? <><Check size={15} /> Saved</> : "Save changes"}</Button></div></DialogContent></Dialog>}
-      {notice && <div className="toast" role="status"><Check size={15} /> {notice}<button onClick={() => setNotice("")} aria-label="Dismiss"><X size={14} /></button></div>}
+      {selected && <Dialog open={editOpen} onOpenChange={setEditOpen}><DialogContent onCloseAutoFocus={finishEditing}><DialogHeader><DialogTitle>Edit {selected.id}</DialogTitle><DialogDescription>Update the order details and save when ready.</DialogDescription></DialogHeader><div className="dialog-form"><label>Customer <Input value={selected.customer} onChange={(event) => setSelected({ ...selected, customer: event.target.value })} /></label><label>Status <Select value={selected.status} onValueChange={(value) => setSelected({ ...selected, status: value as Status })}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectItem value="Ready">Ready</SelectItem><SelectItem value="Processing">Processing</SelectItem><SelectItem value="Review">Review</SelectItem></SelectContent></Select></label><Button onClick={saveOrder}>Save changes</Button></div></DialogContent></Dialog>}
+      <div className="toast" role="status" aria-live="polite" aria-atomic="true">{notice && <><Check size={15} aria-hidden="true" /><span>{notice}</span><button onClick={() => setNotice("")} aria-label="Dismiss"><X size={14} aria-hidden="true" /></button></>}</div>
     </div>
   )
 }

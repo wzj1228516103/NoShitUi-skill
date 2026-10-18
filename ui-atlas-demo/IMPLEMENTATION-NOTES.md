@@ -66,3 +66,43 @@ The second batch adds NODE, LOOP, SOURCE, ARCHIVE, and PLATE, bringing the colle
 - The existing React workspace passed its TypeScript/Vite production build using the unchanged lockfile. All 20 project entry points return HTML successfully, and the built React workspace renders without uncaught page errors. No dependency manifest or lockfile was changed.
 
 Captured screenshots and detailed QA reports are kept under the local ignored `ui-atlas-demo/output/playwright/` directory; desktop/mobile cover screenshots are promoted to `docs/screenshots/concepts/`. Older concept interactions were not exhaustively retested. Deployment uses the existing `showcase-source` push workflow; the corresponding GitHub Actions run is the authoritative deployment result.
+
+## 2026-10-18: reproducible quality checks and selection cases
+
+The browser regression suite is now checked in under `tests/browser/`, with a
+separate package lockfile and no additional application runtime dependency.
+Playwright 1.64.1's pinned Chromium passed all 78 checks on Windows: the 20
+entry points at desktop/mobile sizes, the eight newer application flows,
+collection filtering/language restore, case-study navigation, React order
+editing, native configuration without WebGL, storage recovery, and deliberately
+failed/slow artwork requests. Local HTTP errors and uncaught browser exceptions
+fail the suite. Remote assets are blocked; this is targeted behavioral coverage,
+not a visual baseline, every older control, a second browser engine, or a full
+accessibility audit. See `tests/browser/README.md` for commands and limits.
+
+The regression exposed and fixed three existing defects: the resource atlas
+stopped rendering when its icon CDN failed; an escaped screen-reader-only table
+header enlarged the mobile React layout viewport and misdirected clicks; and
+order-save feedback remained in the dialog's inaccessible background. The atlas
+now uses original local icon fallbacks. The React table contains its hidden
+header, and saving closes the dialog, restores useful focus, and announces the
+result outside modal isolation. The React TypeScript/Vite build passes.
+
+`check-showcase.yml` runs relevant pull-request checks and is reused as a required
+job before the Pages build/deploy chain. It includes the existing language and
+numeric lamp-assembly checks and retains browser reports/failure evidence for
+seven days. The corresponding GitHub Actions run is the authority for Linux CI
+and deployment success; local Windows results are recorded separately above.
+
+Three public case studies trace SHADCN/OPS, NODE, and OBJECT from constraints to
+source and verification. Their canonical evidence pins the pre-change baseline
+`8912b22`; the responsive case index links to those writeups and the live demos.
+The homepage entry and README links cover all eight existing languages.
+
+The repository also has nine fixed Skill behavior scenarios under `evals/`.
+Harness/schema tests and synthetic examples are distinguished from actual model
+runs. One independent, isolated implementation trial fixed the intended filter
+behavior, ran the unchanged project checks, and accurately stated that browser
+validation was unavailable. Its operator-reviewed, agent-reported trace and
+artifacts remain outside the repository; this single diagnostic is not an
+overall Skill pass rate or evidence of causal improvement over a baseline.

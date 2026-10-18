@@ -7,4 +7,6 @@ shadcn-demo/dist/
 
 # Generated showcase artifacts (source is tracked on showcase-source).
 ui-atlas-demo/output/
+tests/browser/test-results/
+tests/browser/playwright-report/
 

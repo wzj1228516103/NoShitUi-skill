@@ -60,6 +60,8 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 [体验新版首页](https://wzj1228516103.github.io/NoShitUi-skill/?lang=zh-CN) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html) · [shadcn 运营后台](https://wzj1228516103.github.io/NoShitUi-skill/shadcn-demo/)
 
+新增 [3 个可复现选型案例（英文）](docs/case-studies/README.md)：SHADCN/OPS、NODE、OBJECT，串联项目约束、候选取舍、精确来源与许可、关键代码和验证步骤。[在线案例索引](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html)。
+
 在线资源图谱是精选演示；完整选型清单以 [Skill 资源目录](open-source-ui-resources/references/ui-libraries.md)为准。
 
 首页采用明亮的银蓝科技风格：冷白底色、蓝色光效与银色圆环，搭配 OBJECT、PRECISION_、NODE 的真实项目预览浮窗，通过轻微漂浮和鼠标视差呈现空间层次。
@@ -188,6 +190,8 @@ npx skills list -g -a codex
 ```
 
 ## 验证和维护
+
+Skill 场景评测与证据记录见 [行为评测说明](evals/README.md)；展示站桌面、手机和恢复流程的运行方式见 [浏览器回归说明](tests/browser/README.md)。部署前会执行浏览器回归与台灯装配检查。
 
 修改资源目录后运行：
 

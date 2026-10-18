@@ -9,7 +9,11 @@
     "oneSkill":"하나의 Skill.","examplesSuffix":"개의 결과 예시.","workflow":"탐색 → 비교 → 구현 → 검증.","workflowDetail1":"예시를 체험한 뒤 Skill을 설치하고,","workflowDetail2":"자신의 프로젝트에 작업 흐름을 적용하세요.","heroJump":"Skill 결과 살펴보기 ↓",
     "findAria":"결과 예시 찾기","searchLabel":"SKILL 결과 검색","searchPlaceholder":"조명, 학습, 음식, 워크플로…","filtersAria":"예시 분류","filterAll":"전체 예시","filter3d":"3D 체험","filterProduct":"제품과 도구","filterCreative":"창작 도구","filterBrand":"브랜드와 콘텐츠","filterMotion":"모션과 공간",
     "collectionTitle":"Skill 결과 예시","allCount":"전체 {total}개 예시","filteredCount":"{total}개 중 {visible}개 표시","badge3d":"↻ 3D로 체험하기","badgeNew":"예시 체험하기","emptyTitle":"일치하는 예시가 없습니다.","emptyText":"다른 검색어를 입력하거나 전체 Skill 결과로 돌아가세요.","clearFilters":"검색 및 필터 초기화 ↗",
-    "notesTitle":"모든 예시를 만드는 작업 흐름.","notesText1":"이 예시는 NoShitUi-skill이 리소스 조사를 시각적 방향, 대표적인 사용자 흐름과 동작하는 인터페이스로 연결하는 과정을 보여줍니다. 탐색과 비교 후 구현하고 결과를 검증합니다.","notesText2":"20개 예시는 모두 이 Skill의 결과물입니다. 4개의 3D 체험부터 제품 흐름, 창작 도구, 브랜드 페이지까지 포함합니다. 리소스 아틀라스와 shadcn 대시보드도 그중 하나입니다. GitHub 안내를 따라 Skill을 설치하고 자신의 프로젝트에 적용하세요.","directoryAria":"NoShitUi-skill 전체 결과 예시","footer":"NoShitUi-skill / UI 리소스 탐색, 선택과 구현 / 2026"
+    "notesTitle":"모든 예시를 만드는 작업 흐름.","notesText1":"이 예시는 NoShitUi-skill이 리소스 조사를 시각적 방향, 대표적인 사용자 흐름과 동작하는 인터페이스로 연결하는 과정을 보여줍니다. 탐색과 비교 후 구현하고 결과를 검증합니다.","notesText2":"20개 예시는 모두 이 Skill의 결과물입니다. 4개의 3D 체험부터 제품 흐름, 창작 도구, 브랜드 페이지까지 포함합니다. 리소스 아틀라스와 shadcn 대시보드도 그중 하나입니다. GitHub 안내를 따라 Skill을 설치하고 자신의 프로젝트에 적용하세요.","directoryAria":"NoShitUi-skill 전체 결과 예시","footer":"NoShitUi-skill / UI 리소스 탐색, 선택과 구현 / 2026",
+    "caseEyebrow": "데모 뒤에 있는 선택의 근거",
+    "caseTitle": "세 가지 선택, 세 가지 구현.",
+    "caseDescription": "소스를 직접 관리하는 컴포넌트, 네이티브 워크플로 편집기, 3D 렌더러를 재현 가능한 세 가지 사례로 비교합니다.",
+    "caseLink": "선택 사례 3개 읽기 (영문) ↗"
   },
   "projects": {
     "object":{"role":"조명 구성 도구","slogan":"나만의 조명을 만드세요.","description":"Three.js와 CC0 glTF 모델을 사용해 재질과 밝기를 바꾸며 책상 조명의 3D 모습을 확인할 수 있습니다.","tags":["Three.js","CC0 glTF","재질 변경"],"action":"조명 구성하기 ↗"},

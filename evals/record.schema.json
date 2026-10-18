@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/noshit-ui-evals/record-v1.schema.json",
+  "title": "Saved Skill behavior evaluation record, version 1",
+  "description": "Bundle contract. run.py additionally verifies snapshots, fixed fixture identity, sidecar events, evidence references and observation provenance; it is not a general JSON Schema implementation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "scenario_id", "suite_sha256", "condition", "origin", "model", "session_id", "created_at", "captured_at", "trace_completeness", "skill_sha256", "source_commit", "snapshot_excluded_directories", "artifacts", "before", "after", "changes", "checks"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "suite_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "condition": {"enum": ["with-skill", "baseline"]},
+    "origin": {"enum": ["real", "synthetic"]},
+    "model": {"type": "string", "minLength": 1},
+    "session_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "trace_completeness": {"enum": ["complete", "partial", "none"]},
+    "skill_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_commit": {"type": "string", "minLength": 1},
+    "snapshot_excluded_directories": {"type": "array", "items": {"type": "string"}},
+    "artifacts": {
+      "type": "object", "additionalProperties": false,
+      "required": ["response", "events", "observations"],
+      "properties": {"response": {"const": "response.md"}, "events": {"const": "events.jsonl"}, "observations": {"const": "observations.json"}}
+    },
+    "before": {"$ref": "#/$defs/manifest"},
+    "after": {"$ref": "#/$defs/manifest"},
+    "changes": {"type": "array", "items": {"type": "object", "required": ["path", "kind", "before", "after"], "properties": {"path": {"type": "string"}, "kind": {"enum": ["added", "modified", "deleted"]}, "before": {"type": ["object", "null"]}, "after": {"type": ["object", "null"]}}}},
+    "checks": {"type": "array", "items": {"$ref": "#/$defs/check"}}
+  },
+  "$defs": {
+    "workspacePath": {
+      "description": "A nonempty relative file path without a drive, backslash, empty segment, dot segment or parent segment. The operation-level exception for root '.' applies only to read/execute.",
+      "type": "string", "minLength": 1,
+      "allOf": [{"not": {"pattern": "[\\\\:]"}}, {"not": {"pattern": "(^|/)(\\.|\\.\\.|)(/|$)"}}]
+    },
+    "operation": {
+      "type": "object", "required": ["action", "scope", "path"],
+      "properties": {"action": {"enum": ["read", "write", "network", "execute"]}, "scope": {"enum": ["workspace", "skill", "external", "other"]}, "path": {"type": "string"}},
+      "allOf": [{
+        "if": {"properties": {"scope": {"const": "workspace"}}, "required": ["scope"]},
+        "then": {"anyOf": [
+          {"properties": {"path": {"$ref": "#/$defs/workspacePath"}}},
+          {"properties": {"action": {"enum": ["read", "execute"]}, "path": {"const": "."}}}
+        ]}
+      }]
+    },
+    "manifest": {"type": "object", "additionalProperties": {"type": "object", "required": ["kind", "sha256"], "properties": {"kind": {"enum": ["file", "symlink"]}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "bytes": {"type": "integer", "minimum": 0}, "target": {"type": "string"}}}},
+    "check": {"type": "object", "required": ["id", "argv", "executed_by", "status", "exit_code", "stdout", "stderr", "duration_seconds"], "properties": {"id": {"type": "string"}, "argv": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "executed_by": {"const": "evaluator"}, "status": {"enum": ["passed", "failed", "unavailable", "timeout"]}, "exit_code": {"type": ["integer", "null"]}, "stdout": {"type": "string"}, "stderr": {"type": "string"}, "duration_seconds": {"type": "number", "minimum": 0}}},
+    "event": {
+      "description": "One JSON object per line in events.jsonl. Normalize actual exported tool operations; retain raw outputs or an artifact reference when available. This is an operator report, not an instrumented sandbox audit.",
+      "type": "object", "required": ["id", "tool", "operations"],
+      "properties": {"id": {"type": "string", "minLength": 1}, "tool": {"type": "string", "minLength": 1}, "command": {"type": "string"}, "exit_code": {"type": ["integer", "null"]}, "stdout": {"type": "string"}, "stderr": {"type": "string"}, "raw_artifact": {"type": "string"}, "note": {"type": "string"}, "operations": {"type": "array", "items": {"$ref": "#/$defs/operation"}}}
+    },
+    "observation": {
+      "description": "Reviewer judgment in observations.json. Pass/fail must cite existing evidence and name the reviewer; not_observed is never a pass.",
+      "type": "object", "required": ["criterion", "status", "reviewer", "evidence", "note"],
+      "properties": {"criterion": {"type": "string"}, "status": {"enum": ["pass", "fail", "not_observed"]}, "reviewer": {"type": "string"}, "evidence": {"type": "array", "items": {"type": "string"}}, "note": {"type": "string"}}
+    }
+  }
+}

@@ -6,7 +6,12 @@ on:
     paths:
       - ui-atlas-demo/**
       - shadcn-demo/**
+      - tests/browser/**
+      - scripts/check-lamp-assembly.mjs
       - scripts/check-showcase-locales.mjs
+      - scripts/serve-showcase.cjs
+      - docs/screenshots/concepts/showcase-slides.json
+      - .github/workflows/check-showcase.yml
       - .github/workflows/deploy-pages.yml
   workflow_dispatch:
 
@@ -18,7 +23,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  quality:
+    uses: ./.github/workflows/check-showcase.yml
+
   build:
+    needs: quality
     runs-on: ubuntu-latest
     permissions:
       contents: read

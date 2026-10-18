@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script id="atlasIcons" src="https://unpkg.com/lucide@latest" defer></script>
   <style>
     :root {
       --ink: #edf7e6;
@@ -123,6 +123,7 @@
     }
     button, input { font: inherit; }
     button { cursor: pointer; }
+    .atlas-icon { width: 18px; height: 18px; display: inline-block; vertical-align: middle; flex-shrink: 0; }
     a { color: inherit; text-decoration: none; }
     .mono { font-family: "DM Mono", monospace; }
     .container { width: min(1360px, calc(100% - 64px)); margin: 0 auto; }
@@ -434,6 +435,45 @@
     let saved = JSON.parse(localStorage.getItem('ui-atlas-saved') || '[]');
     let savedOnly = false;
 
+    // The CDN is a visual enhancement, never a prerequisite for resource actions.
+    // These small fallback glyphs are original page geometry, not copied Lucide source.
+    const fallbackIcons = {
+      blocks: [['rect', { x: 3, y: 3, width: 7, height: 7, rx: 1 }], ['rect', { x: 14, y: 3, width: 7, height: 7, rx: 1 }], ['rect', { x: 3, y: 14, width: 7, height: 7, rx: 1 }], ['rect', { x: 14, y: 14, width: 7, height: 7, rx: 1 }]],
+      bookmark: [['path', { d: 'M6 3h12v18l-6-4-6 4Z' }]],
+      search: [['circle', { cx: 10, cy: 10, r: 6 }], ['path', { d: 'm14.5 14.5 6 6' }]],
+      'shield-check': [['path', { d: 'm12 3-8 3v6c0 4 4 7 8 9 4-2 8-5 8-9V6ZM8 12l3 3 5-6' }]],
+      'layout-grid': [['rect', { x: 4, y: 4, width: 6, height: 6, rx: 1 }], ['rect', { x: 14, y: 4, width: 6, height: 6, rx: 1 }], ['rect', { x: 4, y: 14, width: 6, height: 6, rx: 1 }], ['rect', { x: 14, y: 14, width: 6, height: 6, rx: 1 }]],
+      list: [['path', { d: 'M8 5h12M8 12h12M8 19h12M3 5h1M3 12h1M3 19h1' }]],
+      'arrow-up-right': [['path', { d: 'M6 18 18 6M6 6h12v12' }]],
+    };
+
+    function renderIcons() {
+      // Cover missing, delayed, incomplete, and throwing CDN implementations.
+      if (typeof globalThis.lucide?.createIcons === 'function') {
+        try { globalThis.lucide.createIcons({ attrs: { 'aria-hidden': 'true', focusable: 'false' } }); }
+        catch { /* Native fallback below keeps the complete resource flow usable. */ }
+      }
+      document.querySelectorAll('[data-lucide]').forEach((placeholder) => {
+        if (placeholder.tagName.toLowerCase() === 'svg') {
+          placeholder.setAttribute('aria-hidden', 'true');
+          placeholder.setAttribute('focusable', 'false');
+          return;
+        }
+        const name = placeholder.getAttribute('data-lucide');
+        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        for (const attribute of placeholder.attributes) icon.setAttribute(attribute.name, attribute.value);
+        for (const [key, value] of Object.entries({ viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '1.8', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'aria-hidden': 'true', focusable: 'false' })) icon.setAttribute(key, value);
+        icon.classList.add('atlas-icon');
+        const parts = fallbackIcons[name] || [['circle', { cx: 12, cy: 12, r: 7 }]];
+        parts.forEach(([tag, attributes]) => {
+          const part = document.createElementNS('http://www.w3.org/2000/svg', tag);
+          for (const [key, value] of Object.entries(attributes)) part.setAttribute(key, value);
+          icon.append(part);
+        });
+        placeholder.replaceWith(icon);
+      });
+    }
+
     function applyStyle(style, announce = false) {
       if (!availableStyles.has(style)) style = 'neon';
       document.body.dataset.style = style;
@@ -466,7 +506,7 @@
           <div class="card-body"><div class="card-title-row"><div><h3 class="card-title">${resource.name}</h3><p class="card-site">${resource.site}</p></div></div><p class="card-description">${resource.description}</p><div class="card-footer"><span class="license"><span class="license-dot ${resource.open ? '' : 'reference'}"></span>${resource.license}</span><a class="open-link" href="${resource.url}" target="_blank" rel="noreferrer">Open <i data-lucide="arrow-up-right"></i></a></div></div>
         </article>`;
       }).join('');
-      lucide.createIcons();
+      renderIcons();
       document.querySelectorAll('[data-save]').forEach((button) => button.addEventListener('click', () => toggleSave(button.dataset.save)));
     }
 
@@ -496,7 +536,7 @@
     document.getElementById('savedTop').addEventListener('click', () => { savedOnly = !savedOnly; searchInput.value = ''; openOnly = false; licenseFilter.classList.remove('active'); category = 'All'; document.querySelectorAll('.category').forEach((item) => item.classList.toggle('active', item.dataset.category === 'All')); render(); showToast(savedOnly ? (saved.length ? `${saved.length} saved resource${saved.length === 1 ? '' : 's'}` : 'No saved resources yet') : 'Showing all resources'); });
     styleOptions.forEach((button) => button.addEventListener('click', () => applyStyle(button.dataset.styleChoice, true)));
     applyStyle(localStorage.getItem('ui-atlas-style') || 'neon');
-    lucide.createIcons();
+    document.getElementById('atlasIcons').addEventListener('load', renderIcons);
     render();
   </script>
 </body>

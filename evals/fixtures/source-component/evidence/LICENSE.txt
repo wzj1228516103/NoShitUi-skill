@@ -1,0 +1,4 @@
+Original evaluation fixture by the NoShitUi-skill project contributors.
+Permission is granted to use, copy, modify and redistribute this supplied
+button style, provided this notice is retained with copied source. This
+controlled grant applies only to the supplied fixture, not a real library.

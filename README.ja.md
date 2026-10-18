@@ -77,6 +77,8 @@ NoShitUi-skill は、UI 制作で手戻りが生じやすい問題に取り組�
 
 カルーセルは実装済みの全20プロジェクトを紹介します。3D体験の OBJECT、rooted.、DRIFT、ORBITAL を先頭に置き、運用画面、shadcn の注文ダッシュボード、UI ATLAS のリソース図譜、残りのブランド・動的ページを続けています。ホームページも同じ順序で、3D絞り込み、カテゴリ、キーワード検索に対応します。リソース発見、選定理由、統合と検証がプロジェクトの中心です。 [展示をオンラインで体験](https://wzj1228516103.github.io/NoShitUi-skill/) · [展示のソースコード](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [オンラインのリソースマップ](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+[再現可能な3つの選定事例（英語）](docs/case-studies/README.md)では、SHADCN/OPS・NODE・OBJECT の制約、候補の比較、出典とライセンス、実装、検証手順を確認できます。[オンライン事例一覧](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html)。
+
 オンラインのリソース図鑑は厳選したデモです。選定用の全一覧は [Skill のライブラリ一覧](open-source-ui-resources/references/ui-libraries.md)を参照してください。
 
 <p align="center">
@@ -182,6 +184,8 @@ npx skills list -g -a codex
 ```
 
 ## 検証と保守
+
+固定シナリオと証拠記録は[動作評価ガイド](evals/README.md)、デスクトップ・モバイル・復旧チェックの実行方法は[ブラウザー回帰ガイド](tests/browser/README.md)を参照してください。デプロイ前にブラウザー回帰とランプ組立チェックを実行します。
 
 リソース一覧を変更した後は、次を実行します。
 

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "run_id": "discovery-readonly-65bc688c82c2",
+  "scenario_id": "discovery-readonly",
+  "suite_sha256": "627a54135064cd2343601a9ac7b7259b0626efce18c2b10285e97f1752e633d1",
+  "condition": "with-skill",
+  "created_at": "2026-10-18T04:56:47.706458+00:00",
+  "skill_sha256": "f62a449939568b9a763ed86c21e04438fdd902f06f72016e87ad08e8b3c24346",
+  "source_commit": "8912b223f489025c0a3ec722c6f76e35d25ba6c5"
+}

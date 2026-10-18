@@ -77,6 +77,8 @@ Die Startseite verbindet kühles Weiß und Silber mit blauen Lichteffekten, schw
 
 Das Karussell zeigt alle 20 umgesetzten Projekte, beginnend mit den vier 3D-Erlebnissen OBJECT, rooted., DRIFT und ORBITAL. Danach folgen Betriebsoberflächen, das shadcn-Bestell-Dashboard, der UI ATLAS und alle weiteren Marken- und Bewegungskonzepte. Die Startseite verwendet dieselbe Reihenfolge sowie einen 3D-Filter, Kategorien und eine Suche. Ressourcenrecherche, Auswahl, Integration und Überprüfung bleiben der Schwerpunkt. [Vollständige Präsentation online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/) · [Quellcode der Beispiele ansehen](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Ressourcenatlas online ansehen](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+Die [3 reproduzierbaren Auswahl-Fallstudien (Englisch)](docs/case-studies/README.md) zu SHADCN/OPS, NODE und OBJECT verbinden Anforderungen, Alternativen, Quellen und Lizenzen, Implementierung und Prüfschritte. [Fallstudien online](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html).
+
 Der Online-Ressourcenatlas ist eine kuratierte Demo; die vollständige Auswahlliste steht im [Bibliothekskatalog des Skills](open-source-ui-resources/references/ui-libraries.md).
 
 <p align="center">
@@ -182,6 +184,8 @@ Prüfe, ob diese UI-Änderung Konflikte mit globalen Styles, verlorenen Tastatur
 ```
 
 ## Prüfung und Pflege
+
+Der [Leitfaden zur Verhaltensbewertung](evals/README.md) beschreibt feste Skill-Szenarien und Nachweise. Der [Leitfaden für Browser-Regressionstests](tests/browser/README.md) erklärt Desktop-, Mobil- und Wiederherstellungsprüfungen. Browser- und Lampenmontageprüfungen laufen vor dem Deployment.
 
 Nach Änderungen am Ressourcenkatalog ausführen:
 

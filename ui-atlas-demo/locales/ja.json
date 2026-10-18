@@ -16,7 +16,11 @@
     "collectionTitle":"Skill の制作例","allCount":"全 {total} 件","filteredCount":"{total} 件中 {visible} 件","badge3d":"↻ 3D で体験","badgeNew":"この制作例を体験",
     "emptyTitle":"該当する制作例がありません。","emptyText":"別のキーワードを試すか、すべての制作例に戻ってください。","clearFilters":"検索と絞り込みを解除 ↗",
     "notesTitle":"制作例を支えるワークフロー。","notesText1":"NoShitUi-skill は、リソースの調査を視覚的な方向性、代表的な操作フロー、動く画面へとつなげます。発見・比較・実装・検証の順で進めます。","notesText2":"20 の制作例には、4 つの 3D 体験、製品の操作フロー、創作ツール、ブランドサイトが含まれます。リソース図鑑と shadcn 管理画面も制作例のひとつです。GitHub のガイドから Skill を導入し、自分のプロジェクトで活用してください。",
-    "directoryAria":"NoShitUi-skill の全制作例","footer":"NoShitUi-skill / UI リソースの発見・選定・実装 / 2026"
+    "directoryAria":"NoShitUi-skill の全制作例","footer":"NoShitUi-skill / UI リソースの発見・選定・実装 / 2026",
+    "caseEyebrow": "デモの背後にある選定判断",
+    "caseTitle": "3つの選択、3つの実装。",
+    "caseDescription": "ソースを所有するコンポーネント、ネイティブのフローエディター、3Dレンダラーを、再現可能な3つの選定事例で比較します。",
+    "caseLink": "3つの選定事例を読む（英語） ↗"
   },
   "projects": {
     "object":{"role":"照明コンフィギュレーター","slogan":"自分らしい照明に。","description":"Three.js と CC0 glTF モデルで、素材や明るさを切り替えながらデスクライトの 3D 表示を確認できます。","tags":["Three.js","CC0 glTF","素材の切り替え"],"action":"照明をカスタマイズ ↗"},

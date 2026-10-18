@@ -77,6 +77,8 @@ NoShitUi-skill은 UI 작업에서 재작업이 발생하기 쉬운 문제를 다
 
 캐러셀은 구현된 20개 프로젝트를 모두 보여 줍니다. 3D 경험인 OBJECT, rooted., DRIFT, ORBITAL을 먼저 소개하고, 운영 화면, shadcn 주문 대시보드, UI ATLAS 리소스 지도 및 나머지 브랜드·모션 페이지를 이어서 보여 줍니다. 홈페이지도 같은 순서이며 3D 필터, 카테고리 및 키워드 검색을 지원합니다. 리소스 탐색, 선택 근거, 통합 및 검증이 프로젝트의 중심입니다. [전체 쇼케이스 보기](https://wzj1228516103.github.io/NoShitUi-skill/) · [쇼케이스 소스 보기](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [온라인 리소스 아틀라스](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+[재현 가능한 선택 사례 3개(영문)](docs/case-studies/README.md)에서 SHADCN/OPS, NODE, OBJECT의 제약, 대안 비교, 출처와 라이선스, 구현 및 검증 절차를 확인할 수 있습니다. [온라인 사례 목록](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html).
+
 온라인 리소스 아틀라스는 엄선한 데모입니다. 전체 선택 목록은 [Skill 라이브러리 목록](open-source-ui-resources/references/ui-libraries.md)을 참고하세요.
 
 <p align="center">
@@ -182,6 +184,8 @@ npx skills list -g -a codex
 ```
 
 ## 검증과 유지보수
+
+고정 Skill 시나리오와 증거 기록은 [동작 평가 안내](evals/README.md), 데스크톱·모바일·복구 검사는 [브라우저 회귀 안내](tests/browser/README.md)를 참고하세요. 배포 전에 브라우저 회귀 검사와 램프 조립 검사를 실행합니다.
 
 리소스 목록을 수정한 뒤 다음을 실행합니다.
 

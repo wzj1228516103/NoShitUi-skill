@@ -77,6 +77,8 @@ La page d’accueil associe un blanc froid et des tons argentés à des effets d
 
 Le carrousel présente les 20 projets réalisés, en commençant par les quatre expériences 3D : OBJECT, rooted., DRIFT et ORBITAL. Il montre ensuite les interfaces opérationnelles, le tableau de commandes shadcn, le catalogue UI ATLAS et tous les autres concepts de marque et de mouvement. La page d’accueil suit le même ordre, avec un filtre 3D, des catégories et une recherche. Le projet reste centré sur la découverte, le choix, l’intégration et la vérification des ressources. [Explorer la présentation complète en ligne](https://wzj1228516103.github.io/NoShitUi-skill/) · [Consulter le code des exemples](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explorer le catalogue visuel des ressources](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+Consultez [3 études de choix reproductibles (en anglais)](docs/case-studies/README.md) : SHADCN/OPS, NODE et OBJECT relient contraintes, alternatives, sources et licences, implémentation et vérification. [Index des études de cas](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html).
+
 L’atlas en ligne est une démonstration sélective ; consultez le [catalogue de bibliothèques du Skill](open-source-ui-resources/references/ui-libraries.md) pour la liste complète.
 
 <p align="center">
@@ -182,6 +184,8 @@ Vérifie si cette modification UI introduit des conflits de styles globaux, une 
 ```
 
 ## Vérification et maintenance
+
+Le [guide d’évaluation du comportement](evals/README.md) décrit les scénarios fixes du Skill et leurs preuves. Le [guide de régression navigateur](tests/browser/README.md) explique les contrôles sur ordinateur, mobile et de récupération. Les tests navigateur et d’assemblage de la lampe précèdent le déploiement.
 
 Après avoir modifié le catalogue de ressources, exécuter :
 

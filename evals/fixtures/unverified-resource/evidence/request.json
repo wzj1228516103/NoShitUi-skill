@@ -1,0 +1,1 @@
+{"fixture_only":true,"url":"https://widgets.example.invalid/LICENSE","method":"GET","status":403,"body":"Access denied","license_text_available":false,"maintenance_evidence_available":false}

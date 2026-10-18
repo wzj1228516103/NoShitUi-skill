@@ -6,6 +6,7 @@ on:
     paths:
       - SKILL.md
       - open-source-ui-resources/**
+      - evals/**
       - README*.md
       - docs/**
       - agents/**
@@ -16,6 +17,7 @@ on:
     paths:
       - SKILL.md
       - open-source-ui-resources/**
+      - evals/**
       - README*.md
       - docs/**
       - agents/**
@@ -44,3 +46,8 @@ jobs:
 
       - name: Validate Skill entrypoints, catalog, and README references
         run: python open-source-ui-resources/scripts/check_catalog.py
+
+      - name: Validate behavioral evaluation scenarios and grader
+        run: |
+          python evals/run.py validate
+          python -m unittest discover -s evals -p "test_*.py"

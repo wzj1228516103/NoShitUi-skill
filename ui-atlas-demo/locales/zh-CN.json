@@ -52,7 +52,11 @@
     "notesText1": "这些示例展示了 NoShitUi-skill 如何把资源研究转化为视觉方向、代表性流程和可用界面：先发现资源、比较方案，再实施设计并验证结果。",
     "notesText2": "20 个示例均属于这个 Skill 的产出展示，涵盖 4 个 3D 体验、产品流程、创意工具和品牌页面。资源图谱与 shadcn 后台也属于其中。阅读 GitHub 指南，安装 Skill，并在自己的项目中使用这套工作流。",
     "directoryAria": "NoShitUi-skill 完整产出目录",
-    "footer": "NoShitUi-skill / 界面资源发现、选型与落地 / 2026"
+    "footer": "NoShitUi-skill / 界面资源发现、选型与落地 / 2026",
+    "caseEyebrow": "示例背后的选型决策",
+    "caseTitle": "三种选择，三种落地方式。",
+    "caseDescription": "通过三个可复现案例，对比源码所有权组件、原生流程编辑器与 3D 渲染器的选型依据。",
+    "caseLink": "阅读 3 个选型案例（英文） ↗"
   },
   "projects": {
     "object": {"role":"灯具配置器","slogan":"打造你的台灯。","description":"基于 Three.js 与 CC0 glTF 模型的台灯工作室，可切换材质、调节亮度，并实时查看 3D 效果。","tags":["Three.js","CC0 glTF","材质切换"],"action":"配置台灯 ↗"},

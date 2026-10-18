@@ -1,0 +1,1 @@
+:root{--brand:#325b4b;--surface:#f5f5ec;--ink:#2b3a30;font-family:system-ui,sans-serif}body{background:var(--surface);color:var(--ink);padding:3rem}button{font:inherit}

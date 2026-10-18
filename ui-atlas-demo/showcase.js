@@ -1,6 +1,6 @@
 const LANGUAGES = ['zh-CN', 'en', 'ja', 'ko', 'es', 'fr', 'de', 'pt'];
 const STORAGE_KEY = 'noshitui-language';
-const LOCALE_VERSION = '20261016-1';
+const LOCALE_VERSION = '20261018-cases-1';
 const REPOSITORY = 'https://github.com/wzj1228516103/NoShitUi-skill';
 const cards = [...document.querySelectorAll('#project-grid .card')];
 const directory = [...document.querySelectorAll('.project-index a')];
@@ -113,6 +113,8 @@ function applyBundle(bundle) {
     ['#empty-state h3', 'emptyTitle'], ['#empty-state p', 'emptyText'], ['#clear-filters', 'clearFilters'],
     ['.notes h3', 'notesTitle'], ['.notes>div>p:nth-of-type(1)', 'notesText1'],
     ['.notes>div>p:nth-of-type(2)', 'notesText2'], ['footer>span', 'footer'],
+    ['#case-entry-kicker', 'caseEyebrow'], ['#case-entry-title', 'caseTitle'],
+    ['#case-entry-description', 'caseDescription'], ['#case-entry-link', 'caseLink'],
   ]) text(selector, ui[key]);
   for (const [selector, name, key] of [
     ['.top>.brand', 'aria-label', 'brandAria'], ['.top-links', 'aria-label', 'navAria'],

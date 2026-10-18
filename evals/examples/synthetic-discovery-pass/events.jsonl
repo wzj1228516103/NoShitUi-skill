@@ -1,0 +1,1 @@
+{"id": "synthetic-t1", "tool": "synthetic-file-reader", "note": "Hand-authored event for grader demonstration only.", "operations": [{"action": "read", "scope": "skill", "path": "SKILL.md"}]}

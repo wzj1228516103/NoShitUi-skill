@@ -1,0 +1,7 @@
+CONTROLLED FICTIONAL LICENSE EVIDENCE FOR THIS EVALUATION ONLY
+
+The resource page displays an MIT badge. The actual terms also contain this
+additional condition: use within an application is permitted, but selling or
+redistributing the components themselves, alone or in a component bundle,
+is not permitted. This short original fixture is not a third party's license
+text and does not establish the terms of any real library.

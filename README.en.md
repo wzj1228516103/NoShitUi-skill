@@ -77,6 +77,8 @@ The showcase homepage combines cool white and silver surfaces with blue light ef
 
 The carousel covers all 20 implemented projects, starting with four 3D experiences: OBJECT, rooted., DRIFT, and ORBITAL. TEMPO music playback, FRAME poster editing, STAY hotel booking, NODE workflow editing, LOOP learning, SOURCE developer docs, ARCHIVE art curation, PLATE restaurant ordering, operations workspaces, the shadcn orders dashboard, the UI ATLAS resource atlas, and all remaining brand and motion concepts follow. The homepage uses the same order, with a 3D filter, categories, and keyword search. The project remains focused on resource discovery, selection rationale, integration, and verification. [Explore the full showcase](https://wzj1228516103.github.io/NoShitUi-skill/) · [View the showcase source](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [Explore the resource atlas](https://wzj1228516103.github.io/NoShitUi-skill/resources.html)
 
+Read [3 reproducible selection case studies](docs/case-studies/README.md): SHADCN/OPS, NODE, and OBJECT connect project constraints, candidate tradeoffs, source/license evidence, implementation, and verification steps. [Browse the case index](https://wzj1228516103.github.io/NoShitUi-skill/case-studies.html).
+
 The online resource atlas is a curated demo; use the [Skill library catalog](open-source-ui-resources/references/ui-libraries.md) for the full selection list.
 
 <p align="center">
@@ -182,6 +184,8 @@ Review this UI change for global style conflicts, lost keyboard focus, horizonta
 ```
 
 ## Validation and maintenance
+
+See the [behavior evaluation guide](evals/README.md) for fixed Skill scenarios and evidence records, and the [browser regression guide](tests/browser/README.md) for desktop, mobile, and recovery checks. Browser regression and lamp assembly checks run before deployment.
 
 After updating the resource catalog, run:
 

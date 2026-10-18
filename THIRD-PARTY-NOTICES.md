@@ -2,6 +2,8 @@
 
 This repository contains an original UI concept collection and a catalog of links to external projects. The concept pages do not bundle code from the catalog entries.
 
+- `tests/browser/` uses the development-only `@playwright/test` tool, pinned by its package lockfile. Playwright is distributed under Apache-2.0: https://github.com/microsoft/playwright/blob/main/LICENSE. Its separately installed browser binaries retain their upstream notices; they are not bundled with the deployed showcase.
+
 - The new TEMPO, FRAME, and STAY interfaces use original HTML/CSS/JavaScript with browser-native controls, audio, SVG, and canvas APIs. They do not install or copy WaveSurfer, Fabric.js, or another UI library. Those libraries were discovery candidates; the bounded showcase flows do not need their broader feature sets.
 - TEMPO's short music tracks and cover artwork are original project assets. The reproducible audio synthesis source and track notes are included with the demo; no third-party recordings or samples are used.
 - FRAME's three poster templates and vector artwork are original project code. System fonts keep the editor and SVG/PNG export independent of remote font services.
