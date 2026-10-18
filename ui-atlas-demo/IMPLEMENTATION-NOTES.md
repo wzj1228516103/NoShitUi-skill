@@ -88,6 +88,14 @@ now uses original local icon fallbacks. The React table contains its hidden
 header, and saving closes the dialog, restores useful focus, and announces the
 result outside modal isolation. The React TypeScript/Vite build passes.
 
+The first Linux CI run also caught a STUDIO mobile overflow hidden by Windows'
+condensed Impact fallback: the wider Linux sans-serif face made a long heading
+word expand the hero grid. The mobile title now scales within a constrained
+column and can wrap at very narrow widths. A regression explicitly removes the
+condensed fallback and checks 320, 390, 768, and 1024 pixels; it failed before
+the fix and passed afterward. The complete browser suite now contains 80 checks,
+all passing locally on Windows after the fix.
+
 `check-showcase.yml` runs relevant pull-request checks and is reused as a required
 job before the Pages build/deploy chain. It includes the existing language and
 numeric lamp-assembly checks and retains browser reports/failure evidence for

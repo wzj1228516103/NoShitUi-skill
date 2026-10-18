@@ -5,7 +5,9 @@ then exercises the collection, the eight newer application flows, the three-case
 index, React order editing, native product controls without WebGL, and the resource
 atlas without its icon CDN. It checks
 uncaught exceptions, local HTTP errors, document overflow, exports, recovery,
-and the browser state visible to a user. Lamp geometry has a separate numeric
+and the browser state visible to a user. STUDIO's fallback typography is also
+checked at 320, 390, 768, and 1024 pixels without condensed system fonts.
+Lamp geometry has a separate numeric
 regression in `scripts/check-lamp-assembly.mjs`.
 
 From the repository root:

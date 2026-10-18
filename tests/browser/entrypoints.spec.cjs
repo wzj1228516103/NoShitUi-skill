@@ -17,6 +17,19 @@ for (const project of projects) {
   });
 }
 
+test('studio: fallback typography fits narrow and intermediate widths', async ({ page }, testInfo) => {
+  await page.goto('/studio.html');
+  // Linux runners may have neither the remote Anton face nor Windows Impact.
+  // Exercise the non-condensed fallback explicitly on every developer's machine.
+  await page.addStyleTag({ content: 'h1 { font-family: sans-serif !important; }' });
+  const widths = testInfo.project.name === 'mobile' ? [320, 390] : [768, 1024];
+  for (const width of widths) {
+    await page.setViewportSize({ width, height: 900 });
+    await noOverflow(page);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('GOOD DESIGN.BAD MANNERS.');
+  }
+});
+
 test('collection: filters, empty recovery, and language persistence', async ({ page }) => {
   await page.goto('/');
   const cards = page.locator('#project-grid .card:visible');
