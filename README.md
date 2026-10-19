@@ -58,17 +58,9 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 ### 在线首页
 
-[体验新版首页](https://wzj1228516103.github.io/NoShitUi-skill/?lang=zh-CN) · [查看展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo) · [在线资源图谱](https://wzj1228516103.github.io/NoShitUi-skill/resources.html) · [shadcn 运营后台](https://wzj1228516103.github.io/NoShitUi-skill/shadcn-demo/)
+[在线体验](https://wzj1228516103.github.io/NoShitUi-skill/?lang=zh-CN) · [展示源码](https://github.com/wzj1228516103/NoShitUi-skill/tree/showcase-source/ui-atlas-demo)
 
-在线资源图谱是精选演示；完整选型清单以 [Skill 资源目录](open-source-ui-resources/references/ui-libraries.md)为准。
-
-首页采用明亮的银蓝科技风格：冷白底色、蓝色光效与银色圆环，搭配 OBJECT、PRECISION_、NODE 的真实项目预览浮窗，通过轻微漂浮和鼠标视差呈现空间层次。
-
-- **浏览 20 个产出示例**：关键词搜索、分类切换和 3D 体验筛选，点击卡片进入对应演示。
-- **八种语言**：简体中文、英语、日语、韩语、西班牙语、法语、德语和葡萄牙语，语言入口与对应 README 使用指南关联。
-- **桌面与手机适配**：浮窗和页面布局随屏幕调整，并尊重系统的减少动态效果设置。
-- **分享筛选结果**：链接可携带搜索词、分类和语言，刷新及浏览器前进、后退均可恢复。例如[查看海报工具](https://wzj1228516103.github.io/NoShitUi-skill/?category=creative&q=poster&lang=zh-CN#examples)。
-- **失败后继续使用**：语言加载失败可直接重试；资源图谱在浏览器存储不可用时仍可在本次访问内收藏和切换主题，并提示保存范围。
+银蓝风格的展示首页，收录 20 个交互示例，支持搜索、分类筛选和 8 种语言，适配桌面与手机。筛选结果可通过链接分享。
 
 <p align="center">
   <a href="https://wzj1228516103.github.io/NoShitUi-skill/?lang=zh-CN">
@@ -85,9 +77,9 @@ NoShitUi-skill 解决的是 UI 工作中最容易产生返工的一段：面对�
 
 ### 20 个交互示例
 
-轮播图完整展示全部 20 个已实现项目，并将 OBJECT 灯具配置器、rooted. 立体植物商店、DRIFT 三维地图和 ORBITAL 轨道控制台放在最前面。随后展示 TEMPO 音乐播放器、FRAME 海报编辑器、STAY 酒店预约、NODE 流程编辑器、LOOP 学习应用、SOURCE 文档站、ARCHIVE 数字展览、PLATE 餐厅点单、运营工作台、shadcn 订单后台、UI ATLAS 资源图谱，以及其余品牌和动态页面。首页采用相同顺序。项目重点仍然是资源发现、选型依据、集成规则与验证流程。
+轮播展示 20 个交互示例，涵盖 3D 配置、音乐播放、海报编辑、流程编排、预约点单和数据后台，3D 项目优先。
 
-交互用于验证设计与流程：STAY 和 PLATE 的记录保存在当前浏览器，不提交真实预约、订单或付款；NODE 执行确定性的本地模拟；SHADCN/OPS 的编辑记录用于当前页面会话，部分工具按钮仍为原型提示。
+交互仅作演示：STAY/PLATE 本地保存记录，不提交真实预约、订单或付款；NODE 模拟运行，SHADCN/OPS 编辑仅在当前会话生效，部分操作为原型提示。
 
 <p align="center">
   <img src="docs/screenshots/concepts/ui-atlas-showcase.gif" alt="全部 20 个展示项目轮播，3D 项目优先" width="920">
